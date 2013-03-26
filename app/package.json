@@ -1,0 +1,13 @@
+{
+    "name": "Particles",
+    "version": "0.0.1",
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-compass": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-clean": "*",
+        "grunt-contrib-copy": "*"
+    }
+}

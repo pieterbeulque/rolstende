@@ -1,0 +1,23 @@
+@import "compass/reset";
+@import "compass";
+
+@import "base/_variables";
+@import "base/_fonts";
+
+body {
+    background-color: $light-grey;
+    font-family: 'GothamTest';
+    font-size: 93.75%;
+    font-weight: 600;
+}
+
+.top {
+    background: $blue;
+}
+
+.container {
+    margin: 63px auto;
+    width: 74%;
+}
+
+@import "modules/_icon-grid";
