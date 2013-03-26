@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -111,56 +111,54 @@ body {
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   margin-bottom: 1.2em;
   height: 108px;
   width: 108px;
 }
-/* line 14, ../scss/modules/_icon-grid.scss */
-.grid-item:first-child {
-  background-color: #e96452;
-}
-/* line 18, ../scss/modules/_icon-grid.scss */
-.grid-item:last-child {
-  background-color: #ec9128;
-}
-/* line 22, ../scss/modules/_icon-grid.scss */
+/* line 13, ../scss/modules/_icon-grid.scss */
 .grid-item:nth-child(odd) {
   float: left;
 }
-/* line 26, ../scss/modules/_icon-grid.scss */
+/* line 17, ../scss/modules/_icon-grid.scss */
 .grid-item:nth-child(even) {
   float: right;
 }
 
-/* line 31, ../scss/modules/_icon-grid.scss */
+/* line 22, ../scss/modules/_icon-grid.scss */
 .icon-restaurants {
   background-image: url(../img/start_icon_02.png);
 }
 
-/* line 35, ../scss/modules/_icon-grid.scss */
+/* line 26, ../scss/modules/_icon-grid.scss */
 .icon-toilets {
   background-image: url(../img/start_icon_03.png);
 }
 
-/* line 39, ../scss/modules/_icon-grid.scss */
+/* line 30, ../scss/modules/_icon-grid.scss */
 .icon-poi {
   background-image: url(../img/start_icon_04.png);
 }
 
-/* line 43, ../scss/modules/_icon-grid.scss */
+/* line 34, ../scss/modules/_icon-grid.scss */
 .grid-item a {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   color: #f4f1e3;
   display: block;
   font-size: .5em;
   height: 100%;
   letter-spacing: 1px;
+  line-height: 1.3;
+  padding-top: 9.5em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+}
+/* line 48, ../scss/modules/_icon-grid.scss */
+.grid-item a.two-line {
+  padding-top: 8.5em;
 }
 
 /* line 1, ../scss/modules/_sidebar-logic.scss */
