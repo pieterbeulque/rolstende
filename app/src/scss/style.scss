@@ -4,6 +4,14 @@
 @import "base/_variables";
 @import "base/_fonts";
 
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body {
     background-color: $light-grey;
     font-family: 'GothamTest';
@@ -21,3 +29,4 @@ body {
 }
 
 @import "modules/_icon-grid";
+@import "modules/_sidebar-logic";
