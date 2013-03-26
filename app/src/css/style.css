@@ -97,14 +97,17 @@ body {
 /* line 5, ../scss/modules/_icon-grid.scss */
 .grid-item {
   background-color: #81ccc5;
-  border: 3px solid #331f14;
-  border-radius: 3px;
+  background-image: url(../img/start_icon_01.png);
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 1.2em;
-  height: 110px;
-  width: 110px;
+  height: 108px;
+  width: 108px;
 }
 /* line 14, ../scss/modules/_icon-grid.scss */
 .grid-item:first-child {
@@ -124,6 +127,21 @@ body {
 }
 
 /* line 31, ../scss/modules/_icon-grid.scss */
+.icon-restaurants {
+  background-image: url(../img/start_icon_02.png);
+}
+
+/* line 35, ../scss/modules/_icon-grid.scss */
+.icon-toilets {
+  background-image: url(../img/start_icon_03.png);
+}
+
+/* line 39, ../scss/modules/_icon-grid.scss */
+.icon-poi {
+  background-image: url(../img/start_icon_04.png);
+}
+
+/* line 43, ../scss/modules/_icon-grid.scss */
 .grid-item a {
   color: #f4f1e3;
   display: block;

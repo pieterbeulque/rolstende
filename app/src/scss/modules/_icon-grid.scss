@@ -4,20 +4,12 @@
 
 .grid-item {
     background-color: $blue;
-    border: 3px solid $brown;
-    border-radius: 3px;
+    background-image: url(../img/start_icon_01.png);
+    @include background-size(100%);
     @include box-sizing(border-box);
     margin-bottom: 1.2em;
-    height: 110px;
-    width: 110px;
-
-    &:first-child {
-        background-color: $red;
-    }
-
-    &:last-child {
-        background-color: $orange;
-    }
+    height: 108px;
+    width: 108px;
 
     &:nth-child(odd) {
         float: left;
@@ -26,6 +18,18 @@
     &:nth-child(even) {
         float: right;
     }
+}
+
+.icon-restaurants {
+    background-image: url(../img/start_icon_02.png);
+}
+
+.icon-toilets {
+    background-image: url(../img/start_icon_03.png);
+}
+
+.icon-poi {
+    background-image: url(../img/start_icon_04.png);
 }
 
 .grid-item a {
