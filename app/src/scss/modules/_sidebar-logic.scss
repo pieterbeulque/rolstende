@@ -1,3 +1,14 @@
+#app-wrapper {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 #sidebar {
     position: absolute;
     width: 90px;
@@ -6,23 +17,32 @@
     bottom: 0px;
 
     -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
     overflow: hidden;
+    z-index: 1;
+
+    li {
+        text-align: center;
+        width: 90px;
+
+        img {
+                margin: -4px 0px 0px 0px;
+                width: 90px;
+        }
+    }
 }
 
+
 #app {
+    background-color: $light-grey;
     position: absolute;
     left: 0px;
     top: 0px;
-    bottom: 0px;
-
+    height: 100%;
     -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
-    overflow: hidden;
+
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 999;
 }

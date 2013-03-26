@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Rolstende</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <nav class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#"><img src="" alt=""></a></li>
-            <li><a href="#"><img src="" alt=""></a></li>
-            <li><a href="#"><img src="" alt=""></a></li>
-        </ul>
-    </nav>
-    <div id="app">
-        <header class="top">
-            <h1>Logo</h1>
-            <a href="#" class="nav-toggle">Menu</a>
-        </header>
-        <div class="container">
-            <ul class="icon-grid">
-                <li class="grid-item icon-hotels">
-                    <a href="#" title="">Hotels</a>
-                </li>
-                <li class="grid-item icon-restaurants">
-                    <a href="#" title="">Restaurants</a>
-                </li>
-                <li class="grid-item icon-toilets">
-                    <a href="#" title="" class="two-line">Openbare<br />WC&rsquo;s</a>
-                </li>
-                <li class="grid-item icon-poi">
-                    <a href="#" title="" class="two-line">Beziens&#45;waardigheden</a>
-                </li>
+    <div id="app-wrapper">
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="#"><img src="img/icon_01.png" alt=""></a></li>
+                <li><a href="#"><img src="img/icon_02.png" alt=""></a></li>
+                <li><a href="#"><img src="img/icon_03.png" alt=""></a></li>
             </ul>
+        </nav>
+        <div id="app" class="app">
+            <header class="top">
+                <h1>Logo</h1>
+                <a href="#" class="nav-toggle">Menu</a>
+            </header>
+
+            <div class="container">
+                <ul class="icon-grid">
+                    <li class="grid-item icon-hotels">
+                        <a href="#" title="">Hotels</a>
+                    </li>
+                    <li class="grid-item icon-restaurants">
+                        <a href="#" title="">Restaurants</a>
+                    </li>
+                    <li class="grid-item icon-toilets">
+                        <a href="#" title="" class="two-line">Openbare<br />WC&rsquo;s</a>
+                    </li>
+                    <li class="grid-item icon-poi">
+                        <a href="#" title="" class="two-line">Beziens&#45;waardigheden</a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
