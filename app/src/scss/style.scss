@@ -27,6 +27,7 @@ body {
     @include background-size(30%);
     height: 70px;
     position: relative;
+    z-index: 1;
 
     #logo {
         width: 106px;
@@ -208,6 +209,7 @@ p {
     }
 }
 
+@import "modules/_map";
 @import "modules/_loader";
 @import "modules/_form";
 @import "modules/_buttons";
