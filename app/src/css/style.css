@@ -80,13 +80,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 15, ../scss/style.scss */
 body {
   background-color: #331f14;
-  font-family: 'GothamTest';
+  font-family: 'Bitter';
   font-size: 93.75%;
   font-weight: 600;
   -webkit-text-size-adjust: none;
 }
 
-/* line 24, ../scss/style.scss */
+/* line 23, ../scss/style.scss */
 .top {
   background: url(../img/pattern_header.png);
   -webkit-background-size: 30%;
@@ -96,7 +96,7 @@ body {
   height: 70px;
   position: relative;
 }
-/* line 30, ../scss/style.scss */
+
 .top #logo {
   width: 106px;
   margin: 0 auto;
@@ -149,7 +149,6 @@ body {
   background-size: 100%;
 }
 
-/* line 83, ../scss/style.scss */
 .zoek {
   width: 85px;
   height: 15px;
@@ -160,7 +159,7 @@ body {
   -o-background-size: 100%;
   background-size: 100%;
 }
-/* line 90, ../scss/style.scss */
+
 .zoek p {
   color: #331f14;
   font-family: 'DIN Condensed';
@@ -168,17 +167,16 @@ body {
   text-align: center;
 }
 
-/* line 98, ../scss/style.scss */
 .container, .list-header {
   margin: 30px auto;
   width: 74%;
 }
 
-/* line 103, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
+<<<<<<< HEAD
 /* line 107, ../scss/style.scss */
 .app {
   background-image: url("../img/patterns/white-wood.png");
@@ -188,8 +186,16 @@ body {
   background-size: 30%;
 }
 /* line 111, ../scss/style.scss */
+=======
+/* line 64, ../scss/style.scss */
+>>>>>>> Detail view
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
+}
+
+/* line 69, ../scss/style.scss */
+p {
+  line-height: 1.4;
 }
 
 /* line 1, ../scss/modules/_buttons.scss */
@@ -205,6 +211,21 @@ body {
   overflow: hidden;
   text-align: left;
   width: 33px;
+}
+
+/* line 10, ../scss/modules/_buttons.scss */
+.maps-button {
+  background: url("../img/maps-button.png");
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  display: block;
+  height: 27px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  width: 101px;
 }
 
 /* line 1, ../scss/modules/_headings.scss */
@@ -468,31 +489,54 @@ body {
 /* line 25, ../scss/modules/_list-view.scss */
 .list-view li {
   background: #f4f1e3;
-  font-family: 'DIN Condensed';
-  font-size: 1em;
-  font-weight: 800;
-  line-height: 1;
   position: relative;
   text-align: left;
-  text-transform: uppercase;
 }
-/* line 35, ../scss/modules/_list-view.scss */
-.list-view li a {
+/* line 30, ../scss/modules/_list-view.scss */
+.list-view li:nth-child(even) {
+  background-color: #e4e2d5;
+}
+
+/* line 36, ../scss/modules/_list-view.scss */
+.list-view-toggle {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #e96452;
   display: block;
+  font-family: 'DIN Condensed';
+  font-weight: 800;
+  line-height: 1;
   padding: 1em 5%;
   text-decoration: none;
+  text-transform: uppercase;
   width: 100%;
 }
-/* line 44, ../scss/modules/_list-view.scss */
-.list-view li:nth-child(even) {
-  background-color: #e4e2d5;
+
+/* line 49, ../scss/modules/_list-view.scss */
+.list-detail-view {
+  font-size: .7em;
+  padding: .5em 5% 1em;
+}
+/* line 53, ../scss/modules/_list-view.scss */
+.list-detail-view .location {
+  margin: 1em 0;
+  font-style: italic;
+  padding-left: 25px;
+  background-image: url("../img/address.png");
+  background-size: 19px 18px;
+  background-repeat: no-repeat;
+  background-position: 0 3px;
+  position: relative;
+}
+/* line 64, ../scss/modules/_list-view.scss */
+.list-detail-view .maps-button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-/* line 50, ../scss/modules/_list-view.scss */
+/* line 71, ../scss/modules/_list-view.scss */
 .list-view-annotation {
   background-image: url("../img/annotation.png");
   -webkit-background-size: 100%;
@@ -516,7 +560,7 @@ body {
   width: 65px;
 }
 
-/* line 68, ../scss/modules/_list-view.scss */
+/* line 89, ../scss/modules/_list-view.scss */
 .list-view-annotation-alternate {
   background-image: url("../img/annotation-alternate.png");
 }

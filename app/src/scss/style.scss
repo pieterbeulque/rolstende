@@ -14,11 +14,10 @@
 
 body {
     background-color: $brown;
-    font-family: 'GothamTest';
+    font-family: 'Bitter';
     font-size: 93.75%;
     font-weight: 600;
     -webkit-text-size-adjust: none;
-
 }
 
 .top {
@@ -111,6 +110,10 @@ body {
     .red-wood & {
         background-image: url('../img/patterns/red-wood.png');
     }
+}
+
+p {
+    line-height: 1.4;
 }
 
 @import "modules/_buttons";

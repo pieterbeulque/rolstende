@@ -24,26 +24,47 @@
 
     li {
         background: $white;
-        font-family: 'DIN Condensed';
-        font-size: 1em;
-        font-weight: 800;
-        line-height: 1;
         position: relative;
         text-align: left;
-        text-transform: uppercase;
-
-        a {
-            @include box-sizing(border-box);
-            color: $red;
-            display: block;
-            padding: 1em 5%;
-            text-decoration: none;
-            width: 100%;
-        }
 
         &:nth-child(even) {
             background-color: $grey;
         }
+    }
+}
+
+.list-view-toggle {
+    @include box-sizing(border-box);
+    color: $red;
+    display: block;
+    font-family: 'DIN Condensed';
+    font-weight: 800;
+    line-height: 1;
+    padding: 1em 5%;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.list-detail-view {
+    font-size: .7em;
+    padding: .5em 5% 1em;
+
+    .location {
+        margin: 1em 0;
+        font-style: italic;
+        padding-left: 25px;
+        background-image: url('../img/address.png');
+        background-size: 19px 18px;
+        background-repeat: no-repeat;
+        background-position: 0 3px;
+        position: relative;
+    }
+
+    .maps-button {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
 

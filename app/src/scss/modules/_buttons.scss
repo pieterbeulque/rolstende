@@ -6,3 +6,12 @@
     @include hide-text;
     width: 33px;
 }
+
+.maps-button {
+    background: url('../img/maps-button.png');
+    @include background-size(100%);
+    display: block;
+    height: 27px;
+    @include hide-text;
+    width: 101px;
+}
