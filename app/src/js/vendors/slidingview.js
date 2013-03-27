@@ -78,7 +78,6 @@ SlidingView.prototype.onTouchMove = function(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		this.unbindEvents();
-		console.log('op de map');
 		return false;
 	}
 
