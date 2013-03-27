@@ -14,8 +14,11 @@ define('WWW_ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 require_once WWW_ROOT . 'classes' . DIRECTORY_SEPARATOR . 'Config.php';
 require_once WWW_ROOT . 'libs' . DIRECTORY_SEPARATOR . 'Slim' . DIRECTORY_SEPARATOR . 'Slim.php';
 
-require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'PointOfInterest.php';
+require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'PointsOfInterest.php';
 require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Event.php';
+require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Hotels.php';
+require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Restaurants.php';
+require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Wcs.php';
 
 // Slim's autoloader also loads Riff!
 \Slim\Slim::registerAutoloader();
@@ -24,8 +27,12 @@ use \Slim\Slim as Slim;
 
 $app = new Slim();
 
+/********************************************************************************
+********************************** POINTS OF INTEREST ***************************
+********************************************************************************/
+
 $app->get('/pointsofinterest', function () {
-    $poi = new PointOfInterest();
+    $poi = new PointsOfInterest();
     $all = $poi->getAll();
 
     $output = '{"results": [';
@@ -42,9 +49,125 @@ $app->get('/pointsofinterest', function () {
 });
 
 $app->get('/pointsofinterest/:id', function ($id) {
-    $poi = new PointOfInterest();
+    $poi = new PointsOfInterest();
     die(json_encode($poi->findById($id)));
 });
+
+
+/********************************************************************************
+********************************** HOTELS  **************************************
+********************************************************************************/
+
+$app->get('/hotels', function () {
+    $hotels = new Hotels();
+    $all = $hotels->getAll();
+
+    $output = '{"results": [';
+
+    foreach ($all as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= ']}';
+
+    die($output);
+});
+
+$app->get('/hotel/:id', function ($id) {
+    $hotels = new Hotels();
+    die(json_encode($hotels->findById($id)));
+});
+
+
+/********************************************************************************
+********************************** RESTAURANTS  *********************************
+********************************************************************************/
+
+$app->get('/restaurants', function () {
+    $restaurants = new Restaurants();
+    $all = $restaurants->getAll();
+
+    $output = '{"results": [';
+
+    foreach ($all as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= ']}';
+
+    die($output);
+});
+
+$app->get('/restaurant/:id', function ($id) {
+    $restaurants = new Restaurants();
+    die(json_encode($restaurants->findById($id)));
+});
+
+
+
+/********************************************************************************
+********************************** WCS  *****************************************
+********************************************************************************/
+
+$app->get('/wcs', function () {
+    $wcs = new Wcs();
+    $all = $wcs->getAll();
+
+    $output = '{"results": [';
+
+    foreach ($all as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= ']}';
+
+    die($output);
+});
+
+$app->get('/wc/:id', function ($id) {
+    $wcs = new Wcs();
+    die(json_encode($wcs->findById($id)));
+});
+
+
+
+/********************************************************************************
+********************************** EVENTS ***************************************
+********************************************************************************/
+
+$app->get('/events', function() {
+    $events = new Event();
+    $all = $events->getAll();
+    $output = '{"results": [';
+
+    foreach ($all as $event) {
+        $output .= json_encode($event) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+    $output .= ']}';
+
+    die($output);
+    
+});
+
+$app->get('/event/:id', function ($id) {
+    $event = new Event();
+    die(json_encode($event->findByID($id)));
+});
+
+$app->run();
+
+
+/********************************************************************************
+********************************** SUBSCRIBERS **********************************
+********************************************************************************/
 
 $app->post('/subscribers', function () {
     $request = $app->request();
@@ -55,25 +178,3 @@ $app->post('/subscribers', function () {
     $subscriber->add($data);
 });
 
-$app->get('/events', function() {
-	$events = new Event();
-	$all = $events->getAll();
-	$output = '{"results": [';
-
-	foreach ($all as $event) {
-		$output .= json_encode($event) . ', ';
-	}
-
-	$output = rtrim($output, ', ');
-	$output .= ']}';
-
-	die($output);
-	
-});
-
-$app->get('/event/:id', function ($id) {
-	$event = new Event();
-	die(json_encode($event->findByID($id)));
-});
-
-$app->run();

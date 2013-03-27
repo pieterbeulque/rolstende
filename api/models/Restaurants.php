@@ -4,44 +4,43 @@ require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'BaseModel.php';
 
 use \Riff\Riff as Riff;
 
-class Event extends BaseModel
+class Restaurants extends BaseModel
 {
 
     public $id;
-    public $start;
-    public $end;
-    public $title;
-    public $description;
+    public $name;
+    public $address;
     public $latitude;
     public $longitude;
+    public $description;
+
 
     public function __construct ()
     {
         parent::__construct();
 
-        $this->table = 'rolstende_events';
+        $this->table = 'rolstende_restaurants';
     }
+
 
     public function findById ($id)
     {
         try {
-
             $result = $this->dbh->select('*', $this->table, array('id' => $id), 1);
+
             $this->id = (int) $result['id'];
-            $this->start = $result['start'];
-            $this->end = $result['end'];
             $this->name = $result['name'];
+            $this->address = $result['address'];
             $this->latitude = (float) $result['latitude'];
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
-            $this->address = $result['address'];
 
+           
 
         } catch (\Exception $e) {
             $this->id = 0;
-            $this->start = '';
-            $this->end = '';
-            $this->title = '';
+            $this->name = '';
+            $this->address = '';
             $this->latitude = 0.0;
             $this->longitude = 0.0;
             $this->description = '';
