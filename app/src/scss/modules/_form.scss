@@ -2,7 +2,7 @@ label {
     display: none;
 }
 
-input, textarea {
+input, textarea, select {
     -webkit-appearance: none;
     appearance: none;
     background-color: $white;
@@ -37,4 +37,18 @@ input[type="submit"] {
     font-family: 'Bitter';
     font-weight: bold;
     letter-spacing: -0.75px;
+}
+
+form div {
+    position: relative;
+}
+span.arrow {
+    display: block;
+    width: 10px;
+    height: 16px;
+    background-image: url('../img/select.png');
+    background-size: 100%;
+    position: absolute;
+    right: 12px;
+    top: 13px;
 }
