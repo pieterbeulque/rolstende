@@ -13,7 +13,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
 var SlidingView = function( sidebarId, bodyId ) {
-	
+
 	window.slidingView = this;
 	
 	this.gestureStarted = false;
@@ -84,7 +84,7 @@ SlidingView.prototype.onTouchMove = function(event) {
 			this.unbindEvents();
 			return;
 		}
-		else if ( Math.abs( currentPosition.x - this.gestureStartPosition.x ) > 50 ) {
+		else if ( Math.abs( currentPosition.x - this.gestureStartPosition.x ) > 30 ) {
 			
 			//dragging horizontally - let's handle this
 			this.gestureStarted = true;
@@ -209,12 +209,11 @@ SlidingView.prototype.resizeContent = function() {
 	var $window = $(window)
     var w = $window.width();
     var h = $window.height();
-    
+
     this.body.width( w );
+
     $("#sidebar ul li").each(function() {
     	$(this).css({'height': '34%'});
         $(this).css({'height': $(this).height()});
     });
 }
-
-	

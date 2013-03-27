@@ -36,9 +36,6 @@
         position: relative;
         border-right: 3px solid $brown;
         border-bottom: 3px solid $brown;
-        @include transition-property(height);
-        @include transition-duration(2s);
-        @include transition-timing-function(ease-in);
 
         &:last-child {
             border-bottom: 0;
