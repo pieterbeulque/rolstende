@@ -12,13 +12,29 @@ input, textarea {
     margin-bottom: .5em;
     padding: 1em 5%;
     width: 100%;
-   color: $brown;
-   font-family: 'Bitter';
-   font-weight: bold;
+    color: $brown;
+    font-family: 'Bitter';
+    font-weight: bold;
+    letter-spacing: -0.75px;
+}
+
+textarea {
+    height: 10em;
+}
+
+input[type="submit"] {
+    background-color: transparent;
+    background-image: url('../img/submit-button.png');
+    @include background-size(100%);
+    border: 0;
+    float: right;
+    height: 27px;
+    width: 101px;
 }
 
 ::-webkit-input-placeholder {
-   color: $brown;
-   font-family: 'Bitter';
-   font-weight: bold;
+    color: $blue;
+    font-family: 'Bitter';
+    font-weight: bold;
+    letter-spacing: -0.75px;
 }

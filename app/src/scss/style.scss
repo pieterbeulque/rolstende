@@ -30,7 +30,7 @@ body {
 
     #logo {
         width: 106px;
-        margin: 0 auto;    
+        margin: 0 auto;
         display: block;
         position: relative;
 
@@ -64,18 +64,16 @@ body {
                 background-size: 25%;
                 color: #333;
                 width: 121px;
-                height: 35px;  
+                height: 35px;
             }
 
             .boat-container {
             position: absolute;
             top: 43px;
             left: 42px;
-                -webkit-animation: logo-animatie 3s infinite ease-in-out;
-                width: 20px;
-                -webkit-transform-origin: bottom;
-             
-
+            -webkit-animation: logo-animatie 3s infinite ease-in-out;
+            width: 20px;
+            -webkit-transform-origin: bottom;
             }
 
     }
@@ -178,7 +176,7 @@ p {
 }
 
 .introduction {
-    margin: 4em 0 2em;
+    margin: 5em 0 2em;
     text-align: center;
 }
 
@@ -196,8 +194,6 @@ p {
     }
 }
 
-
-
 @-webkit-keyframes logo-animatie {
     0% {
         -webkit-transform: rotate(-10deg);
@@ -212,10 +208,7 @@ p {
     }
 }
 
-
-
-
-@import "modules/_loader.scss";
+@import "modules/_loader";
 @import "modules/_form";
 @import "modules/_buttons";
 @import "modules/_headings";
