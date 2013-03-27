@@ -751,6 +751,7 @@ span.arrow {
 /* line 49, ../scss/modules/_list-view.scss */
 .list-detail-view {
   padding: .5em 5% 1em;
+<<<<<<< HEAD
 }
 /* line 52, ../scss/modules/_list-view.scss */
 .list-detail-view .location {
@@ -777,9 +778,11 @@ span.arrow {
   box-sizing: border-box;
   margin-bottom: 1em;
   max-width: 100%;
+=======
+>>>>>>> Calendar
 }
 
-/* line 77, ../scss/modules/_list-view.scss */
+/* line 53, ../scss/modules/_list-view.scss */
 .list-view-annotation {
   background-image: url("../img/annotation.png");
   -webkit-background-size: 100%;
@@ -804,7 +807,160 @@ span.arrow {
   width: 65px;
 }
 
-/* line 96, ../scss/modules/_list-view.scss */
+/* line 72, ../scss/modules/_list-view.scss */
 .list-view-annotation-alternate {
   background-image: url("../img/annotation-alternate.png");
+}
+
+/* line 77, ../scss/modules/_list-view.scss */
+.detail-view .location {
+  margin: 1em 0;
+  font-style: italic;
+  padding-left: 25px;
+  background-image: url("../img/address.png");
+  background-size: 19px 18px;
+  background-repeat: no-repeat;
+  background-position: 0 3px;
+  position: relative;
+}
+/* line 88, ../scss/modules/_list-view.scss */
+.detail-view .maps-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 94, ../scss/modules/_list-view.scss */
+.detail-view img {
+  border: 6px solid #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  max-width: 100%;
+}
+
+/* line 102, ../scss/modules/_list-view.scss */
+.results {
+  background-color: #f4f1e3;
+  border: 3px solid #331f14;
+  margin: 1em 0;
+  padding: .5em 5%;
+  position: relative;
+}
+/* line 110, ../scss/modules/_list-view.scss */
+.results:before, .results:after {
+  content: " ";
+  display: block;
+  font-size: 1px;
+  background-color: #331f14;
+  height: 1.2rem;
+  width: 3px;
+  position: absolute;
+  top: -1.25rem;
+  left: 20%;
+}
+/* line 122, ../scss/modules/_list-view.scss */
+.results:after {
+  left: 80%;
+}
+/* line 126, ../scss/modules/_list-view.scss */
+.results h2 {
+  color: #ec9128;
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+}
+/* line 132, ../scss/modules/_list-view.scss */
+.results .maps-button {
+  background-image: url("../img/maps-button-orange.png");
+}
+
+/* line 1, ../scss/modules/_calendar.scss */
+.calendar {
+  background-color: #f4f1e3;
+  font-family: 'DIN Condensed';
+  margin-top: 3em;
+}
+
+/* line 7, ../scss/modules/_calendar.scss */
+.calendar-heading {
+  border: 3px solid #331f14;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 11, ../scss/modules/_calendar.scss */
+.calendar-heading a {
+  display: block;
+  float: left;
+  height: 26px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  width: 25px;
+}
+/* line 18, ../scss/modules/_calendar.scss */
+.calendar-heading a:first-child {
+  border-right: 3px solid #331f14;
+}
+/* line 22, ../scss/modules/_calendar.scss */
+.calendar-heading a:last-child {
+  float: right;
+  border-left: 3px solid #331f14;
+}
+/* line 28, ../scss/modules/_calendar.scss */
+.calendar-heading h2 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: .3em 0 0;
+  text-align: center;
+  width: 80%;
+}
+
+/* line 38, ../scss/modules/_calendar.scss */
+.calendar-table {
+  border-collapse: collapse;
+  border-left: 3px solid #331f14;
+  border-bottom: 1px solid #331f14;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #81ccc5;
+  width: 100%;
+}
+/* line 46, ../scss/modules/_calendar.scss */
+.calendar-table td {
+  border-bottom: 3px solid #331f14;
+  border-right: 3px solid #331f14;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  padding: .8em 0;
+  position: relative;
+  width: 14%;
+  z-index: 1;
+}
+/* line 56, ../scss/modules/_calendar.scss */
+.calendar-table td.today {
+  color: #331f14;
+}
+
+/* line 62, ../scss/modules/_calendar.scss */
+.calendar-active {
+  background-color: #ec9128;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #f4f1e3;
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: .8em 0;
+  text-decoration: none;
+  width: 100%;
+  z-index: -1;
 }

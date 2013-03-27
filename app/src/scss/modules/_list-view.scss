@@ -48,7 +48,32 @@
 
 .list-detail-view {
     padding: .5em 5% 1em;
+}
 
+.list-view-annotation {
+    background-image: url('../img/annotation.png');
+    @include background-size(100%);
+    @include box-sizing(border-box);
+    color: $brown;
+    display: block;
+    font-family: 'Bitter';
+    font-size: .6em;
+    position: absolute;
+    text-align: center;
+    text-transform: none;
+    top: .55rem;
+    right: .6rem;
+    padding: 1em .8em 0 .8em;
+    letter-spacing: 0px;
+    height: 29px;
+    width: 65px;
+}
+
+.list-view-annotation-alternate {
+    background-image: url('../img/annotation-alternate.png');
+}
+
+.detail-view {
     .location {
         margin: 1em 0;
         font-style: italic;
@@ -74,25 +99,38 @@
     }
 }
 
-.list-view-annotation {
-    background-image: url('../img/annotation.png');
-    @include background-size(100%);
-    @include box-sizing(border-box);
-    color: $brown;
-    display: block;
-    font-family: 'Bitter';
-    font-size: .6em;
-    position: absolute;
-    text-align: center;
-    text-transform: none;
-    top: .55rem;
-    right: .6rem;
-    padding: 1em .8em 0 .8em;
-    letter-spacing: 0px;
-    height: 29px;
-    width: 65px;
-}
+.results {
+    background-color: $white;
+    border: 3px solid $brown;
+    margin: 1em 0;
+    padding: .5em 5%;
+    position: relative;
 
-.list-view-annotation-alternate {
-    background-image: url('../img/annotation-alternate.png');
+    &:before,
+    &:after {
+        content: " ";
+        display: block;
+        font-size: 1px;
+        background-color: $brown;
+        height: 1.2rem;
+        width: 3px;
+        position: absolute;
+        top: -1.25rem;
+        left: 20%;
+    }
+
+    &:after {
+        left: 80%;
+    }
+
+    h2 {
+        color: $orange;
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
+    }
+
+    .maps-button {
+        background-image: url('../img/maps-button-orange.png');
+    }
+
 }
