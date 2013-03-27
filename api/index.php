@@ -27,6 +27,57 @@ use \Slim\Slim as Slim;
 
 $app = new Slim();
 
+$app->get('/all', function () {
+    $poi = new PointsOfInterest();
+    $allpoi = $poi->getAll();
+    
+    $hotels = new Hotels();
+    $allhotels = $hotels->getAll();
+
+    $restaurants = new Restaurants();
+    $allrestaurants = $restaurants->getAll();
+
+    $wcs = new Wcs();
+    $allwcs = $wcs->getAll();
+
+    $output = '{"results": {';
+    $output .= '"pointsofinterest": [';
+
+    foreach ($allpoi as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= '], "hotels": [';
+
+    foreach ($allhotels as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= '], "restaurants": [';
+
+    foreach ($allrestaurants as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= '], "wcs": [';
+
+    foreach ($allwcs as $point) {
+        $output .= json_encode($point) . ', ';
+    }
+
+    $output = rtrim($output, ', ');
+
+    $output .= ']}}';
+
+    die($output);
+});
+
 /********************************************************************************
 ********************************** POINTS OF INTEREST ***************************
 ********************************************************************************/
