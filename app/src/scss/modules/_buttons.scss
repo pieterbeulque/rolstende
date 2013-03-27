@@ -1,0 +1,8 @@
+.back-button {
+    background: url('../img/back-button.png');
+    @include background-size(100%);
+    display: block;
+    height: 29px;
+    @include hide-text;
+    width: 33px;
+}

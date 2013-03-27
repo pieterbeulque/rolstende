@@ -1,0 +1,70 @@
+.list-header {
+    @extend .container;
+    @extend .wide-container;
+    margin: 0 auto;
+    padding: 1em 0 0;
+    position: relative;
+
+    .back-button {
+        position: absolute;
+        top: 1.5em;
+        left: 0;
+    }
+}
+
+.list-header + .container {
+    margin-top: -3px;
+}
+
+.list-view {
+    @include box-sizing(border-box);
+    border-radius: 2px;
+    border: 3px solid $brown;
+    width: 100%;
+
+    li {
+        background: $white;
+        font-family: 'DIN Condensed';
+        font-size: 1em;
+        font-weight: 800;
+        line-height: 1;
+        position: relative;
+        text-align: left;
+        text-transform: uppercase;
+
+        a {
+            @include box-sizing(border-box);
+            color: $red;
+            display: block;
+            padding: 1em 5%;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        &:nth-child(even) {
+            background-color: $grey;
+        }
+    }
+}
+
+.list-view-annotation {
+    background-image: url('../img/annotation.png');
+    @include background-size(100%);
+    @include box-sizing(border-box);
+    color: $brown;
+    display: block;
+    font-family: 'Bitter';
+    font-size: .6em;
+    position: absolute;
+    text-transform: none;
+    top: .55rem;
+    right: .6rem;
+    padding: 1em 0 0 .8em;
+    letter-spacing: 0px;
+    height: 29px;
+    width: 65px;
+}
+
+.list-view-annotation-alternate {
+    background-image: url('../img/annotation-alternate.png');
+}
