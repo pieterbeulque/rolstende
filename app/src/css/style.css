@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -97,15 +97,16 @@ body {
   background-size: 30%;
   height: 70px;
   position: relative;
+  z-index: 1;
 }
-/* line 31, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .top #logo {
   width: 106px;
   margin: 0 auto;
   display: block;
   position: relative;
 }
-/* line 38, ../scss/style.scss */
+/* line 39, ../scss/style.scss */
 .top #logo div.logo-back {
   position: absolute;
   top: 15px;
@@ -114,7 +115,7 @@ body {
   background: url("../img/logo_back.png") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 47, ../scss/style.scss */
+/* line 48, ../scss/style.scss */
 .top #logo div.logo-front {
   position: absolute;
   top: 15px;
@@ -124,7 +125,7 @@ body {
   background: url("../img/logo_front.png") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 57, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 .top #logo .boat {
   position: absolute;
   top: 15px;
@@ -137,7 +138,7 @@ body {
   width: 121px;
   height: 35px;
 }
-/* line 70, ../scss/style.scss */
+/* line 71, ../scss/style.scss */
 .top #logo .boat-container {
   position: absolute;
   top: 43px;
@@ -146,7 +147,7 @@ body {
   width: 20px;
   -webkit-transform-origin: bottom;
 }
-/* line 81, ../scss/style.scss */
+/* line 82, ../scss/style.scss */
 .top .pull {
   width: 33px;
   height: 29px;
@@ -156,18 +157,18 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 90, ../scss/style.scss */
+/* line 91, ../scss/style.scss */
 .top .pull a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 96, ../scss/style.scss */
+/* line 97, ../scss/style.scss */
 .top .pull.activef {
   background: url(../img/pull_02.png) no-repeat;
   background-size: 100%;
 }
-/* line 102, ../scss/style.scss */
+/* line 103, ../scss/style.scss */
 .top .switch {
   width: 82px;
   height: 31px;
@@ -180,19 +181,19 @@ body {
   margin-left: -85px;
   margin-top: -14px;
 }
-/* line 113, ../scss/style.scss */
+/* line 114, ../scss/style.scss */
 .top .switch a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 119, ../scss/style.scss */
+/* line 120, ../scss/style.scss */
 .top .switch.active {
   background: url(../img/switch_01.png) no-repeat;
   background-size: 100%;
 }
 
-/* line 127, ../scss/style.scss */
+/* line 128, ../scss/style.scss */
 .zoek {
   width: 85px;
   height: 15px;
@@ -203,7 +204,7 @@ body {
   -o-background-size: 100%;
   background-size: 100%;
 }
-/* line 134, ../scss/style.scss */
+/* line 135, ../scss/style.scss */
 .zoek p {
   color: #331f14;
   font-family: 'DIN Condensed';
@@ -211,18 +212,18 @@ body {
   text-align: center;
 }
 
-/* line 142, ../scss/style.scss */
+/* line 143, ../scss/style.scss */
 .container, .list-header {
   margin: 30px auto;
   width: 74%;
 }
 
-/* line 147, ../scss/style.scss */
+/* line 148, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
-/* line 151, ../scss/style.scss */
+/* line 152, ../scss/style.scss */
 .app {
   background-image: url("../img/patterns/white-wood.png");
   -webkit-background-size: 30%;
@@ -230,12 +231,12 @@ body {
   -o-background-size: 30%;
   background-size: 30%;
 }
-/* line 155, ../scss/style.scss */
+/* line 156, ../scss/style.scss */
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
 }
 
-/* line 160, ../scss/style.scss */
+/* line 161, ../scss/style.scss */
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
@@ -243,25 +244,25 @@ h2 {
   text-transform: uppercase;
 }
 
-/* line 167, ../scss/style.scss */
+/* line 168, ../scss/style.scss */
 p {
   font-size: .85em;
   line-height: 1.4;
   letter-spacing: -0.7px;
 }
-/* line 172, ../scss/style.scss */
+/* line 173, ../scss/style.scss */
 p a {
   color: #e96452;
   text-decoration: none;
 }
 
-/* line 178, ../scss/style.scss */
+/* line 179, ../scss/style.scss */
 .introduction {
   margin: 5em 0 2em;
   text-align: center;
 }
 
-/* line 183, ../scss/style.scss */
+/* line 184, ../scss/style.scss */
 #overlay {
   width: 100%;
   height: 100%;
@@ -271,27 +272,38 @@ p a {
   pointer-events: none;
   text-align: center;
 }
-/* line 191, ../scss/style.scss */
+/* line 192, ../scss/style.scss */
 #overlay img {
   padding-top: 40px;
   width: 50%;
 }
 
 @-webkit-keyframes logo-animatie {
-  /* line 198, ../scss/style.scss */
+  /* line 199, ../scss/style.scss */
   0% {
     -webkit-transform: rotate(-10deg);
   }
 
-  /* line 202, ../scss/style.scss */
+  /* line 203, ../scss/style.scss */
   50% {
     -webkit-transform: rotate(10deg);
   }
 
-  /* line 206, ../scss/style.scss */
+  /* line 207, ../scss/style.scss */
   100% {
     -webkit-transform: rotate(-10deg);
   }
+}
+
+/* line 1, ../scss/modules/_map.scss */
+#map_canvas {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 50px;
+}
+/* line 6, ../scss/modules/_map.scss */
+#map_canvas img {
+  max-width: none !important;
 }
 
 @-webkit-keyframes swinging {

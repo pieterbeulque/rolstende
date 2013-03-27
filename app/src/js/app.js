@@ -83,6 +83,174 @@
         }, 0);
     });
 
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(maps, error);
+    } else {
+        alert('not supported');
+    }
+
+    function error(msg) {
+        console.log(msg);
+    }
+
+    function maps(position) {
+        if($("#map_canvas").length != 0) {
+            var user_location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+            var styles = [
+                {
+                "featureType": "landscape.man_made",
+                "stylers": [
+                  { "color": "#fffff1" }
+                ]
+                },{
+                "featureType": "transit.line",
+                "stylers": [
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "landscape.natural",
+                "stylers": [
+                  { "color": "#f9edba" }
+                ]
+                },{
+                },{
+                "featureType": "water",
+                "stylers": [
+                  { "color": "#e4f4f3" }
+                ]
+                },{
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "poi",
+                "elementType": "labels",
+                "stylers": [
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "administrative.neighborhood",
+                "elementType": "labels",
+                "stylers": [
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "poi.park",
+                "stylers": [
+                  { "color": "#94cc99" },
+                  { "lightness": 44 }
+                ]
+                },{
+                "featureType": "poi.medical",
+                "stylers": [
+                  { "color": "#ea0f00" },
+                  { "lightness": 92 }
+                ]
+                },{
+                "featureType": "poi.business",
+                "stylers": [
+                  { "color": "#fffff3" }
+                ]
+                },{
+                },{
+                "featureType": "road.local",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "road.local",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  { "color": "#e6e7d2" },
+                  { "lightness": 27 },
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  { "visibility": "on" },
+                  { "color": "#f08f80" },
+                  { "lightness": 77 }
+                ]
+                },{
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  { "visibility": "on" },
+                  { "color": "#e28080" },
+                  { "lightness": 49 }
+                ]
+                },{
+                "featureType": "road.arterial",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  { "visibility": "on" },
+                  { "color": "#f08680" },
+                  { "lightness": 77 }
+                ]
+                },{
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  { "visibility": "off" }
+                ]
+                },{
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  { "color": "#000000" },
+                  { "lightness": 72 }
+                ]
+                },{
+                }
+                ];
+
+            var styledMap = new google.maps.StyledMapType(styles,
+                {name: "Styled Map"});
+
+            var mapOptions = {
+                zoom: 14,
+                center: user_location,
+                mapTypeControl: false,
+                streetViewControl: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                }
+            };
+            var map = new google.maps.Map(document.getElementById('map_canvas'),
+                mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: user_location,
+                map: map,
+                title:"Current Location",
+                animation: google.maps.Animation.DROP
+            });
+
+            // var infowindow = new google.maps.InfoWindow({
+            //     content: '' +
+            //         '<h2>R.T.S Ieper</h2>' +
+            //         '<p class="googleMaps noBottom">Paddevijverstraat 56A <br/>8900 Ieper</p>' +
+            //         '<div class="linkGoogleMaps"><a href="http://maps.google.com/maps?saddr=&daddr=' + rtsLocatie.toUrlValue() + '" target ="_blank">Navigatie naar R.T.S<\/a></div>'
+            // });
+
+            // google.maps.event.addListener(marker, 'click', function() {
+            //     infowindow.open(map,marker);
+            // })
+
+            map.mapTypes.set('map_style', styledMap);
+            map.setMapTypeId('map_style');
+
+
+
+        }
+    }
+
 })();
 
 })();
