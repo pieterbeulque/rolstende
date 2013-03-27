@@ -4,8 +4,10 @@
 
     sv = new SlidingView( 'sidebar', 'app' );
     sv.sidebarWidth = 90;
+
     sv.sidebar.oriDomi({ hPanels: 1, vPanels: 2, speed:1, perspective:1000, shadingIntensity:2 });
     sv.sidebar.oriDomi( 'accordion', 45 );
+
     sv.sidebar.bind( "slidingViewProgress", function(event, data) {
 
         var fudge = 1
@@ -26,7 +28,9 @@
         else {
             sv.sidebar.oriDomi( 'restoreDOM' );
         }
+
     });
+
 
     $("#body").click(function() {
         sv.close();
@@ -42,6 +46,19 @@
 
     $('#app-wrapper').on('click', '#sidebar a', function (e) {
         alert('hoi');
+    });
+
+    $(window).load(function() {
+        setTimeout(function() {
+            $("#overlay").fadeOut(400);
+            $(".sidebar").css('opacity', '0');
+            $("#app-wrapper").css({'opacity': '0'}).animate({
+                'opacity' : '1',
+            }, 1500, function() {
+                $(".sidebar").css({'opacity': '1'});
+                $('body').css('background-image', 'none');
+            });
+        }, 0);
     });
 
 })();

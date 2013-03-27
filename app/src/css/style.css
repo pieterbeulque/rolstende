@@ -80,13 +80,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 15, ../scss/style.scss */
 body {
   background-color: #331f14;
+  background-image: url(../img/patterns/white-wood.png);
   font-family: 'Bitter';
   font-size: 93.75%;
   font-weight: 600;
   -webkit-text-size-adjust: none;
 }
 
-/* line 23, ../scss/style.scss */
+/* line 24, ../scss/style.scss */
 .top {
   background: url(../img/pattern_header.png);
   -webkit-background-size: 30%;
@@ -96,14 +97,14 @@ body {
   height: 70px;
   position: relative;
 }
-/* line 29, ../scss/style.scss */
+/* line 30, ../scss/style.scss */
 .top #logo {
   width: 106px;
   margin: 0 auto;
   padding-top: 1em;
   display: block;
 }
-/* line 36, ../scss/style.scss */
+/* line 37, ../scss/style.scss */
 .top .pull {
   width: 33px;
   height: 29px;
@@ -113,18 +114,18 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 45, ../scss/style.scss */
+/* line 46, ../scss/style.scss */
 .top .pull a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 51, ../scss/style.scss */
+/* line 52, ../scss/style.scss */
 .top .pull.activef {
   background: url(../img/pull_02.png) no-repeat;
   background-size: 100%;
 }
-/* line 57, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 .top .switch {
   width: 82px;
   height: 31px;
@@ -137,30 +138,30 @@ body {
   margin-left: -85px;
   margin-top: -14px;
 }
-/* line 68, ../scss/style.scss */
+/* line 69, ../scss/style.scss */
 .top .switch a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 74, ../scss/style.scss */
+/* line 75, ../scss/style.scss */
 .top .switch.active {
   background: url(../img/switch_01.png) no-repeat;
   background-size: 100%;
 }
 
-/* line 82, ../scss/style.scss */
+/* line 83, ../scss/style.scss */
 .zoek {
   width: 85px;
   height: 15px;
   margin: 60px auto 0 auto;
-  background: url(../img/anchors.png) no-repeat center center;
+  background: url(../img/anchors.png) no-repeat 0px 3px;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
 }
-/* line 89, ../scss/style.scss */
+/* line 90, ../scss/style.scss */
 .zoek p {
   color: #331f14;
   font-family: 'DIN Condensed';
@@ -168,18 +169,18 @@ body {
   text-align: center;
 }
 
-/* line 97, ../scss/style.scss */
+/* line 98, ../scss/style.scss */
 .container, .list-header {
   margin: 30px auto;
   width: 74%;
 }
 
-/* line 102, ../scss/style.scss */
+/* line 103, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
-/* line 106, ../scss/style.scss */
+/* line 107, ../scss/style.scss */
 .app {
   background-image: url("../img/patterns/white-wood.png");
   -webkit-background-size: 30%;
@@ -187,14 +188,69 @@ body {
   -o-background-size: 30%;
   background-size: 30%;
 }
-/* line 110, ../scss/style.scss */
+/* line 111, ../scss/style.scss */
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
 }
 
-/* line 115, ../scss/style.scss */
+/* line 116, ../scss/style.scss */
 p {
   line-height: 1.4;
+}
+
+/* line 120, ../scss/style.scss */
+#overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  text-align: center;
+}
+/* line 128, ../scss/style.scss */
+#overlay img {
+  padding-top: 40px;
+  width: 50%;
+}
+
+@-webkit-keyframes swinging {
+  /* line 2, ../scss/modules/_loader.scss */
+  0% {
+    -webkit-transform: rotate(-45deg);
+  }
+
+  /* line 6, ../scss/modules/_loader.scss */
+  50% {
+    -webkit-transform: rotate(45deg);
+  }
+
+  /* line 10, ../scss/modules/_loader.scss */
+  100% {
+    -webkit-transform: rotate(-45deg);
+  }
+}
+
+/* line 15, ../scss/modules/_loader.scss */
+.pendulum {
+  margin-left: -19px;
+  margin-top: -18px;
+  position: relative;
+  background: url("../img/loader.png") no-repeat 0 0;
+  background-size: 50%;
+  color: #333;
+  width: 113px;
+  height: 100px;
+}
+
+/* line 26, ../scss/modules/_loader.scss */
+.pendulum-container {
+  padding-top: 0px;
+  -webkit-animation: swinging 3s infinite ease-in-out;
+  width: 20px;
+  margin: 40px auto;
+  text-align: center;
+  -webkit-transform-origin: top;
 }
 
 /* line 1, ../scss/modules/_buttons.scss */
@@ -353,9 +409,11 @@ p {
   padding: 0;
   margin: 0;
   overflow: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
 
-/* line 12, ../scss/modules/_sidebar-logic.scss */
+/* line 13, ../scss/modules/_sidebar-logic.scss */
 .sidebar {
   position: absolute;
   width: 90px;
@@ -369,11 +427,12 @@ p {
   transform: translate3d(0, 0, 0);
   overflow: hidden;
 }
-/* line 26, ../scss/modules/_sidebar-logic.scss */
+/* line 27, ../scss/modules/_sidebar-logic.scss */
 .sidebar ul {
   height: 100%;
+  display: block;
 }
-/* line 30, ../scss/modules/_sidebar-logic.scss */
+/* line 32, ../scss/modules/_sidebar-logic.scss */
 .sidebar li {
   text-align: center;
   box-sizing: border-box;
@@ -384,11 +443,11 @@ p {
   border-right: 3px solid #331f14;
   border-bottom: 3px solid #331f14;
 }
-/* line 40, ../scss/modules/_sidebar-logic.scss */
+/* line 42, ../scss/modules/_sidebar-logic.scss */
 .sidebar li:last-child {
   border-bottom: 0;
 }
-/* line 44, ../scss/modules/_sidebar-logic.scss */
+/* line 46, ../scss/modules/_sidebar-logic.scss */
 .sidebar li a {
   text-indent: -119988px;
   overflow: hidden;
@@ -400,34 +459,34 @@ p {
   height: 100%;
   width: 100%;
 }
-/* line 54, ../scss/modules/_sidebar-logic.scss */
+/* line 56, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.spots {
   background: url(../img/red.jpg) repeat;
   background-size: 100%;
 }
-/* line 58, ../scss/modules/_sidebar-logic.scss */
+/* line 60, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.spots a {
   background-image: url(../img/icon_01.png);
 }
-/* line 63, ../scss/modules/_sidebar-logic.scss */
+/* line 65, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.events {
   background: url(../img/yellow.jpg) repeat;
   background-size: 100%;
 }
-/* line 67, ../scss/modules/_sidebar-logic.scss */
+/* line 69, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.events a {
   background-image: url(../img/icon_02.png);
 }
-/* line 73, ../scss/modules/_sidebar-logic.scss */
+/* line 75, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.info {
   background: url(../img/blue.jpg) repeat;
   background-size: 100%;
 }
-/* line 77, ../scss/modules/_sidebar-logic.scss */
+/* line 79, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.info a {
   background-image: url(../img/icon_03.png);
 }
-/* line 84, ../scss/modules/_sidebar-logic.scss */
+/* line 86, ../scss/modules/_sidebar-logic.scss */
 .sidebar #noise {
   position: absolute;
   top: 0;
@@ -442,7 +501,7 @@ p {
   pointer-events: none;
 }
 
-/* line 98, ../scss/modules/_sidebar-logic.scss */
+/* line 100, ../scss/modules/_sidebar-logic.scss */
 .app {
   position: absolute;
   left: 0px;
@@ -456,6 +515,21 @@ p {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   background-color: #dfded7;
+}
+/* line 101, ../scss/modules/_sidebar-logic.scss */
+.app #global_noise {
+  background-image: url(../img/noise.png);
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: -20px;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* line 1, ../scss/modules/_list-view.scss */
