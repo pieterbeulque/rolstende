@@ -77,9 +77,11 @@ SlidingView.prototype.onTouchMove = function(event) {
 	if ($(event.target).closest('#map_canvas').length > 0) {
 		event.preventDefault();
 		event.stopPropagation();
-			this.unbindEvents();
-
+		this.unbindEvents();
+		console.log('op de map');
+		return false;
 	}
+
 
 	var currentPosition = this.getTouchCoordinates( event );
 	

@@ -5,7 +5,8 @@
 (function () {
 
     var sv,
-        location;
+        location,
+        server = "http://192.168.2.9/";
 
     sv = new SlidingView( 'sidebar', 'app' );
     sv.sidebarWidth = 90;
@@ -231,7 +232,9 @@
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 map: map,
+                icon: new google.maps.MarkerImage("img/current_location.png", null, null, null, new google.maps.Size(20,20)),
                 title:"Current Location",
+                optimized: false,
                 animation: google.maps.Animation.DROP
             });
 
@@ -256,15 +259,51 @@
         if($("#map_canvas").length > 0) {
             $.ajax({
                 type: 'get',
-                url: 'http://student.howest.be/tatiana.van.campen1/20122013/MAIV/api/all',
+                url: server + 'Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/all',
                 dataType: 'json',
                 success: function(data) {
-                    $.each(data.results, function() {
+                    $.each(data.results.pointsofinterest, function() {
                         var obj = $(this);
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(obj[0]["latitude"], obj[0]["longitude"]),
                             map: map,
-                            title:"Current Location",
+                            icon: new google.maps.MarkerImage("img/pin_orange.png", null, null, null, new google.maps.Size(20,20)),
+                            title: obj[0]["name"],
+                            animation: google.maps.Animation.DROP
+                        });
+                    });
+
+                    $.each(data.results.restaurants, function() {
+                        var obj = $(this);
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(obj[0]["latitude"], obj[0]["longitude"]),
+                            map: map,
+                            title: obj[0]["name"],
+                            icon: new google.maps.MarkerImage("img/pin_blueDark.png", null, null, null, new google.maps.Size(20,20)),
+                            animation: google.maps.Animation.DROP
+                        });
+                    });
+
+                    $.each(data.results.wcs, function() {
+
+                        var obj = $(this);
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(obj[0]["latitude"], obj[0]["longitude"]),
+                            map: map,
+                            title: obj[0]["name"],
+                            icon: new google.maps.MarkerImage("img/pin_blue.png", null, null, null, new google.maps.Size(20,20)),
+                            animation: google.maps.Animation.DROP
+                        });
+                    });
+
+                    $.each(data.results.hotels, function() {
+
+                        var obj = $(this);
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(obj[0]["latitude"], obj[0]["longitude"]),
+                            map: map,
+                            title: obj[0]["name"],
+                            icon: new google.maps.MarkerImage("img/pin_red.png", null, null, null, new google.maps.Size(20,20)),
                             animation: google.maps.Animation.DROP
                         });
                     });
