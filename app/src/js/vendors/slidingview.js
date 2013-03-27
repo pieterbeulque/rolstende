@@ -42,6 +42,7 @@ var SlidingView = function( sidebarId, bodyId ) {
 	this.setupEventHandlers();
 
 
+
 }
 
 SlidingView.prototype.setupEventHandlers = function() {
@@ -73,7 +74,7 @@ SlidingView.prototype.onTouchStart = function(event) {
 }
 
 SlidingView.prototype.onTouchMove = function(event) {
-	if ($(event.target).clos est('#map_canvas').length > 0) {
+	if ($(event.target).closest('#map_canvas').length > 0) {
 		event.preventDefault();
 		event.stopPropagation();
 			this.unbindEvents();

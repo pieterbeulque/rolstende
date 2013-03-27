@@ -28,7 +28,7 @@
         }
         else {
             sv.sidebar.oriDomi( 'restoreDOM' );
-        }
+        }   
 
     });
 
@@ -225,7 +225,7 @@
                 mapOptions);
 
             var marker = new google.maps.Marker({
-                position: user_location,
+                position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 map: map,
                 title:"Current Location",
                 animation: google.maps.Animation.DROP
@@ -247,6 +247,25 @@
 
 
 
+        }
+
+        if($("#map_canvas").length > 0) {
+            $.ajax({
+                type: 'get',
+                url: 'http://student.howest.be/tatiana.van.campen1/20122013/MAIV/api/all',
+                dataType: 'json',
+                success: function(data) {
+                    $.each(data.results, function() {
+                        var obj = $(this);
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(obj[0]["latitude"], obj[0]["longitude"]),
+                            map: map,
+                            title:"Current Location",
+                            animation: google.maps.Animation.DROP
+                        });
+                    });
+                }
+            })
         }
     }
 

@@ -240,7 +240,7 @@ body {
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
-  margin: 1em 0 0.5em;
+  margin: 1em 0 .5em;
   text-transform: uppercase;
 }
 
@@ -598,16 +598,17 @@ span.arrow {
   box-sizing: border-box;
   width: 90px;
   height: 34%;
+  min-height: 33%;
   display: block;
   position: relative;
   border-right: 3px solid #331f14;
   border-bottom: 3px solid #331f14;
 }
-/* line 42, ../scss/modules/_sidebar-logic.scss */
+/* line 43, ../scss/modules/_sidebar-logic.scss */
 .sidebar li:last-child {
   border-bottom: 0;
 }
-/* line 46, ../scss/modules/_sidebar-logic.scss */
+/* line 47, ../scss/modules/_sidebar-logic.scss */
 .sidebar li a {
   text-indent: -119988px;
   overflow: hidden;
@@ -619,34 +620,34 @@ span.arrow {
   height: 100%;
   width: 100%;
 }
-/* line 56, ../scss/modules/_sidebar-logic.scss */
+/* line 57, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.spots {
   background: url(../img/red.jpg) repeat;
   background-size: 100%;
 }
-/* line 60, ../scss/modules/_sidebar-logic.scss */
+/* line 61, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.spots a {
   background-image: url(../img/icon_01.png);
 }
-/* line 65, ../scss/modules/_sidebar-logic.scss */
+/* line 66, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.events {
   background: url(../img/yellow.jpg) repeat;
   background-size: 100%;
 }
-/* line 69, ../scss/modules/_sidebar-logic.scss */
+/* line 70, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.events a {
   background-image: url(../img/icon_02.png);
 }
-/* line 75, ../scss/modules/_sidebar-logic.scss */
+/* line 76, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.info {
   background: url(../img/blue.jpg) repeat;
   background-size: 100%;
 }
-/* line 79, ../scss/modules/_sidebar-logic.scss */
+/* line 80, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.info a {
   background-image: url(../img/icon_03.png);
 }
-/* line 86, ../scss/modules/_sidebar-logic.scss */
+/* line 87, ../scss/modules/_sidebar-logic.scss */
 .sidebar #noise {
   position: absolute;
   top: 0;
@@ -661,7 +662,7 @@ span.arrow {
   pointer-events: none;
 }
 
-/* line 100, ../scss/modules/_sidebar-logic.scss */
+/* line 101, ../scss/modules/_sidebar-logic.scss */
 .app {
   position: absolute;
   left: 0px;
@@ -676,7 +677,7 @@ span.arrow {
   -webkit-overflow-scrolling: touch;
   background-color: #dfded7;
 }
-/* line 101, ../scss/modules/_sidebar-logic.scss */
+/* line 102, ../scss/modules/_sidebar-logic.scss */
 .app #global_noise {
   background-image: url(../img/noise.png);
   -webkit-background-size: 100%;
@@ -748,7 +749,7 @@ span.arrow {
 
 /* line 49, ../scss/modules/_list-view.scss */
 .list-detail-view {
-  padding: 0.5em 5% 1em;
+  padding: .5em 5% 1em;
 }
 /* line 52, ../scss/modules/_list-view.scss */
 .list-detail-view .location {
@@ -769,7 +770,7 @@ span.arrow {
 }
 /* line 69, ../scss/modules/_list-view.scss */
 .list-detail-view img {
-  border: 6px solid white;
+  border: 6px solid #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -796,7 +797,7 @@ span.arrow {
   text-transform: none;
   top: .55rem;
   right: .6rem;
-  padding: 1em 0.8em 0 0.8em;
+  padding: 1em .8em 0 .8em;
   letter-spacing: 0px;
   height: 29px;
   width: 65px;
