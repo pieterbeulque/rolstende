@@ -36,6 +36,7 @@
     $("#body").click(function() {
         sv.close();
     });
+
 })();
 
 })();

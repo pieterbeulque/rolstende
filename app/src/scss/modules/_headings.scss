@@ -1,0 +1,12 @@
+.heading {
+    @include background-size(100%);
+    display: block;
+    @include hide-text;
+}
+
+.heading-hotels {
+    background-image: url('../img/heading-hotels.png');
+    height: 78px;
+    margin: 0 auto;
+    width: 123px;
+}

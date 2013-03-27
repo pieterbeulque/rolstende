@@ -17,6 +17,8 @@ body {
     font-family: 'GothamTest';
     font-size: 93.75%;
     font-weight: 600;
+    -webkit-text-size-adjust: none;
+
 }
 
 .top {
@@ -28,6 +30,18 @@ body {
     width: 74%;
 }
 
+.wide-container {
+    width: 91%;
+}
 
+.app {
+    .red-wood & {
+        background-image: url('../img/patterns/red-wood.png');
+    }
+}
+
+@import "modules/_buttons";
+@import "modules/_headings";
 @import "modules/_icon-grid";
 @import "modules/_sidebar-logic";
+@import "modules/_list-view";
