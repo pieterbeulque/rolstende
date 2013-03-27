@@ -69,7 +69,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 7, ../scss/style.scss */
-* {
+*:not(input):not(textarea) {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -81,13 +81,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   background-color: #331f14;
   background-image: url(../img/patterns/white-wood.png);
+  color: #331f14;
   font-family: 'Bitter';
   font-size: 93.75%;
   font-weight: 600;
   -webkit-text-size-adjust: none;
 }
 
-/* line 24, ../scss/style.scss */
+/* line 25, ../scss/style.scss */
 .top {
   background: url(../img/pattern_header.png);
   -webkit-background-size: 30%;
@@ -97,14 +98,14 @@ body {
   height: 70px;
   position: relative;
 }
-/* line 30, ../scss/style.scss */
+/* line 31, ../scss/style.scss */
 .top #logo {
   width: 106px;
   margin: 0 auto;
   display: block;
   position: relative;
 }
-/* line 37, ../scss/style.scss */
+/* line 38, ../scss/style.scss */
 .top #logo div.logo-back {
   position: absolute;
   top: 15px;
@@ -113,7 +114,7 @@ body {
   background: url("../img/logo_back.png") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 46, ../scss/style.scss */
+/* line 47, ../scss/style.scss */
 .top #logo div.logo-front {
   position: absolute;
   top: 15px;
@@ -123,7 +124,7 @@ body {
   background: url("../img/logo_front.png") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 56, ../scss/style.scss */
+/* line 57, ../scss/style.scss */
 .top #logo .boat {
   position: absolute;
   top: 15px;
@@ -136,7 +137,7 @@ body {
   width: 121px;
   height: 35px;
 }
-/* line 69, ../scss/style.scss */
+/* line 70, ../scss/style.scss */
 .top #logo .boat-container {
   position: absolute;
   top: 43px;
@@ -145,7 +146,7 @@ body {
   width: 20px;
   -webkit-transform-origin: bottom;
 }
-/* line 82, ../scss/style.scss */
+/* line 83, ../scss/style.scss */
 .top .pull {
   width: 33px;
   height: 29px;
@@ -155,18 +156,18 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 91, ../scss/style.scss */
+/* line 92, ../scss/style.scss */
 .top .pull a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 97, ../scss/style.scss */
+/* line 98, ../scss/style.scss */
 .top .pull.activef {
   background: url(../img/pull_02.png) no-repeat;
   background-size: 100%;
 }
-/* line 103, ../scss/style.scss */
+/* line 104, ../scss/style.scss */
 .top .switch {
   width: 82px;
   height: 31px;
@@ -179,19 +180,19 @@ body {
   margin-left: -85px;
   margin-top: -14px;
 }
-/* line 114, ../scss/style.scss */
+/* line 115, ../scss/style.scss */
 .top .switch a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 120, ../scss/style.scss */
+/* line 121, ../scss/style.scss */
 .top .switch.active {
   background: url(../img/switch_01.png) no-repeat;
   background-size: 100%;
 }
 
-/* line 128, ../scss/style.scss */
+/* line 129, ../scss/style.scss */
 .zoek {
   width: 85px;
   height: 15px;
@@ -202,7 +203,7 @@ body {
   -o-background-size: 100%;
   background-size: 100%;
 }
-/* line 135, ../scss/style.scss */
+/* line 136, ../scss/style.scss */
 .zoek p {
   color: #331f14;
   font-family: 'DIN Condensed';
@@ -210,18 +211,18 @@ body {
   text-align: center;
 }
 
-/* line 143, ../scss/style.scss */
+/* line 144, ../scss/style.scss */
 .container, .list-header {
   margin: 30px auto;
   width: 74%;
 }
 
-/* line 148, ../scss/style.scss */
+/* line 149, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
-/* line 152, ../scss/style.scss */
+/* line 153, ../scss/style.scss */
 .app {
   background-image: url("../img/patterns/white-wood.png");
   -webkit-background-size: 30%;
@@ -229,17 +230,38 @@ body {
   -o-background-size: 30%;
   background-size: 30%;
 }
-/* line 156, ../scss/style.scss */
+/* line 157, ../scss/style.scss */
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
 }
 
-/* line 161, ../scss/style.scss */
-p {
-  line-height: 1.4;
+/* line 162, ../scss/style.scss */
+h2 {
+  font-family: 'DIN Condensed';
+  font-size: .9em;
+  margin: 1em 0 .5em;
+  text-transform: uppercase;
 }
 
-/* line 165, ../scss/style.scss */
+/* line 169, ../scss/style.scss */
+p {
+  font-size: .85em;
+  line-height: 1.4;
+  letter-spacing: -0.7px;
+}
+/* line 174, ../scss/style.scss */
+p a {
+  color: #e96452;
+  text-decoration: none;
+}
+
+/* line 180, ../scss/style.scss */
+.introduction {
+  margin: 4em 0 2em;
+  text-align: center;
+}
+
+/* line 185, ../scss/style.scss */
 #overlay {
   width: 100%;
   height: 100%;
@@ -249,24 +271,24 @@ p {
   pointer-events: none;
   text-align: center;
 }
-/* line 173, ../scss/style.scss */
+/* line 193, ../scss/style.scss */
 #overlay img {
   padding-top: 40px;
   width: 50%;
 }
 
 @-webkit-keyframes logo-animatie {
-  /* line 182, ../scss/style.scss */
+  /* line 202, ../scss/style.scss */
   0% {
     -webkit-transform: rotate(-10deg);
   }
 
-  /* line 186, ../scss/style.scss */
+  /* line 206, ../scss/style.scss */
   50% {
     -webkit-transform: rotate(10deg);
   }
 
-  /* line 190, ../scss/style.scss */
+  /* line 210, ../scss/style.scss */
   100% {
     -webkit-transform: rotate(-10deg);
   }
@@ -309,6 +331,36 @@ p {
   margin: 40px auto;
   text-align: center;
   -webkit-transform-origin: top;
+}
+
+/* line 1, ../scss/modules/_form.scss */
+label {
+  display: none;
+}
+
+/* line 5, ../scss/modules/_form.scss */
+input, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #f4f1e3;
+  border: 2px solid #81ccc5;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: .5em;
+  padding: 1em 5%;
+  width: 100%;
+  color: #331f14;
+  font-family: 'Bitter';
+  font-weight: bold;
+}
+
+/* line 20, ../scss/modules/_form.scss */
+::-webkit-input-placeholder {
+  color: #331f14;
+  font-family: 'Bitter';
+  font-weight: bold;
 }
 
 /* line 1, ../scss/modules/_buttons.scss */
@@ -646,10 +698,9 @@ p {
 
 /* line 49, ../scss/modules/_list-view.scss */
 .list-detail-view {
-  font-size: .7em;
   padding: .5em 5% 1em;
 }
-/* line 53, ../scss/modules/_list-view.scss */
+/* line 52, ../scss/modules/_list-view.scss */
 .list-detail-view .location {
   margin: 1em 0;
   font-style: italic;
@@ -660,14 +711,23 @@ p {
   background-position: 0 3px;
   position: relative;
 }
-/* line 64, ../scss/modules/_list-view.scss */
+/* line 63, ../scss/modules/_list-view.scss */
 .list-detail-view .maps-button {
   position: absolute;
   top: 0;
   right: 0;
 }
+/* line 69, ../scss/modules/_list-view.scss */
+.list-detail-view img {
+  border: 6px solid #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  max-width: 100%;
+}
 
-/* line 71, ../scss/modules/_list-view.scss */
+/* line 77, ../scss/modules/_list-view.scss */
 .list-view-annotation {
   background-image: url("../img/annotation.png");
   -webkit-background-size: 100%;
@@ -682,16 +742,17 @@ p {
   font-family: 'Bitter';
   font-size: .6em;
   position: absolute;
+  text-align: center;
   text-transform: none;
   top: .55rem;
   right: .6rem;
-  padding: 1em 0 0 .8em;
+  padding: 1em .8em 0 .8em;
   letter-spacing: 0px;
   height: 29px;
   width: 65px;
 }
 
-/* line 89, ../scss/modules/_list-view.scss */
+/* line 96, ../scss/modules/_list-view.scss */
 .list-view-annotation-alternate {
   background-image: url("../img/annotation-alternate.png");
 }

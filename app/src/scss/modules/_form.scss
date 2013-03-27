@@ -1,0 +1,24 @@
+label {
+    display: none;
+}
+
+input, textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $white;
+    border: 2px solid $blue;
+    border-radius: 0;
+    @include box-sizing(border-box);
+    margin-bottom: .5em;
+    padding: 1em 5%;
+    width: 100%;
+   color: $brown;
+   font-family: 'Bitter';
+   font-weight: bold;
+}
+
+::-webkit-input-placeholder {
+   color: $brown;
+   font-family: 'Bitter';
+   font-weight: bold;
+}

@@ -47,7 +47,6 @@
 }
 
 .list-detail-view {
-    font-size: .7em;
     padding: .5em 5% 1em;
 
     .location {
@@ -66,6 +65,13 @@
         top: 0;
         right: 0;
     }
+
+    img {
+        border: 6px solid #fff;
+        @include box-sizing(border-box);
+        margin-bottom: 1em;
+        max-width: 100%;
+    }
 }
 
 .list-view-annotation {
@@ -77,10 +83,11 @@
     font-family: 'Bitter';
     font-size: .6em;
     position: absolute;
+    text-align: center;
     text-transform: none;
     top: .55rem;
     right: .6rem;
-    padding: 1em 0 0 .8em;
+    padding: 1em .8em 0 .8em;
     letter-spacing: 0px;
     height: 29px;
     width: 65px;

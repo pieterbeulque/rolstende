@@ -222,4 +222,3 @@ SlidingView.prototype.resizeContent = function() {
     
     this.body.width( w );
 }
-
