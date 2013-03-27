@@ -29,35 +29,57 @@
 
     li {
         text-align: center;
+        box-sizing: border-box;
         width: 90px;
         height: 34%;
         display: block;
         position: relative;
+        border-right: 3px solid $brown;
+        border-bottom: 3px solid $brown;
         @include transition-property(height);
         @include transition-duration(2s);
         @include transition-timing-function(ease-in);
 
-        img {
-            position: absolute;
-            top: 50%;
-            margin-top: -45px;
-            width: 90px;
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        a {
+            @include hide-text;
+            display: block;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center center;
+            height: 100%;
+            width: 100%
         }
 
         &.spots {
             background: url(../img/red.jpg) repeat;
             background-size: 100%;
+
+            a {
+                background-image: url(../img/icon_01.png);
+            }
         }
 
         &.events {
             background: url(../img/yellow.jpg) repeat;
             background-size: 100%;
+
+            a {
+                background-image: url(../img/icon_02.png);
+            }
+
         }
 
         &.info {
             background: url(../img/blue.jpg) repeat;
             background-size: 100%;
-
+            
+            a {
+                background-image: url(../img/icon_03.png);
+            }
         }
     }
 
@@ -72,6 +94,7 @@
         background: url(../img/noise_sidebar.png);
         background-size: 100%;
         line-height: 1;
+        pointer-events: none;
     }
 }
 

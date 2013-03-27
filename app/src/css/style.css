@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,52 +20,47 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
-}
-
-@font-face {
-  font-family: 'GothamTest';
-  src: url(../fonts/gothambold.ttf);
 }
 
 @font-face {
@@ -84,7 +79,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 15, ../scss/style.scss */
 body {
-  background-color: #dfded7;
+  background-color: #331f14;
   font-family: 'GothamTest';
   font-size: 93.75%;
   font-weight: 600;
@@ -244,10 +239,13 @@ body {
 /* line 30, ../scss/modules/_sidebar-logic.scss */
 .sidebar li {
   text-align: center;
+  box-sizing: border-box;
   width: 90px;
   height: 34%;
   display: block;
   position: relative;
+  border-right: 3px solid #331f14;
+  border-bottom: 3px solid #331f14;
   -webkit-transition-property: height;
   -moz-transition-property: height;
   -o-transition-property: height;
@@ -261,29 +259,50 @@ body {
   -o-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
-/* line 40, ../scss/modules/_sidebar-logic.scss */
-.sidebar li img {
-  position: absolute;
-  top: 50%;
-  margin-top: -45px;
-  width: 90px;
+/* line 43, ../scss/modules/_sidebar-logic.scss */
+.sidebar li:last-child {
+  border-bottom: 0;
 }
 /* line 47, ../scss/modules/_sidebar-logic.scss */
+.sidebar li a {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+}
+/* line 57, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.spots {
   background: url(../img/red.jpg) repeat;
   background-size: 100%;
 }
-/* line 52, ../scss/modules/_sidebar-logic.scss */
+/* line 61, ../scss/modules/_sidebar-logic.scss */
+.sidebar li.spots a {
+  background-image: url(../img/icon_01.png);
+}
+/* line 66, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.events {
   background: url(../img/yellow.jpg) repeat;
   background-size: 100%;
 }
-/* line 57, ../scss/modules/_sidebar-logic.scss */
+/* line 70, ../scss/modules/_sidebar-logic.scss */
+.sidebar li.events a {
+  background-image: url(../img/icon_02.png);
+}
+/* line 76, ../scss/modules/_sidebar-logic.scss */
 .sidebar li.info {
   background: url(../img/blue.jpg) repeat;
   background-size: 100%;
 }
-/* line 65, ../scss/modules/_sidebar-logic.scss */
+/* line 80, ../scss/modules/_sidebar-logic.scss */
+.sidebar li.info a {
+  background-image: url(../img/icon_03.png);
+}
+/* line 87, ../scss/modules/_sidebar-logic.scss */
 .sidebar #noise {
   position: absolute;
   top: 0;
@@ -295,9 +314,10 @@ body {
   background: url(../img/noise_sidebar.png);
   background-size: 100%;
   line-height: 1;
+  pointer-events: none;
 }
 
-/* line 78, ../scss/modules/_sidebar-logic.scss */
+/* line 101, ../scss/modules/_sidebar-logic.scss */
 .app {
   position: absolute;
   left: 0px;
