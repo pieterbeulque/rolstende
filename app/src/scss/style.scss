@@ -4,7 +4,7 @@
 @import "base/_variables";
 @import "base/_fonts";
 
-* {
+*:not(input):not(textarea) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -13,8 +13,13 @@
 }
 
 body {
+<<<<<<< HEAD
     background-color: $brown;
     background-image: url(../img/patterns/white-wood.png);
+=======
+    background-color: $light-grey;
+    color: $brown;
+>>>>>>> Info
     font-family: 'Bitter';
     font-size: 93.75%;
     font-weight: 600;
@@ -113,8 +118,27 @@ body {
     }
 }
 
+h2 {
+    font-family: 'DIN Condensed';
+    font-size: .9em;
+    margin: 1em 0 .5em;
+    text-transform: uppercase;
+}
+
 p {
+    font-size: .85em;
     line-height: 1.4;
+    letter-spacing: -0.7px;
+
+    a {
+        color: $red;
+        text-decoration: none;
+    }
+}
+
+.introduction {
+    margin: 4em 0 2em;
+    text-align: center;
 }
 
 #overlay {
@@ -131,9 +155,8 @@ p {
     }
 }
 
-
-
 @import "modules/_loader.scss";
+@import "modules/_form";
 @import "modules/_buttons";
 @import "modules/_headings";
 @import "modules/_icon-grid";
