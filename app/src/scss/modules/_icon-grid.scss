@@ -17,6 +17,32 @@
     &:nth-child(even) {
         float: right;
     }
+
+    @media screen and (orientation:landscape) {
+        &:nth-child(odd), &:nth-child(even) {
+            float: left;
+            width: 95px;
+            height: 95px;
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            margin-right: 0px !important;
+        }
+    }
+
+    @media screen and (max-width: 480px) and (orientation:landscape) {
+        &:nth-child(odd), &:nth-child(even) {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            margin-right: 0px !important;
+        }
+    }
 }
 
 .icon-restaurants {

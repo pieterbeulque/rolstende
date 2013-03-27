@@ -32,6 +32,14 @@
         sv.close();
     });
 
+    $(".switch").click(function() {
+        if($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).addClass('active');
+        }
+    })
+
     $('#app-wrapper').on('click', '#sidebar a', function (e) {
         alert('hoi');
     });

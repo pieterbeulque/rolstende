@@ -212,6 +212,8 @@ SlidingView.prototype.resizeContent = function() {
 
     this.body.width( w );
 
+    // alert($(window).width());
+
     $("#sidebar ul li").each(function() {
     	$(this).css({'height': '34%'});
         $(this).css({'height': $(this).height()});
