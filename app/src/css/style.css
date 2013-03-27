@@ -88,21 +88,52 @@ body {
 
 /* line 24, ../scss/style.scss */
 .top {
-  background: #81ccc5;
+  background: url(../img/pattern_header.png);
+  -webkit-background-size: 30%;
+  -moz-background-size: 30%;
+  -o-background-size: 30%;
+  background-size: 30%;
+  height: 70px;
+}
+/* line 29, ../scss/style.scss */
+.top #logo {
+  width: 106px;
+  margin: 0 auto;
+  padding-top: 1em;
+  display: block;
 }
 
-/* line 28, ../scss/style.scss */
+/* line 38, ../scss/style.scss */
+.zoek {
+  width: 85px;
+  height: 15px;
+  margin: 60px auto 0 auto;
+  background: url(../img/anchors.png) no-repeat center center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+}
+/* line 45, ../scss/style.scss */
+.zoek p {
+  color: #331f14;
+  font-family: 'DIN Condensed';
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* line 53, ../scss/style.scss */
 .container, .list-header {
-  margin: 63px auto;
+  margin: 30px auto;
   width: 74%;
 }
 
-/* line 33, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
-/* line 38, ../scss/style.scss */
+/* line 65, ../scss/style.scss */
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
 }
@@ -186,6 +217,9 @@ body {
 
 /* line 34, ../scss/modules/_icon-grid.scss */
 .grid-item a {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -201,8 +235,11 @@ body {
   text-transform: uppercase;
   width: 100%;
 }
-/* line 48, ../scss/modules/_icon-grid.scss */
+/* line 49, ../scss/modules/_icon-grid.scss */
 .grid-item a.two-line {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
   padding-top: 8.5em;
 }
 

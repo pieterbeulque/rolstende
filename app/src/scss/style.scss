@@ -22,11 +22,36 @@ body {
 }
 
 .top {
-    background: $blue;
+    background: url(../img/pattern_header.png);
+    @include background-size(30%);
+    height: 70px;
+
+    #logo {
+        width: 106px;
+        margin: 0 auto;
+        padding-top: 1em;
+        display: block;
+    }
+
+}
+
+.zoek {
+    width: 85px;
+    height: 15px;
+    margin: 60px auto 0 auto;
+    background: url(../img/anchors.png) no-repeat center center;
+    @include background-size(100%);
+
+    p {
+        color: $brown;
+        font-family: 'DIN Condensed';
+        text-transform: uppercase;
+        text-align: center;
+    }
 }
 
 .container {
-    margin: 63px auto;
+    margin: 30px auto;
     width: 74%;
 }
 
@@ -35,6 +60,8 @@ body {
 }
 
 .app {
+
+
     .red-wood & {
         background-image: url('../img/patterns/red-wood.png');
     }
