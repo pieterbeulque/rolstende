@@ -240,7 +240,7 @@ body {
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
-  margin: 1em 0 .5em;
+  margin: 1em 0 0.5em;
   text-transform: uppercase;
 }
 
@@ -351,7 +351,7 @@ label {
 }
 
 /* line 5, ../scss/modules/_form.scss */
-input, textarea {
+input, textarea, select {
   -webkit-appearance: none;
   appearance: none;
   background-color: #f4f1e3;
@@ -394,6 +394,23 @@ input[type="submit"] {
   font-family: 'Bitter';
   font-weight: bold;
   letter-spacing: -0.75px;
+}
+
+/* line 42, ../scss/modules/_form.scss */
+form div {
+  position: relative;
+}
+
+/* line 45, ../scss/modules/_form.scss */
+span.arrow {
+  display: block;
+  width: 10px;
+  height: 16px;
+  background-image: url("../img/select.png");
+  background-size: 100%;
+  position: absolute;
+  right: 12px;
+  top: 13px;
 }
 
 /* line 1, ../scss/modules/_buttons.scss */
@@ -731,7 +748,7 @@ input[type="submit"] {
 
 /* line 49, ../scss/modules/_list-view.scss */
 .list-detail-view {
-  padding: .5em 5% 1em;
+  padding: 0.5em 5% 1em;
 }
 /* line 52, ../scss/modules/_list-view.scss */
 .list-detail-view .location {
@@ -752,7 +769,7 @@ input[type="submit"] {
 }
 /* line 69, ../scss/modules/_list-view.scss */
 .list-detail-view img {
-  border: 6px solid #fff;
+  border: 6px solid white;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -779,7 +796,7 @@ input[type="submit"] {
   text-transform: none;
   top: .55rem;
   right: .6rem;
-  padding: 1em .8em 0 .8em;
+  padding: 1em 0.8em 0 0.8em;
   letter-spacing: 0px;
   height: 29px;
   width: 65px;
