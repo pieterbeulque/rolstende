@@ -161,27 +161,7 @@ body {
   padding-top: 8.5em;
 }
 
-/*
-THIS SOFTWARE IS PROVIDED BY ANDREW M. TRICE ''AS IS'' AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL ANDREW M. TRICE OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
-/* line 13, ../scss/modules/_sidebar-logic.scss */
-* {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* line 22, ../scss/modules/_sidebar-logic.scss */
+/* line 1, ../scss/modules/_sidebar-logic.scss */
 #app-wrapper {
   position: absolute;
   top: 0px;
@@ -193,7 +173,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   overflow: hidden;
 }
 
-/* line 33, ../scss/modules/_sidebar-logic.scss */
+/* line 12, ../scss/modules/_sidebar-logic.scss */
 .sidebar {
   position: absolute;
   width: 90px;
@@ -207,24 +187,72 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   transform: translate3d(0, 0, 0);
   overflow: hidden;
 }
-/* line 47, ../scss/modules/_sidebar-logic.scss */
+/* line 26, ../scss/modules/_sidebar-logic.scss */
+.sidebar ul {
+  height: 100%;
+}
+/* line 30, ../scss/modules/_sidebar-logic.scss */
 .sidebar li {
   text-align: center;
   width: 90px;
+  height: 34%;
+  display: block;
+  position: relative;
+  -webkit-transition-property: height;
+  -moz-transition-property: height;
+  -o-transition-property: height;
+  transition-property: height;
+  -webkit-transition-duration: 2s;
+  -moz-transition-duration: 2s;
+  -o-transition-duration: 2s;
+  transition-duration: 2s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
 }
-/* line 52, ../scss/modules/_sidebar-logic.scss */
-.sidebar img {
-  margin-top: -4px;
+/* line 40, ../scss/modules/_sidebar-logic.scss */
+.sidebar li img {
+  position: absolute;
+  top: 50%;
+  margin-top: -45px;
   width: 90px;
 }
+/* line 47, ../scss/modules/_sidebar-logic.scss */
+.sidebar li.spots {
+  background: url(../img/red.jpg) repeat;
+  background-size: 100%;
+}
+/* line 52, ../scss/modules/_sidebar-logic.scss */
+.sidebar li.events {
+  background: url(../img/yellow.jpg) repeat;
+  background-size: 100%;
+}
+/* line 57, ../scss/modules/_sidebar-logic.scss */
+.sidebar li.info {
+  background: url(../img/blue.jpg) repeat;
+  background-size: 100%;
+}
+/* line 65, ../scss/modules/_sidebar-logic.scss */
+.sidebar #noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 999;
+  background: url(../img/noise_sidebar.png);
+  background-size: 100%;
+  line-height: 1;
+}
 
-/* line 58, ../scss/modules/_sidebar-logic.scss */
+/* line 78, ../scss/modules/_sidebar-logic.scss */
 .app {
   position: absolute;
   left: 0px;
   top: 0px;
   height: 100%;
-  text-align: center;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
@@ -232,10 +260,5 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   transform: translate3d(0, 0, 0);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  background-color: #234792;
-}
-
-/* line 76, ../scss/modules/_sidebar-logic.scss */
-#logo {
-  width: 30%;
+  background-color: #dfded7;
 }

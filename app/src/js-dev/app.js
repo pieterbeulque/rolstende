@@ -1,8 +1,10 @@
 (function () {
 
     var sv;
+
     sv = new SlidingView( 'sidebar', 'app' );
     sv.sidebarWidth = 90;
+    $("#sidebar, #app").css({'height': '100%'});
     sv.sidebar.oriDomi({ hPanels: 1, vPanels: 2, speed:1, perspective:1000, shadingIntensity:3 });
     sv.sidebar.oriDomi( 'accordion', 45 );
     sv.sidebar.bind( "slidingViewProgress", function(event, data) {
