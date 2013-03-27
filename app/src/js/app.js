@@ -4,7 +4,8 @@
 
 (function () {
 
-    var sv;
+    var sv,
+        location;
 
     sv = new SlidingView( 'sidebar', 'app' );
     sv.sidebarWidth = 90;
@@ -91,6 +92,8 @@
 
     function error(msg) {
         console.log(msg);
+        var position = {'coords': {'latitude' : 51.227857, 'longitude' : 2.925346, 'accuracy' : 666}};
+        maps(position);
     }
 
     function maps(position) {

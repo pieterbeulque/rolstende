@@ -73,6 +73,13 @@ SlidingView.prototype.onTouchStart = function(event) {
 }
 
 SlidingView.prototype.onTouchMove = function(event) {
+	if ($(event.target).clos est('#map_canvas').length > 0) {
+		event.preventDefault();
+		event.stopPropagation();
+			this.unbindEvents();
+
+	}
+
 	var currentPosition = this.getTouchCoordinates( event );
 	
 	if ( this.gestureStarted ) {
