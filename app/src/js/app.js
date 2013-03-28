@@ -149,6 +149,7 @@ var RolstendeMap = (function () {
     var RolstendeMap = function (element) {
         this.element = element;
         this.map = null;
+        this.rawmarkers = [];
         this.markers = {};
         this.showMyLocation = true;
         this.userLocation = {};
@@ -195,6 +196,13 @@ var RolstendeMap = (function () {
 
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
+        
+        // var p1 = new google.maps.LatLng(51.231613, 2.923822);
+        // var p2 = new google.maps.LatLng(this.userLocation.latitude, this.userLocation.longitude);
+
+        // var distance = this.calculateDistance(p1, p2);
+
+
         var mapOptions = {
             zoom: 13,
             center: user_location,
@@ -216,12 +224,16 @@ var RolstendeMap = (function () {
                 optimized: false,
                 animation: google.maps.Animation.DROP
             });
+
+            this.rawmarkers.push(marker);
         }
 
         this.map.mapTypes.set('map_style', styledMap);
         this.map.setMapTypeId('map_style');
 
         this.setMarkers();
+
+
     };
 
     RolstendeMap.prototype.checkMarkers = function () {
@@ -229,14 +241,12 @@ var RolstendeMap = (function () {
 
         $('input[type="checkbox"]:not(:checked)').each(function () {
             $.each(that.markers[$(this).attr('name')], function() {
-                console.log($(this)[0]);
                 $(this)[0].setMap(null);
             });
         });
 
         $('input[type="checkbox"]:checked').each(function () {
             $.each(that.markers[$(this).attr('name')], function() {
-                console.log($(this)[0]);
                 $(this)[0].setMap(that.map);
             });
         });
@@ -288,16 +298,26 @@ var RolstendeMap = (function () {
                         var obj = $(this);
                         var marker = that.generateMarker(obj, category);
                         that.markers[category].push(marker);
+                        that.rawmarkers.push(marker);
                         google.maps.event.addListener(marker, 'click', function (event) {
                             that.markerClickHandler(marker);
                         });
                     });
                 });
 
-                console.log(that.markers);
+                var fullBounds = new google.maps.LatLngBounds();
+                for(var i=0;i<that.rawmarkers.length;i++){
+                    var lat=parseFloat(that.rawmarkers[i]["position"]["jb"]);
+                    var long=parseFloat(that.rawmarkers[i]["position"]["kb"]);
+                    var point=new google.maps.LatLng(lat,long);
+
+                    fullBounds.extend(point);
+                }
+
+                that.map.fitBounds(fullBounds);
+
             }
         );
-
         
     };
 
@@ -335,6 +355,10 @@ var RolstendeMap = (function () {
                     }, 1000);
                 }
             });
+    };
+
+    RolstendeMap.prototype.calculateDistance = function(p1, p2) {
+        return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
     };
 
     return RolstendeMap;
