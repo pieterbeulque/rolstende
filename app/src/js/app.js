@@ -426,21 +426,21 @@ var Settings =(function () {
             switch ($(this).attr('href')) {
                 case '#events':
                     template = $('#calendarTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
                     $('#app').html(html);
                     loadCalendar();
                     break;
 
                 case '#spots':
                     template = $('#mapTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'active'}, partials);
                     $('#app').html(html);
                     loadMap();
                     break;
 
                 case '#info':
                     template = $('#infoTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
                     $('#app').html(html);
                     loadInfo();
                     break;
@@ -526,7 +526,7 @@ var Settings =(function () {
 
         $('#app').on('click', '.back-button', function () {
             var template = $('#indexTemplate').html();
-            var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
+            var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
             $('#app').html(html);
 
             $('body').attr('class', '');
@@ -534,16 +534,37 @@ var Settings =(function () {
             return false;
         });
 
+        $("#app").on('click', '.switch', function() {
+            if($(this).hasClass('active')) {
+                loadIndex();
+            } else {
+                var template,
+                partials = {
+                    header: $('#headerTemplate').html()
+                },
+                html;
+                
+                template = $('#mapTemplate').html();
+                html = Mustache.to_html(template, {switchClass: 'active'}, partials);
+                $('#app').html(html);
+                loadMap();
+            }
+        });
+
     };
 
     var init = function () {
-        var template = $('#indexTemplate').html();
-        var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
-        $('#app').html(html);
+        loadIndex();
 
         loadSidebar();
         initNavigation();
     };
+
+    var loadIndex = function() {
+        var template = $('#indexTemplate').html();
+        var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
+        $('#app').html(html);
+    }
 
     init();
 
