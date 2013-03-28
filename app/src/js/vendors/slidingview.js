@@ -3,11 +3,6 @@
 var SlidingView = function (sidebarID, bodyID) {
     window.slidingView = this;
 
-    $(".sidebar ul li").each(function () {
-        $(this).css({'height': '34%'});
-        $(this).css('height', $(this).height());
-    });
-
     this.gestureStarted = false;
     this.bodyOffset = 0;
 
@@ -141,6 +136,12 @@ SlidingView.prototype.snapToPosition = function () {
 
     this.bodyOffset = targetX;
 
+    if (targetX === 0) {
+        this.close();
+    } else {
+        this.open();
+    }
+
     if (currentPosition != targetX) {
         this.slideView(targetX);
     }
@@ -165,6 +166,14 @@ SlidingView.prototype.open = function () {
     if(this.bodyOffset == this.sidebarWidth) return;
     this.bodyOffset = this.sidebarWidth;
     this.slideView(this.sidebarWidth);
+};
+
+SlidingView.prototype.toggle = function () {
+    if (this.bodyOffset !== 0) {
+        this.close();
+    } else {
+        this.open();
+    }
 };
 
 SlidingView.prototype.unbindEvents = function () {

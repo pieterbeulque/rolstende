@@ -5,36 +5,49 @@
         server = "http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/";
 
     sv = new SlidingView( 'sidebar', 'app' );
-    sv.sidebarWidth = 90;
 
     sv.sidebar.oriDomi({ hPanels: 1, vPanels: 2, speed:1, perspective:1000, shadingIntensity:2 });
-    sv.sidebar.oriDomi( 'accordion', 45 );
+    sv.sidebar.oriDomi('accordion', 45);
 
-    sv.sidebar.bind( "slidingViewProgress", function(event, data) {
+    sv.sidebar.on('slidingViewProgress', function(event, data) {
+        console.log('sdkjflm');
+        var fudge = 1,
+            half = data.max/2;
 
-        var fudge = 1
-        var half = data.max/2;
         if ( data.current < half ) {
-            fudge = (data.current)/half
+            fudge = (data.current)/half;
         } else if ( data.current > half ) {
-            fudge = (half-(data.current-half))/half
+            fudge = (half-(data.current-half))/half;
         }
-        fudge *= 15
+
+        fudge *= 15;
 
         var angle = 90-((90*(data.current/data.max)));
 
         if ( (angle+fudge) > 0 ) {
+            console.log('oridomi');
             sv.sidebar.oriDomi( 'restoreOriDomi' );
             sv.sidebar.oriDomi( 'accordion', (angle+fudge) );
-        }
-        else {
+        } else {
+            console.log('amai');
             sv.sidebar.oriDomi( 'restoreDOM' );
-        }   
-
+        }
     });
 
     var map = new RolstendeMap($('#map_canvas'));
     var dropdown = new Dropdown();
+
+    var calendar = new Calendar($('#calendar'));
+
+    $('#calendar-prev').on('click', function () {
+        calendar.previousMonth();
+        return false;
+    });
+
+    $('#calendar-next').on('click', function () {
+        calendar.nextMonth();
+        return false;
+    });
 
     $("#body").click(function() {
         sv.close();
