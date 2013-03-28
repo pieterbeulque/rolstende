@@ -10,6 +10,42 @@ var Calendar = (function () {
         this.table = element.find('.calendar-table');
         this.today = new Date();
         this.counter = new Date();
+        this.settings = new Settings();
+        this.events = [];
+
+        var that = this;
+
+        this.table.on('click', 'a', function () {
+            var date = parseInt($(this).attr('href').substr(7), 10),
+                showFromStart = true,
+                showFromEnd = true,
+                events = [];
+
+            $.each(that.events, function (key, value) {
+                var startDate = that.dateFromMySQL(value.start),
+                    endDate = that.dateFromMySQL(value.end);
+
+                if (startDate.getMonth() === that.counter.getMonth()) {
+                    showFromStart = (startDate.getDate() <= date);
+                }
+
+                if (endDate.getMonth() === that.counter.getMonth()) {
+                    showFromEnd = (endDate.getDate() >= date);
+                }
+
+                if (showFromStart && showFromEnd) {
+                    events.push(value);
+                }
+            });
+
+            var template = $('#calendarListTemplate').html();
+            var html = Mustache.to_html(template, {results: events}, {
+                result: $('#calendarDetailTemplate').html()
+            });
+            $('.results').html(html);
+
+            return false;
+        });
 
         this.fillTable();
     };
@@ -43,11 +79,70 @@ var Calendar = (function () {
         }
     };
 
-    Calendar.prototype.fillTable = function () {
-        var beginDay = new Date(this.counter.getFullYear(), this.counter.getMonth(), 1).getDay() - 1,
-            daysInMonth = new Date(this.counter.getFullYear(), this.counter.getMonth() + 1, 0).getDate();
+    Calendar.prototype.dateFromMySQL = function (datetime) {
+        var t = datetime.split(/[- :]/),
+            d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
 
+        return d;
+    };
+
+    Calendar.prototype.getEvents = function () {
+        var that = this;
+        $.getJSON(
+            this.settings.api + 'events/for/' + this.counter.getFullYear() + '/' + (this.counter.getMonth() + 1),
+            function (data) {
+                that.events = data.results;
+                that.showEvents();
+            }
+        );
+    };
+
+    Calendar.prototype.showEvents = function () {
+        var beginDay = this.getBeginDay(),
+            daysInMonth = this.getDaysInMonth(),
+            that = this;
+
+        $.each(this.events, function (key, value) {
+            var start = that.dateFromMySQL(value.start),
+                end = that.dateFromMySQL(value.end),
+                i,
+                max;
+
+            // Start ligt in huidige maand
+            if (start.getMonth() === that.counter.getMonth()) {
+                i = start.getDate() - 1;
+
+                // If end day smaller than big date, end is in next month, so set it to end of month
+                max = (end.getDate() < start.getDate()) ? daysInMonth : end.getDate();
+            } else {
+                // Start ligt in vorige maand
+                i = 0;
+
+                max = end.getDate();
+            }
+
+            var cells = that.table.find('td');
+
+            for (i; i < max; i++) {
+                var index = i + beginDay;
+                cells.eq(index).html('<a href="#event-' + (i + 1)    + '">' + (i + 1) + '</a>');
+            }
+        });
+    };
+
+    Calendar.prototype.getBeginDay = function () {
+        var beginDay = new Date(this.counter.getFullYear(), this.counter.getMonth(), 1).getDay() - 1;
         beginDay = (beginDay < 0) ? 6 : beginDay; // Reset it to monday = 0 and sunday = 6
+        return beginDay;
+    };
+
+    Calendar.prototype.getDaysInMonth = function () {
+        return new Date(this.counter.getFullYear(), this.counter.getMonth() + 1, 0).getDate();
+    };
+
+    Calendar.prototype.fillTable = function () {
+        var beginDay = this.getBeginDay(),
+            daysInMonth = this.getDaysInMonth();
 
         var cells = this.table.find('td').empty(),
             eqCounter = beginDay;
@@ -64,6 +159,8 @@ var Calendar = (function () {
         }
 
         this.heading.html(this.readableMonth() + ' ' + this.counter.getFullYear());
+
+        this.getEvents();
     };
 
     Calendar.prototype.nextMonth = function () {
@@ -393,7 +490,12 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
+<<<<<<< HEAD
         this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+=======
+        // this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        this.api = 'http://192.168.2.4/rolstende/api/';
+>>>>>>> 2e00fb2454a31736c7e2d29315714919686d4fb5
     };
 
     return Settings;

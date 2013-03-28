@@ -159,8 +159,9 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 92, ../scss/style.scss */
-.top .pull {
+
+/* line 94, ../scss/style.scss */
+.pull-button {
   width: 33px;
   height: 29px;
   background: url(../img/pull_01.png) no-repeat;
@@ -169,19 +170,20 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 101, ../scss/style.scss */
-.top .pull a {
+/* line 103, ../scss/style.scss */
+.pull-button a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 107, ../scss/style.scss */
-.top .pull.activef {
+/* line 109, ../scss/style.scss */
+.pull-button.activef {
   background: url(../img/pull_02.png) no-repeat;
   background-size: 100%;
 }
-/* line 113, ../scss/style.scss */
-.top .info {
+
+/* line 115, ../scss/style.scss */
+.info-button {
   width: 32px;
   height: 32px;
   background: url(../img/info.png) no-repeat;
@@ -191,8 +193,9 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 124, ../scss/style.scss */
-.top .switch {
+
+/* line 126, ../scss/style.scss */
+.switch-button {
   width: 82px;
   height: 31px;
   display: block;
@@ -204,14 +207,14 @@ body {
   margin-left: -85px;
   margin-top: -14px;
 }
-/* line 135, ../scss/style.scss */
-.top .switch a {
+/* line 137, ../scss/style.scss */
+.switch-button a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 141, ../scss/style.scss */
-.top .switch.active {
+/* line 143, ../scss/style.scss */
+.switch-button.active {
   background: url(../img/switch_01.png) no-repeat;
   background-size: 100%;
 }
@@ -308,23 +311,23 @@ p a {
 }
 
 @-webkit-keyframes logo-animatie {
-  /* line 228, ../scss/style.scss */
+  /* line 226, ../scss/style.scss */
   0% {
     -webkit-transform: rotate(-10deg);
   }
 
-  /* line 232, ../scss/style.scss */
+  /* line 230, ../scss/style.scss */
   50% {
     -webkit-transform: rotate(10deg);
   }
 
-  /* line 236, ../scss/style.scss */
+  /* line 234, ../scss/style.scss */
   100% {
     -webkit-transform: rotate(-10deg);
   }
 }
 
-/* line 242, ../scss/style.scss */
+/* line 240, ../scss/style.scss */
 .hide {
   display: none;
 }
@@ -950,16 +953,12 @@ span.arrow {
   background-image: url("../img/annotation-alternate.png");
 }
 
-<<<<<<< HEAD
-/* line 86, ../scss/modules/_list-view.scss */
+/* line 92, ../scss/modules/_list-view.scss */
 .list-view .detail-view {
   display: none;
 }
 
-/* line 91, ../scss/modules/_list-view.scss */
-=======
-/* line 93, ../scss/modules/_list-view.scss */
->>>>>>> b8a015a5b5ca89458ca6dbcafd1f05567ca8b8e9
+/* line 97, ../scss/modules/_list-view.scss */
 .detail-view .location {
   margin: 1em 0;
   font-style: italic;
@@ -970,17 +969,13 @@ span.arrow {
   background-position: 0 3px;
   position: relative;
 }
-
+/* line 108, ../scss/modules/_list-view.scss */
 .detail-view .maps-button {
   position: absolute;
   top: 0;
   right: 0;
 }
-<<<<<<< HEAD
-/* line 108, ../scss/modules/_list-view.scss */
-=======
-/* line 110, ../scss/modules/_list-view.scss */
->>>>>>> b8a015a5b5ca89458ca6dbcafd1f05567ca8b8e9
+/* line 114, ../scss/modules/_list-view.scss */
 .detail-view img {
   border: 6px solid white;
   -webkit-box-sizing: border-box;
@@ -990,11 +985,7 @@ span.arrow {
   max-width: 100%;
 }
 
-<<<<<<< HEAD
-/* line 116, ../scss/modules/_list-view.scss */
-=======
-/* line 118, ../scss/modules/_list-view.scss */
->>>>>>> b8a015a5b5ca89458ca6dbcafd1f05567ca8b8e9
+/* line 122, ../scss/modules/_list-view.scss */
 .results {
   background-color: #f4f1e3;
   border: 3px solid #331f14;
@@ -1002,11 +993,7 @@ span.arrow {
   padding: 0.5em 5%;
   position: relative;
 }
-<<<<<<< HEAD
-/* line 126, ../scss/modules/_list-view.scss */
-=======
-/* line 128, ../scss/modules/_list-view.scss */
->>>>>>> b8a015a5b5ca89458ca6dbcafd1f05567ca8b8e9
+/* line 132, ../scss/modules/_list-view.scss */
 .results:before, .results:after {
   content: " ";
   display: block;
@@ -1018,45 +1005,25 @@ span.arrow {
   top: -1.3rem;
   left: 20%;
 }
-<<<<<<< HEAD
-/* line 137, ../scss/modules/_list-view.scss */
+/* line 143, ../scss/modules/_list-view.scss */
 .results.red {
   border: 3px solid #e96452;
 }
-/* line 140, ../scss/modules/_list-view.scss */
+/* line 146, ../scss/modules/_list-view.scss */
 .results.red:before, .results.red:after {
   background-color: #e96452;
-}
-/* line 145, ../scss/modules/_list-view.scss */
-.results:after {
-  left: 80%;
-}
-/* line 149, ../scss/modules/_list-view.scss */
-=======
-/* line 139, ../scss/modules/_list-view.scss */
-.results.red {
-  border: 3px solid #e96452;
-}
-/* line 142, ../scss/modules/_list-view.scss */
-.results.red:before, .results.red:after {
-  background-color: #e96452;
-}
-/* line 147, ../scss/modules/_list-view.scss */
-.results:after {
-  left: 80%;
 }
 /* line 151, ../scss/modules/_list-view.scss */
->>>>>>> b8a015a5b5ca89458ca6dbcafd1f05567ca8b8e9
+.results:after {
+  left: 80%;
+}
+/* line 155, ../scss/modules/_list-view.scss */
 .results h2 {
   color: #ec9128;
   font-size: 1.2em;
   margin-bottom: 1.5em;
 }
-<<<<<<< HEAD
-/* line 155, ../scss/modules/_list-view.scss */
-=======
-/* line 157, ../scss/modules/_list-view.scss */
->>>>>>> b8a015a5b5ca89458ca6dbcafd1f05567ca8b8e9
+/* line 161, ../scss/modules/_list-view.scss */
 .results .maps-button {
   background-image: url("../img/maps-button-orange.png");
 }
@@ -1065,7 +1032,7 @@ span.arrow {
 .calendar {
   background-color: #f4f1e3;
   font-family: 'DIN Condensed';
-  margin-top: 3em;
+  margin: 4em 0 0em;
 }
 
 /* line 7, ../scss/modules/_calendar.scss */
@@ -1131,9 +1098,8 @@ span.arrow {
 .calendar-table td.today {
   color: #331f14;
 }
-
-/* line 62, ../scss/modules/_calendar.scss */
-.calendar-active {
+/* line 61, ../scss/modules/_calendar.scss */
+.calendar-table a {
   background-color: #ec9128;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

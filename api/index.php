@@ -206,12 +206,36 @@ $app->get('/events', function() {
     $output .= ']}';
 
     die($output);
-    
+
 });
 
 $app->get('/events/:id', function ($id) {
     $event = new Event();
     die(json_encode($event->findByID($id)));
+});
+
+$app->get('/events/for/:year', function ($year) {
+
+});
+
+$app->get('/events/for/:year/:month', function ($year, $month) {
+    $event = new Event();
+
+    $output = '{"results": ';
+    $output .= json_encode($event->findEventsForMonth($month, $year));
+    $output .= '}';
+
+    die($output);
+});
+
+$app->get('/events/for/:year/:month/:day', function ($year, $month, $day) {
+    $event = new Event();
+
+    $output = '{"results": ';
+    $output .= json_encode($event->findEventsForDay($day, $month, $year));
+    $output .= '}';
+
+    die($output);
 });
 
 /********************************************************************************

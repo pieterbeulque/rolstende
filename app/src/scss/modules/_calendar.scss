@@ -1,7 +1,7 @@
 .calendar {
     background-color: $white;
     font-family: 'DIN Condensed';
-    margin-top: 3em;
+    margin: 4em 0 0em;
 }
 
 .calendar-heading {
@@ -57,23 +57,23 @@
             color: $brown;
         }
     }
-}
 
-.calendar-active {
-    background-color: $orange;
-    @include box-sizing(border-box);
-    color: $white;
-    display: block;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: .8em 0;
-    text-decoration: none;
-    width: 100%;
-    z-index: -1;
+    a {
+        background-color: $orange;
+        @include box-sizing(border-box);
+        color: $white;
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: .8em 0;
+        text-decoration: none;
+        width: 100%;
+        z-index: -1;
+    }
 }
 
 #calendar-prev {
