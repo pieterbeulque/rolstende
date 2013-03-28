@@ -11,3 +11,7 @@
 .gmnoprint {
     display: none;
 }
+
+#map_canvas > div > div:first-child + div {
+    display: none;
+}
