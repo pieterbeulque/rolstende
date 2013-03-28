@@ -173,18 +173,23 @@ SlidingView.prototype.unbindEvents = function () {
 };
 
 SlidingView.prototype.getTouchCoordinates = function (event) {
+    var coords = {x: 0, y: 0};
     if (this.touchSupported) {
         var touchEvent = event.touches[0];
-        return {x: touchEvent.pageX, y: touchEvent.pageY};
+        coords.x = touchEvent.pageX;
+        coords.y = touchEvent.pageY;
     } else {
-        return {x: event.screenX, y: event.screenY};
+        coords.x = event.screenX;
+        coords.y = event.screenY;
     }
+    return coords;
 };
 
 SlidingView.prototype.resizeContent = function () {
     this.body.width($(window).width());
 
     // Set every sidebar item to 33% height
+    $('.sidebar, .sidebar ul').height($(window).height());
     $('.sidebar ul li').each(function () {
         $(this).css({'height': '34%'});
         $(this).css('height', $(this).height());
