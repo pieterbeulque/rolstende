@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
+=======
+>>>>>>> Cleanup
 <<<<<<< HEAD
 /*
 Syntax error: Invalid CSS after "...DIN Condensed';": expected "}", was "<<<<<<< HEAD"
@@ -46,7 +49,13 @@ Backtrace:
 =======
 <<<<<<< HEAD
 /* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+<<<<<<< HEAD
 >>>>>>> Geen idee
+=======
+=======
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
+>>>>>>> Cleanup
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -69,44 +78,61 @@ time, mark, audio, video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 /* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 html {
   line-height: 1;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 /* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 ol, ul {
   list-style: none;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 /* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 /* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
@@ -120,25 +146,40 @@ q, blockquote {
 }
 /* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 /* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 a img {
   border: none;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 /* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Geen idee
+=======
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Cleanup
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -1742,7 +1783,10 @@ a {
   transform: perspective(600px) translateZ(1px) !important;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> Cleanup
 =======
 /*
 Syntax error: Invalid CSS after "    margin-top: ": expected expression (e.g. 1px, bold), was ":;em;"
@@ -1828,4 +1872,9 @@ body:before {
   content: "Syntax error: Invalid CSS after \"    margin-top: \": expected expression (e.g. 1px, bold), was \":;em;\"\A         on line 4 of /Applications/MAMP/htdocs/maiv_oostende/app/src/scss/modules/_calendar.scss\A         from line 249 of /Applications/MAMP/htdocs/maiv_oostende/app/src/scss/style.scss\A \A 1: /Applications/MAMP/htdocs/maiv_oostende/app/src/scss/style.scss"; }
 >>>>>>> Geen idee
 >>>>>>> Geen idee
+<<<<<<< HEAD
 >>>>>>> Geen idee
+=======
+=======
+>>>>>>> Cleanup
+>>>>>>> Cleanup
