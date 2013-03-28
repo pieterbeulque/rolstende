@@ -33,6 +33,67 @@ input[type="submit"] {
     margin-bottom: 30px;
 }
 
+input[type="checkbox"], input[type="checkbox"]:checked{
+    -webkit-appearance: none;
+    display: none;
+    background-color: transparent;
+
+
+}
+
+#map-filter {
+    font-family: 'DIN Condensed';
+    font-size: 0.85em;
+    letter-spacing: -0.7px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $red;
+    @include clearfix;
+
+    label {
+        display: block;
+        padding-left: 20px;    
+        width: 16px;
+        height: 14px;
+        background-size: contain; 
+        background-repeat: no-repeat;
+     
+    }
+    
+    input[type="checkbox"] + label {
+        background-image: url('../img/checkbox_unchecked.png');
+    }
+    input[type="checkbox"]:checked + label {
+         background-image: url('../img/checkbox_checked.png');    
+    }
+
+    div.small, div.wide {
+        box-sizing: border-box;
+        background-color: $white;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-left: 5px;
+        float: left;
+        border-top: 3px solid $red;
+        border-left: 3px solid $red;
+    }
+    .small {
+        width: 40%;
+    }
+    .wide {
+        width: 60%;
+        border-right: 3px solid $red;
+    }
+
+    .hasborder {
+         border-bottom: 3px solid $red;
+    }
+   
+}
+
+
 ::-webkit-input-placeholder {
     color: $blue;
     font-family: 'Bitter';

@@ -43,16 +43,47 @@
                 <div class="switch"><a href="#"></a></div>
             </header>
 
+  
             <div id="map_canvas"></div>
-            <form action="#">
-                <fieldset>
-                    <input type="checkbox" class="changeMap" checked="checked" name="hotels" value="hotels">Hotels<br/>
-                    <input type="checkbox" class="changeMap" checked="checked" name="wcs" value="wc">Wc's<br/>
-                    <input type="checkbox" class="changeMap" checked="checked" name="restaurants" value="restaurant">Restaurants<br/>
-                    <input type="checkbox" class="changeMap" checked="checked" name="pointsofinterest" value="pointofinterest">Bezienswaardigheden
-                </fieldset>
+            <div class="wide-container container">
+            <form action="#" id="map-filter">                   
+                   <div class="small">
+                        <input type="checkbox" class="changeMap" checked="checked" id="hotels" name="hotels" value="hotels">
+                        <label for="hotels">Hotels</label>
+                    </div>
+                    <div class="wide">
+                        <input type="checkbox" class="changeMap" checked="wcs" id="wcs" name="wcs" value="wcs">
+                        <label for="wcs">Toiletten</label>
+                    </div>
+                    <div class="small hasborder">
+                        <input type="checkbox" class="changeMap" checked="checked" id="restaurants" name="restaurants" value="restaurants">
+                        <label for="restaurants">restaurants</label>
+                    </div>
+                        <div class="wide hasborder" >
+                        <input type="checkbox" class="changeMap"  id="bezienswaardigheden" name="bezienswaardigheden" value="bezienswaardigheden">
+                        <label for="bezienswaardigheden">bezienswaardigheden</label>
+                    </div>
+            
             </form>
+            <div class="results red">
+                    <div class="detail-view">
+                        <h2>Voorbeeldevenement</h2>
+                        <img src="img/photos/noimage.jpg" />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore officiis omnis ad tempora nobis!
+                        </p>
+                        <div class="location">
+                            <p class="address">
+                                Schoolkaai 40,<br />
+                                8400 Oostende<br />
+                                0472 89 52 43
+                            </p>
+                            <a href="maps:ll=38.870454,-77.055702&z=10" title="" class="button maps-button">Toon in Maps</a>
+                        </div>
+                    </div>
+                </div>
         </div>
+    </div>
     </div>
 
     
