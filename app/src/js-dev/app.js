@@ -39,10 +39,12 @@
 
     var loadInfo = function () {
         var dropdown = new Dropdown();
+        var validate = new Validate();
     };
 
     var loadCalendar = function () {
         var calendar = new Calendar($('#calendar'));
+        var validate = new Validate();
 
         $('#calendar-prev').on('click', function () {
             calendar.previousMonth();
@@ -208,6 +210,8 @@
 
     var init = function () {
         loadIndex();
+
+     
 
         loadSidebar();
         initNavigation();
