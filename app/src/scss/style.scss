@@ -35,24 +35,27 @@ body {
         display: block;
         position: relative;
 
-
             div.logo-back {
                 position: absolute;
                 top: 15px;
                 width: 106px;
                 height: 99px;
-                 background: url("../img/logo_back.png") no-repeat 0 0;
-                 background-size: 100%;
-
+                background: url("../img/logo_back.png") no-repeat 0 0;
+                background-size: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
             }
+
             div.logo-front {
                 position: absolute;
                 top: 15px;
                 left: 0;
-                 width: 106px;
+                width: 106px;
                 height: 99px;
-                 background: url("../img/logo_front.png") no-repeat 0 0;
-                  background-size: 100%;
+                background: url("../img/logo_front.png") no-repeat 0 0;
+                background-size: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
             }
 
             .boat {
@@ -66,15 +69,19 @@ body {
                 color: #333;
                 width: 121px;
                 height: 35px;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
             }
 
             .boat-container {
-            position: absolute;
-            top: 43px;
-            left: 42px;
-            -webkit-animation: logo-animatie 3s infinite ease-in-out;
-            width: 20px;
-            -webkit-transform-origin: bottom;
+                position: absolute;
+                top: 43px;
+                left: 42px;
+                -webkit-animation: logo-animatie 3s infinite ease-in-out;
+                width: 20px;
+                -webkit-transform-origin: bottom;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
             }
 
     }
@@ -101,14 +108,14 @@ body {
     }
 
     .info {
-            width: 32px;
-            height: 32px;
-            background: url(../img/info.png) no-repeat;
-            background-size: 100%;
-            position: absolute;
-            right: 10px;
-            top: 100%;
-            margin-top: -15px;
+        width: 32px;
+        height: 32px;
+        background: url(../img/info.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        right: 10px;
+        top: 100%;
+        margin-top: -15px;
     }
 
     .switch {
@@ -142,13 +149,10 @@ body {
     margin: 60px auto 0 auto;
     background: url(../img/anchors.png) no-repeat 0px 3px;
     @include background-size(100%);
-
-    p {
-        color: $brown;
-        font-family: 'DIN Condensed';
-        text-transform: uppercase;
-        text-align: center;
-    }
+    color: $brown;
+    font-family: 'DIN Condensed';
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .container {
