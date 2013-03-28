@@ -7,8 +7,6 @@ var Calendar = (function () {
         this.today = new Date();
         this.counter = new Date();
 
-        console.log(this);
-
         this.fillTable();
     };
 

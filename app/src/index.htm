@@ -5,6 +5,7 @@
     <title>Rolstende</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter:400,400italic,600" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -13,59 +14,18 @@
             <div id="noise"></div>
             <ul>
                 <li class="spots">
-                    <a href="#">Spots</a>
+                    <a href="#spots">Spots</a>
                 </li>
                 <li class="events">
-                    <a href="#">Events</a>
+                    <a href="#events">Events</a>
                 </li>
                 <li class="info">
-                    <a href="#">Info</a>
+                    <a href="#info">Info</a>
                 </li>
             </ul>
         </nav>
-        <div id="app" class="app">           
-            <header class="top">
-                <!-- <a href="#" class="nav-toggle">Menu</a> -->
-                <!-- <img src="img/logo.png" alt="logo_rolstende" title="Logo Rolstende" id="logo" /> -->
-                    <div id="logo">
-                        <div class="logo-back"></div>
-                        <div class="boat-container">
-                            <div class="boat">
-                                
-                            </div>
-                        </div>
-
-                        <div class="logo-front"></div>
-
-                    </div>
-
-                <div class="pull"><a href="#"></a></div>
-                <div class="switch"><a href="#"></a></div>
-            </header>
-
-            <div class="zoek">
-                <p>Ik zoek</p>
-            </div>
-
-            <div class="container">
-                <ul class="icon-grid">
-                    <li class="grid-item icon-hotels">
-                        <a href="#" title="">Hotels</a>
-                    </li>
-                    <li class="grid-item icon-restaurants">
-                        <a href="#" title="">Restaurants</a>
-                    </li>
-                    <li class="grid-item icon-toilets">
-                        <a href="#" title="" class="two-line">Openbare WC&rsquo;s</a>
-                    </li>
-                    <li class="grid-item icon-poi">
-                        <a href="#" title="" class="two-line">Beziens&#45;waardigheden</a>
-                    </li>
-                </ul>
-            </div>
-     
+        <div id="app" class="app">
         </div>
-        
     </div>
 
     <div id="overlay">
@@ -75,14 +35,230 @@
         </div>
     </div>
 
+    <!-- templates -->
+    <script id="headerTemplate" type="text/template">
+        <header class="top">
+            <div id="logo">
+                <div class="logo-back"></div>
+                <div class="boat-container">
+                <div class="boat"></div>
+                </div>
+                <div class="logo-front"></div>
+            </div>
+            <div class="pull"><a href="#"></a></div>
+            <div class="switch"><a href="#"></a></div>
+        </header>
+    </script>
+
+    <script id="indexTemplate" type="text/template">
+        {{>header}}
+
+        <div class="container">
+            <p class="zoek">Ik zoek</p>
+            <ul class="icon-grid">
+                <li class="grid-item icon-hotels">
+                    <a href="#" title="">Hotels</a>
+                </li>
+                <li class="grid-item icon-restaurants">
+                    <a href="#" title="">Restaurants</a>
+                </li>
+                <li class="grid-item icon-toilets">
+                    <a href="#" title="" class="two-line">Openbare WC&rsquo;s</a>
+                </li>
+                <li class="grid-item icon-poi">
+                    <a href="#" title="" class="two-line">Beziens&#45;waardigheden</a>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <script id="calendarTemplate" type="text/template">
+        {{>header}}
+
+        <div class="wide-container container">
+            <div class="calendar" id="calendar">
+                <div class="calendar-heading">
+                    <a href="#" title="" id="calendar-prev">Vorige maand</a>
+                    <h2>Maart 2013</h2>
+                    <a href="#" title="" id="calendar-next">Volgende maand</a>
+                </div>
+                <table class="calendar-table">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" title="" class="calendar-active"></a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="results">
+                <div class="detail-view">
+                    <h2>Voorbeeldevenement</h2>
+                    <img src="img/photos/noimage.jpg" />
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore officiis omnis ad tempora nobis!
+                    </p>
+                    <div class="location">
+                        <p class="address">
+                            Schoolkaai 40,<br />
+                            8400 Oostende<br />
+                            0472 89 52 43
+                        </p>
+                        <a href="maps:ll=38.870454,-77.055702&z=10" title="" class="button maps-button">Toon in Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="mapTemplate" type="text/template">
+        {{>header}}
+        <div id="map_canvas"></div>
+        <div class="wide-container container">
+            <form action="#" id="map-filter">
+               <div class="small">
+                    <input type="checkbox" class="changeMap" checked="checked" id="hotels" name="hotels" value="hotels">
+                    <label for="hotels">Hotels</label>
+                </div>
+                <div class="wide">
+                    <input type="checkbox" class="changeMap" checked="checked" id="wcs" name="wcs" value="wcs">
+                    <label for="wcs">Toiletten</label>
+                </div>
+                <div class="small hasborder">
+                    <input type="checkbox" class="changeMap" checked="checked" id="restaurants" name="restaurants" value="restaurants">
+                    <label for="restaurants">restaurants</label>
+                </div>
+                    <div class="wide hasborder" >
+                    <input type="checkbox" class="changeMap" checked="checked" id="bezienswaardigheden" name="pointsofinterest" value="bezienswaardigheden">
+                    <label for="bezienswaardigheden">bezienswaardigheden</label>
+                </div>
+            </form>
+            <div class="results red">
+                <div class="detail-view">
+                    <h2>Voorbeeldevenement</h2>
+                    <img src="img/photos/noimage.jpg" />
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore officiis omnis ad tempora nobis!
+                    </p>
+                    <div class="location">
+                        <p class="address">
+                            Schoolkaai 40,<br />
+                            8400 Oostende<br />
+                            0472 89 52 43
+                        </p>
+                        <a href="maps:ll=38.870454,-77.055702&z=10" title="" class="button maps-button">Toon in Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="infoTemplate" type="text/template">
+         <div id="dropdown-container">
+            <dl class="list maki">
+                <dt>Ontwikkeld door</dt>
+                <dd>Pieter Beulque</dd>
+                <dd>Thomas Degry</dd>
+                <dd>Tatiana Van Campenhout</dd>
+                <dd>a.k.a "Dreamteam"</dd>
+            </dl>
+        </div>
+        <header class="top">
+            <div id="logo">
+                <div class="logo-back"></div>
+                <div class="boat-container">
+                <div class="boat"></div>
+                </div>
+                <div class="logo-front"></div>
+            </div>
+            <div class="pull"><a href="#"></a></div>
+            <div class="info"><a href="#"></a></div>
+        </header>
+        <div class="wide-container container">
+            <p class="introduction">
+                Rolstende is een website ontwikkeld voor blablabla Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            </p>
+            <form>
+                <h2>Contacteer ons</h2>
+                <div>
+                    <span class="arrow"></span>
+                    <select>
+                        <option>Ik wil foutieve informatie melden</option>
+                        <option>Ik heb een vraag</option>
+                        <option>Ik wil een etablissement toevoegen</option>
+                        <option>Ik wil een openbare wc toevoegen</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="name">Mijn naam</label>
+                    <input type="text" name="name" id="name" placeholder="Mijn naam" />
+                </div>
+                <div>
+                    <label for="email">Mijn email</label>
+                    <input type="email" name="email" id="email" placeholder="Mijn email" />
+                </div>
+                <div>
+                    <label for="message">Mijn boodschap</label>
+                    <textarea name="message" id="message" placeholder="Mijn boodschap"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="" name="info-submit" />
+                </div>
+            </form>
+        </div>
+    </script>
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
         window.jQuery || document.write('<script type="text/javascript" src="js/libs/jquery.js"><\/script>');
     </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBju-W3HXeNU4_VTMZZhpWHR1_yvL4qiSU&amp;sensor=false"></script>
     <script type="text/javascript" src="js/vendors/jquery.animate-enhanced.js"></script>
-    <script type="text/javascript" src="js/vendors/slidingview.js"></script>
     <script type="text/javascript" src="js/vendors/oriDomi.js"></script>
+    <script type="text/javascript" src="js/vendors/slidingview.js"></script>
+    <script type="text/javascript" src="js/vendors/mustache.js"></script>
+    <script type="text/javascript" src="js/vendors/makisu.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -106,7 +106,7 @@ body {
   display: block;
   position: relative;
 }
-/* line 39, ../scss/style.scss */
+/* line 38, ../scss/style.scss */
 .top #logo div.logo-back {
   position: absolute;
   top: 15px;
@@ -114,8 +114,10 @@ body {
   height: 99px;
   background: url("../img/logo_back.png") no-repeat 0 0;
   background-size: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-/* line 48, ../scss/style.scss */
+/* line 49, ../scss/style.scss */
 .top #logo div.logo-front {
   position: absolute;
   top: 15px;
@@ -124,8 +126,10 @@ body {
   height: 99px;
   background: url("../img/logo_front.png") no-repeat 0 0;
   background-size: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-/* line 58, ../scss/style.scss */
+/* line 61, ../scss/style.scss */
 .top #logo .boat {
   position: absolute;
   top: 15px;
@@ -137,8 +141,10 @@ body {
   color: #333;
   width: 121px;
   height: 35px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-/* line 71, ../scss/style.scss */
+/* line 76, ../scss/style.scss */
 .top #logo .boat-container {
   position: absolute;
   top: 43px;
@@ -146,8 +152,10 @@ body {
   -webkit-animation: logo-animatie 3s infinite ease-in-out;
   width: 20px;
   -webkit-transform-origin: bottom;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-/* line 82, ../scss/style.scss */
+/* line 89, ../scss/style.scss */
 .top .pull {
   width: 33px;
   height: 29px;
@@ -157,18 +165,18 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 91, ../scss/style.scss */
+/* line 98, ../scss/style.scss */
 .top .pull a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 97, ../scss/style.scss */
+/* line 104, ../scss/style.scss */
 .top .pull.activef {
   background: url(../img/pull_02.png) no-repeat;
   background-size: 100%;
 }
-/* line 103, ../scss/style.scss */
+/* line 110, ../scss/style.scss */
 .top .info {
   width: 32px;
   height: 32px;
@@ -179,7 +187,7 @@ body {
   top: 100%;
   margin-top: -15px;
 }
-/* line 114, ../scss/style.scss */
+/* line 121, ../scss/style.scss */
 .top .switch {
   width: 82px;
   height: 31px;
@@ -192,19 +200,19 @@ body {
   margin-left: -85px;
   margin-top: -14px;
 }
-/* line 125, ../scss/style.scss */
+/* line 132, ../scss/style.scss */
 .top .switch a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 131, ../scss/style.scss */
+/* line 138, ../scss/style.scss */
 .top .switch.active {
   background: url(../img/switch_01.png) no-repeat;
   background-size: 100%;
 }
 
-/* line 139, ../scss/style.scss */
+/* line 146, ../scss/style.scss */
 .zoek {
   width: 85px;
   height: 15px;
@@ -214,27 +222,24 @@ body {
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
-}
-/* line 146, ../scss/style.scss */
-.zoek p {
   color: #331f14;
   font-family: 'DIN Condensed';
   text-transform: uppercase;
   text-align: center;
 }
 
-/* line 154, ../scss/style.scss */
+/* line 158, ../scss/style.scss */
 .container, .list-header {
   margin: 30px auto;
   width: 74%;
 }
 
-/* line 159, ../scss/style.scss */
+/* line 163, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
-/* line 163, ../scss/style.scss */
+/* line 167, ../scss/style.scss */
 .app {
   position: relative;
   background-image: url("../img/patterns/white-wood.png");
@@ -243,20 +248,20 @@ body {
   -o-background-size: 30%;
   background-size: 30%;
 }
-/* line 168, ../scss/style.scss */
+/* line 172, ../scss/style.scss */
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
 }
-/* line 172, ../scss/style.scss */
+/* line 176, ../scss/style.scss */
 .blue-wood .app {
   background-image: url("../img/patterns/blue-wood.png");
 }
-/* line 176, ../scss/style.scss */
+/* line 180, ../scss/style.scss */
 .orange-wood .app {
   background-image: url("../img/patterns/orange-wood.png");
 }
 
-/* line 181, ../scss/style.scss */
+/* line 185, ../scss/style.scss */
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
@@ -264,25 +269,25 @@ h2 {
   text-transform: uppercase;
 }
 
-/* line 188, ../scss/style.scss */
+/* line 192, ../scss/style.scss */
 p {
   font-size: .85em;
   line-height: 1.4;
   letter-spacing: -0.7px;
 }
-/* line 193, ../scss/style.scss */
+/* line 197, ../scss/style.scss */
 p a {
   color: #e96452;
   text-decoration: none;
 }
 
-/* line 199, ../scss/style.scss */
+/* line 203, ../scss/style.scss */
 .introduction {
   margin: 5em 0 2em;
   text-align: center;
 }
 
-/* line 204, ../scss/style.scss */
+/* line 208, ../scss/style.scss */
 #overlay {
   width: 100%;
   height: 100%;
@@ -292,24 +297,24 @@ p a {
   pointer-events: none;
   text-align: center;
 }
-/* line 212, ../scss/style.scss */
+/* line 216, ../scss/style.scss */
 #overlay img {
   padding-top: 40px;
   width: 50%;
 }
 
 @-webkit-keyframes logo-animatie {
-  /* line 221, ../scss/style.scss */
+  /* line 225, ../scss/style.scss */
   0% {
     -webkit-transform: rotate(-10deg);
   }
 
-  /* line 225, ../scss/style.scss */
+  /* line 229, ../scss/style.scss */
   50% {
     -webkit-transform: rotate(10deg);
   }
 
-  /* line 229, ../scss/style.scss */
+  /* line 233, ../scss/style.scss */
   100% {
     -webkit-transform: rotate(-10deg);
   }
@@ -560,6 +565,30 @@ span.arrow {
   height: 78px;
   margin: 0 auto;
   width: 123px;
+}
+
+/* line 13, ../scss/modules/_headings.scss */
+.heading-restaurants {
+  background-image: url("../img/heading-restaurants.png");
+  height: 77px;
+  margin: 0 auto;
+  width: 138px;
+}
+
+/* line 20, ../scss/modules/_headings.scss */
+.heading-bezienswaardigheden {
+  background-image: url("../img/heading-bezienswaardigheden.png");
+  height: 77px;
+  margin: 0 auto;
+  width: 201px;
+}
+
+/* line 27, ../scss/modules/_headings.scss */
+.heading-wcs {
+  background-image: url("../img/heading-wcs.png");
+  height: 78px;
+  margin: 0 auto;
+  width: 157px;
 }
 
 /* line 1, ../scss/modules/_icon-grid.scss */
@@ -847,12 +876,24 @@ span.arrow {
   width: 100%;
 }
 
-/* line 49, ../scss/modules/_list-view.scss */
+/* line 50, ../scss/modules/_list-view.scss */
+.list-view.blue
+.list-view-toggle {
+  color: #43a49b;
+}
+
+/* line 55, ../scss/modules/_list-view.scss */
+.list-view.orange
+.list-view-toggle {
+  color: #ec9128;
+}
+
+/* line 59, ../scss/modules/_list-view.scss */
 .list-detail-view {
   padding: .5em 5% 1em;
 }
 
-/* line 53, ../scss/modules/_list-view.scss */
+/* line 63, ../scss/modules/_list-view.scss */
 .list-view-annotation {
   background-image: url("../img/annotation.png");
   -webkit-background-size: 100%;
@@ -877,12 +918,12 @@ span.arrow {
   width: 65px;
 }
 
-/* line 72, ../scss/modules/_list-view.scss */
+/* line 82, ../scss/modules/_list-view.scss */
 .list-view-annotation-alternate {
   background-image: url("../img/annotation-alternate.png");
 }
 
-/* line 77, ../scss/modules/_list-view.scss */
+/* line 87, ../scss/modules/_list-view.scss */
 .detail-view .location {
   margin: 1em 0;
   font-style: italic;
@@ -893,13 +934,13 @@ span.arrow {
   background-position: 0 3px;
   position: relative;
 }
-/* line 88, ../scss/modules/_list-view.scss */
+/* line 98, ../scss/modules/_list-view.scss */
 .detail-view .maps-button {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 94, ../scss/modules/_list-view.scss */
+/* line 104, ../scss/modules/_list-view.scss */
 .detail-view img {
   border: 6px solid #fff;
   -webkit-box-sizing: border-box;
@@ -909,7 +950,7 @@ span.arrow {
   max-width: 100%;
 }
 
-/* line 102, ../scss/modules/_list-view.scss */
+/* line 112, ../scss/modules/_list-view.scss */
 .results {
   background-color: #f4f1e3;
   border: 3px solid #331f14;
@@ -917,7 +958,7 @@ span.arrow {
   padding: .5em 5%;
   position: relative;
 }
-/* line 112, ../scss/modules/_list-view.scss */
+/* line 122, ../scss/modules/_list-view.scss */
 .results:before, .results:after {
   content: " ";
   display: block;
@@ -929,25 +970,25 @@ span.arrow {
   top: -1.3rem;
   left: 20%;
 }
-/* line 123, ../scss/modules/_list-view.scss */
+/* line 133, ../scss/modules/_list-view.scss */
 .results.red {
   border: 3px solid #e96452;
 }
-/* line 126, ../scss/modules/_list-view.scss */
+/* line 136, ../scss/modules/_list-view.scss */
 .results.red:before, .results.red:after {
   background-color: #e96452;
 }
-/* line 131, ../scss/modules/_list-view.scss */
+/* line 141, ../scss/modules/_list-view.scss */
 .results:after {
   left: 80%;
 }
-/* line 135, ../scss/modules/_list-view.scss */
+/* line 145, ../scss/modules/_list-view.scss */
 .results h2 {
   color: #ec9128;
   font-size: 1.2em;
   margin-bottom: 1.5em;
 }
-/* line 141, ../scss/modules/_list-view.scss */
+/* line 151, ../scss/modules/_list-view.scss */
 .results .maps-button {
   background-image: url("../img/maps-button-orange.png");
 }
@@ -1104,6 +1145,7 @@ a {
   letter-spacing: -0.7px;
   font-weight: 800;
   text-transform: uppercase;
+  color: #e96452;
   /* Since we're hiding elements behind here, we need it in 3d */
   -webkit-transform: translateZ(0.3px);
   -moz-transform: translateZ(0.3px);
@@ -1116,24 +1158,15 @@ a {
 /* line 78, ../scss/modules/_dropdown.scss */
 .list dd {
   text-transform: none;
-  border-top: 1px dashed #331f14;
   line-height: 35px;
   font-size: 13px;
   height: 35px;
   margin: 0;
   letter-spacing: -0.7px;
 }
-/* line 87, ../scss/modules/_dropdown.scss */
-.list dd:first-of-type {
-  background-color: #ec9128;
-}
-/* line 90, ../scss/modules/_dropdown.scss */
-.list dd:nth-of-type(2n) {
-  background-color: #81ccc5;
-}
 
 /* No CSS 3D support warning */
-/* line 100, ../scss/modules/_dropdown.scss */
+/* line 91, ../scss/modules/_dropdown.scss */
 .warning {
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
@@ -1150,7 +1183,7 @@ a {
   top: 0;
 }
 
-/* line 118, ../scss/modules/_dropdown.scss */
+/* line 109, ../scss/modules/_dropdown.scss */
 .warning .message {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
   border-radius: 5px;
@@ -1168,39 +1201,28 @@ a {
   top: 50%;
 }
 
-/* line 136, ../scss/modules/_dropdown.scss */
+/* line 127, ../scss/modules/_dropdown.scss */
 .warning .message h1 {
   font-weight: 300;
   font-size: 14px;
 }
 
-/* line 142, ../scss/modules/_dropdown.scss */
+/* line 133, ../scss/modules/_dropdown.scss */
 .warning .message a {
   text-decoration: none;
   color: #73C8A9;
 }
 
-/* Individual styles */
-/* line 150, ../scss/modules/_dropdown.scss */
-.sashimi dt, .sashimi dd, .sashimi a {
-  background: #73C8A9;
-}
-
-/* line 151, ../scss/modules/_dropdown.scss */
-.nigiri dt, .nigiri dd, .nigiri a {
-  background: #E32551;
-}
-
-/* line 152, ../scss/modules/_dropdown.scss */
+/* line 139, ../scss/modules/_dropdown.scss */
 .maki dt {
-  background-image: url("../img/patterns/red-wood.png");
+  background-image: url("../img/patterns/white-wood.png");
   -webkit-background-size: 30%;
   -moz-background-size: 30%;
   -o-background-size: 30%;
   background-size: 30%;
 }
 
-/* line 156, ../scss/modules/_dropdown.scss */
+/* line 143, ../scss/modules/_dropdown.scss */
 .maki dd {
   background-image: url("../img/patterns/orange-wood.png");
   -webkit-background-size: 30%;
@@ -1208,23 +1230,20 @@ a {
   -o-background-size: 30%;
   background-size: 30%;
 }
-
-/* line 161, ../scss/modules/_dropdown.scss */
-.sashimi a:hover {
-  background: #61c19e;
+/* line 147, ../scss/modules/_dropdown.scss */
+.maki dd.blue {
+  background-image: url("../img/patterns/blue-wood.png");
+}
+/* line 150, ../scss/modules/_dropdown.scss */
+.maki dd.red {
+  background-image: url("../img/patterns/red-wood.png");
+}
+/* line 153, ../scss/modules/_dropdown.scss */
+.maki dd.brown {
+  background-image: url("../img/patterns/brown-wood.png");
 }
 
-/* line 162, ../scss/modules/_dropdown.scss */
-.nigiri a:hover {
-  background: #d31b46;
-}
-
-/* line 163, ../scss/modules/_dropdown.scss */
-.maki a:hover {
-  background: #d65345;
-}
-
-/* line 165, ../scss/modules/_dropdown.scss */
+/* line 160, ../scss/modules/_dropdown.scss */
 .maki {
   -webkit-transform: perspective(600px) translateZ(1px) !important;
   -moz-transform: perspective(600px) translateZ(1px) !important;

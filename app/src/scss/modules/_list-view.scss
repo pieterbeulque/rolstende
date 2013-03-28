@@ -46,6 +46,16 @@
     width: 100%;
 }
 
+.list-view.blue 
+.list-view-toggle {
+       color: darken($blue, 20); 
+}
+
+.list-view.orange 
+.list-view-toggle {
+       color: $orange;
+}
+
 .list-detail-view {
     padding: .5em 5% 1em;
 }
