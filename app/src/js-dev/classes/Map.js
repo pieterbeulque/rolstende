@@ -22,7 +22,7 @@ var RolstendeMap = (function () {
         }
 
         $(".changeMap").change(function() {
-            that.checkMarkers();
+            google.maps.event.addDomListener(window, "load", that.checkMarkers);
         });
     };
 

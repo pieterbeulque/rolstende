@@ -303,7 +303,7 @@ var RolstendeMap = (function () {
         }
 
         $(".changeMap").change(function() {
-            that.checkMarkers();
+            google.maps.event.addDomListener(window, "load", that.checkMarkers);
         });
     };
 
@@ -490,12 +490,7 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-<<<<<<< HEAD
         this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-=======
-        // this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-        this.api = 'http://192.168.2.4/rolstende/api/';
->>>>>>> 2e00fb2454a31736c7e2d29315714919686d4fb5
     };
 
     return Settings;
@@ -709,7 +704,9 @@ var Validate = (function () {
     };
 
     var loadMap = function () {
-        var map = new RolstendeMap($('#map_canvas'));
+        if($(".switch-button").hasClass('active')) {
+            var map = new RolstendeMap($('#map_canvas'));
+        }
     };
 
     var loadInfo = function () {
@@ -864,8 +861,9 @@ var Validate = (function () {
             return false;
         });
 
-        $("#app").on('click', '.switch', function() {
-            if($(this).hasClass('active')) {
+        $("#app").on('click', '.switch-button a', function() {
+            console.log('click');
+            if($(this).parent().hasClass('active')) {
                 loadIndex();
             } else {
                 var template,
@@ -885,8 +883,6 @@ var Validate = (function () {
 
     var init = function () {
         loadIndex();
-
-     
 
         loadSidebar();
         initNavigation();

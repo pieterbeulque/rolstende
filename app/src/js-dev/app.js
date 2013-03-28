@@ -34,7 +34,9 @@
     };
 
     var loadMap = function () {
-        var map = new RolstendeMap($('#map_canvas'));
+        if($(".switch-button").hasClass('active')) {
+            var map = new RolstendeMap($('#map_canvas'));
+        }
     };
 
     var loadInfo = function () {
@@ -189,8 +191,9 @@
             return false;
         });
 
-        $("#app").on('click', '.switch', function() {
-            if($(this).hasClass('active')) {
+        $("#app").on('click', '.switch-button a', function() {
+            console.log('click');
+            if($(this).parent().hasClass('active')) {
                 loadIndex();
             } else {
                 var template,
@@ -210,8 +213,6 @@
 
     var init = function () {
         loadIndex();
-
-     
 
         loadSidebar();
         initNavigation();
