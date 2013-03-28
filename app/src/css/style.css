@@ -530,6 +530,13 @@ span.arrow {
   top: 13px;
 }
 
+/* line 125, ../scss/modules/_form.scss */
+.succes {
+  color: #81ccc5;
+  letter-spacing: -0.7px;
+  line-height: 1.5em;
+}
+
 /* line 1, ../scss/modules/_buttons.scss */
 .back-button {
   background: url("../img/back-button.png");
@@ -1127,18 +1134,8 @@ span.arrow {
   display: none;
 }
 
-/* line 15, ../scss/modules/_dropdown.scss */
-a {
-  -webkit-transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  -moz-transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  -ms-transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  -o-transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  text-decoration: none;
-}
-
 /* List styles */
-/* line 28, ../scss/modules/_dropdown.scss */
+/* line 17, ../scss/modules/_dropdown.scss */
 .list {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -1150,18 +1147,18 @@ a {
   width: 100%;
 }
 
-/* line 41, ../scss/modules/_dropdown.scss */
+/* line 30, ../scss/modules/_dropdown.scss */
 .list a {
   display: block;
   color: #fff;
 }
 
-/* line 47, ../scss/modules/_dropdown.scss */
+/* line 36, ../scss/modules/_dropdown.scss */
 .list a:hover {
   text-indent: 20px;
 }
 
-/* line 51, ../scss/modules/_dropdown.scss */
+/* line 40, ../scss/modules/_dropdown.scss */
 .list dt, .list dd {
   text-indent: 10px;
   line-height: 55px;
@@ -1171,7 +1168,7 @@ a {
   color: #fff;
 }
 
-/* line 62, ../scss/modules/_dropdown.scss */
+/* line 51, ../scss/modules/_dropdown.scss */
 .list dt {
   font-family: 'DIN Condensed';
   font-size: 1.3em;
@@ -1188,7 +1185,7 @@ a {
   background-image: url("../img/patterns/red-wood.png");
 }
 
-/* line 79, ../scss/modules/_dropdown.scss */
+/* line 68, ../scss/modules/_dropdown.scss */
 .list dd {
   text-transform: none;
   line-height: 35px;
@@ -1199,7 +1196,7 @@ a {
 }
 
 /* No CSS 3D support warning */
-/* line 92, ../scss/modules/_dropdown.scss */
+/* line 81, ../scss/modules/_dropdown.scss */
 .warning {
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
@@ -1216,7 +1213,7 @@ a {
   top: 0;
 }
 
-/* line 110, ../scss/modules/_dropdown.scss */
+/* line 99, ../scss/modules/_dropdown.scss */
 .warning .message {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
   border-radius: 5px;
@@ -1234,19 +1231,19 @@ a {
   top: 50%;
 }
 
-/* line 128, ../scss/modules/_dropdown.scss */
+/* line 117, ../scss/modules/_dropdown.scss */
 .warning .message h1 {
   font-weight: 300;
   font-size: 14px;
 }
 
-/* line 134, ../scss/modules/_dropdown.scss */
+/* line 123, ../scss/modules/_dropdown.scss */
 .warning .message a {
   text-decoration: none;
   color: #73C8A9;
 }
 
-/* line 140, ../scss/modules/_dropdown.scss */
+/* line 129, ../scss/modules/_dropdown.scss */
 .maki dt {
   background-image: url("../img/patterns/white-wood.png");
   -webkit-background-size: 30%;
@@ -1255,7 +1252,7 @@ a {
   background-size: 30%;
 }
 
-/* line 144, ../scss/modules/_dropdown.scss */
+/* line 133, ../scss/modules/_dropdown.scss */
 .maki dd {
   background-image: url("../img/patterns/orange-wood.png");
   -webkit-background-size: 30%;
@@ -1263,20 +1260,20 @@ a {
   -o-background-size: 30%;
   background-size: 30%;
 }
-/* line 148, ../scss/modules/_dropdown.scss */
+/* line 137, ../scss/modules/_dropdown.scss */
 .maki dd.blue {
   background-image: url("../img/patterns/blue-wood.png");
 }
-/* line 151, ../scss/modules/_dropdown.scss */
+/* line 140, ../scss/modules/_dropdown.scss */
 .maki dd.red {
   background-image: url("../img/patterns/red-wood.png");
 }
-/* line 154, ../scss/modules/_dropdown.scss */
+/* line 143, ../scss/modules/_dropdown.scss */
 .maki dd.brown {
   background-image: url("../img/patterns/brown-wood.png");
 }
 
-/* line 161, ../scss/modules/_dropdown.scss */
+/* line 150, ../scss/modules/_dropdown.scss */
 .maki {
   -webkit-transform: perspective(600px) translateZ(1px) !important;
   -moz-transform: perspective(600px) translateZ(1px) !important;

@@ -6,10 +6,10 @@ var Validate = (function () {
 
         var that = this;
 
-        $('#contactform #name').blur(function () {
+        $('#contactform #name, #subscribeform #name').blur(function () {
             that.checkTwoCharacters($(this).val(), $(this));
         });
-        $('#contactform #name').keyup(function () {
+        $('#contactform #name, #subscribeform #name').keyup(function () {
             that.checkTwoCharacters($(this).val(), $(this));
         });
 
@@ -22,15 +22,17 @@ var Validate = (function () {
         });
 
 
-        $('#contactform #email').blur(function(){
+        $('#contactform #email, #subscribeform #email').blur(function(){
             that.checkValidEmail($(this).val(), $(this));
         });
-        $('#contactform #email').keyup(function(){
+        $('#contactform #email, #subscribeform #email').keyup(function(){
             that.checkValidEmail($(this).val(), $(this));
         });
 
-        $('#contactform').submit(function(){
-            that.submitForm($(this));
+        $('#contactform, #subscribeform').submit(function(){
+            that.submitForm($(this), $(this).attr("id"));
+
+            return false;
         });
         
     };
@@ -112,12 +114,28 @@ var Validate = (function () {
     }
 
 
-    Validate.prototype.submitForm = function(element){
+    Validate.prototype.submitForm = function(element, id){
         element.find('input, textarea').blur();
 
         if (element.find('.error').length >0){
             return false;
         }else{
+          console.log(id);
+           if (id === "subscribeform"){
+                console.log("ingeschreven");
+                $(element).fadeOut(300).html('<h2>Inschrijven voor nieuwsbrief</h2><div class="succes">Je bent succesvol ingeschreven voor de nieuwsbrief.</div>')
+                $(element).delay(300).fadeIn(300);
+                
+
+                return false;
+            }else if (id === "contactform"){
+               console.log("mailtje gestuurd");
+               console.log("ingeschreven");
+                $(element).fadeOut(300).html('<h2>Contacteer ons</h2><div class="succes">Je boodschap is succesvol verstuurd.</div>')
+                $(element).delay(300).fadeIn(300);
+                return false;
+            }
+
             return true;
         }
 

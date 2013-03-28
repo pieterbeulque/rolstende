@@ -40,6 +40,7 @@
 
     var loadCalendar = function () {
         var calendar = new Calendar($('#calendar'));
+        var validate = new Validate();
 
         $('#calendar-prev').on('click', function () {
             calendar.previousMonth();
