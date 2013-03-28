@@ -1,7 +1,7 @@
 (function () {
-
+    var sv;
     var loadSidebar = function () {
-        var sv = new SlidingView( 'sidebar', 'app' );
+        sv = new SlidingView( 'sidebar', 'app' );
 
         sv.sidebar.oriDomi({ hPanels: 1, vPanels: 2, speed:1, perspective:1000, shadingIntensity:2 });
         sv.sidebar.oriDomi('accordion', 45);
@@ -27,6 +27,10 @@
                 sv.sidebar.oriDomi( 'restoreDOM' );
             }
         });
+
+        $("#app").on('click', function() {
+            sv.close();
+        });
     };
 
     var loadMap = function () {
@@ -51,8 +55,13 @@
         });
     };
 
+    var listView = function() {
+        var listview = new Listview($(".list-view"));
+    }
+
     var initNavigation = function () {
         $('#app-wrapper').on('click', '#sidebar a', function (e) {
+            $('body').attr('class', '');
             var template,
                 partials = {
                     header: $('#headerTemplate').html()
@@ -81,7 +90,7 @@
                     loadInfo();
                     break;
             }
-
+            $('#app').click();
             return false;
         });
 
@@ -100,14 +109,6 @@
                 case '#list-wcs':
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'wcs',
@@ -115,6 +116,7 @@
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     $('body').attr('class', '').addClass('blue-wood');
@@ -123,21 +125,14 @@
                 case '#list-poi':
                     info.headingClass = 'heading-bezienswaardigheden';
                     info.color = 'orange';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $.ajax({
                         type: 'get',
-                        url: settings.api + 'points_of_interest',
+                        url: settings.api + 'pointsofinterest',
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     $('body').attr('class', '').addClass('orange-wood');
@@ -146,14 +141,6 @@
                 case '#list-restaurants':
                     info.headingClass = 'heading-restaurants';
                     info.color = 'blue';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $('body').attr('class', '').addClass('blue-wood');
                     $.ajax({
                         type: 'get',
@@ -162,6 +149,7 @@
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     break;
@@ -169,14 +157,6 @@
                 case '#list-hotels':
                     info.headingClass = 'heading-hotels';
                     info.color = 'red';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'hotels',
@@ -184,6 +164,7 @@
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     $('body').attr('class', '').addClass('red-wood');
@@ -193,7 +174,6 @@
 
             html = Mustache.to_html(template, info, partials);
             $('#app').html(html);
-
             return false;
         });
 

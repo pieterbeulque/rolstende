@@ -83,6 +83,10 @@
     background-image: url('../img/annotation-alternate.png');
 }
 
+.list-view .detail-view {
+    display: none;
+}
+
 .detail-view {
     .location {
         margin: 1em 0;

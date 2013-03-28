@@ -144,6 +144,41 @@ var Dropdown = (function () {
     return Dropdown;
 })();
 
+var Listview = (function() {
+
+    var Listview = function(element) {
+        console.log(element);
+        this.element = element;
+        this.active;
+        var that = this;
+
+        element.on('click', 'li header', function(event) {
+            that.open($(this).parent());
+            return false;
+        });
+    };
+
+    Listview.prototype.open = function(element) {
+        if(this.active != null) {
+            this.active.find('.detail-view').slideUp(500);
+        }
+
+        if(element.hasClass('is-active')) {
+            $('.is-active').removeClass('is-active');
+            return false;
+        }
+
+        $('.is-active').removeClass('is-active');
+
+        this.active = element;
+        this.active.addClass('is-active');
+        element.find('.detail-view').slideDown(700);
+    };
+
+    return Listview;
+
+}());
+
 var RolstendeMap = (function () {
 
     var RolstendeMap = function (element) {
@@ -363,9 +398,9 @@ var Settings =(function () {
 })();
 
 (function () {
-
+    var sv;
     var loadSidebar = function () {
-        var sv = new SlidingView( 'sidebar', 'app' );
+        sv = new SlidingView( 'sidebar', 'app' );
 
         sv.sidebar.oriDomi({ hPanels: 1, vPanels: 2, speed:1, perspective:1000, shadingIntensity:2 });
         sv.sidebar.oriDomi('accordion', 45);
@@ -391,6 +426,10 @@ var Settings =(function () {
                 sv.sidebar.oriDomi( 'restoreDOM' );
             }
         });
+
+        $("#app").on('click', function() {
+            sv.close();
+        });
     };
 
     var loadMap = function () {
@@ -415,8 +454,13 @@ var Settings =(function () {
         });
     };
 
+    var listView = function() {
+        var listview = new Listview($(".list-view"));
+    }
+
     var initNavigation = function () {
         $('#app-wrapper').on('click', '#sidebar a', function (e) {
+            $('body').attr('class', '');
             var template,
                 partials = {
                     header: $('#headerTemplate').html()
@@ -445,7 +489,7 @@ var Settings =(function () {
                     loadInfo();
                     break;
             }
-
+            $('#app').click();
             return false;
         });
 
@@ -464,14 +508,6 @@ var Settings =(function () {
                 case '#list-wcs':
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'wcs',
@@ -479,6 +515,7 @@ var Settings =(function () {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     $('body').attr('class', '').addClass('blue-wood');
@@ -487,21 +524,14 @@ var Settings =(function () {
                 case '#list-poi':
                     info.headingClass = 'heading-bezienswaardigheden';
                     info.color = 'orange';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $.ajax({
                         type: 'get',
-                        url: settings.api + 'points_of_interest',
+                        url: settings.api + 'pointsofinterest',
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     $('body').attr('class', '').addClass('orange-wood');
@@ -510,14 +540,6 @@ var Settings =(function () {
                 case '#list-restaurants':
                     info.headingClass = 'heading-restaurants';
                     info.color = 'blue';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $('body').attr('class', '').addClass('blue-wood');
                     $.ajax({
                         type: 'get',
@@ -526,6 +548,7 @@ var Settings =(function () {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     break;
@@ -533,14 +556,6 @@ var Settings =(function () {
                 case '#list-hotels':
                     info.headingClass = 'heading-hotels';
                     info.color = 'red';
-                    info.results = [{
-                        name: 'Test',
-                        description: 'Mustache',
-                        address: 'Schoolkaai 40',
-                        phone: '0579608770',
-                        latitude: 2,
-                        longitude: 2
-                    }];
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'hotels',
@@ -548,6 +563,7 @@ var Settings =(function () {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
+                            listView();
                         }
                     });
                     $('body').attr('class', '').addClass('red-wood');
@@ -557,7 +573,6 @@ var Settings =(function () {
 
             html = Mustache.to_html(template, info, partials);
             $('#app').html(html);
-
             return false;
         });
 

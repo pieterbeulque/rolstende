@@ -923,7 +923,12 @@ span.arrow {
   background-image: url("../img/annotation-alternate.png");
 }
 
-/* line 87, ../scss/modules/_list-view.scss */
+/* line 86, ../scss/modules/_list-view.scss */
+.list-view .detail-view {
+  display: none;
+}
+
+/* line 91, ../scss/modules/_list-view.scss */
 .detail-view .location {
   margin: 1em 0;
   font-style: italic;
@@ -934,13 +939,13 @@ span.arrow {
   background-position: 0 3px;
   position: relative;
 }
-/* line 98, ../scss/modules/_list-view.scss */
+/* line 102, ../scss/modules/_list-view.scss */
 .detail-view .maps-button {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 104, ../scss/modules/_list-view.scss */
+/* line 108, ../scss/modules/_list-view.scss */
 .detail-view img {
   border: 6px solid #fff;
   -webkit-box-sizing: border-box;
@@ -950,7 +955,7 @@ span.arrow {
   max-width: 100%;
 }
 
-/* line 112, ../scss/modules/_list-view.scss */
+/* line 116, ../scss/modules/_list-view.scss */
 .results {
   background-color: #f4f1e3;
   border: 3px solid #331f14;
@@ -958,7 +963,7 @@ span.arrow {
   padding: .5em 5%;
   position: relative;
 }
-/* line 122, ../scss/modules/_list-view.scss */
+/* line 126, ../scss/modules/_list-view.scss */
 .results:before, .results:after {
   content: " ";
   display: block;
@@ -970,25 +975,25 @@ span.arrow {
   top: -1.3rem;
   left: 20%;
 }
-/* line 133, ../scss/modules/_list-view.scss */
+/* line 137, ../scss/modules/_list-view.scss */
 .results.red {
   border: 3px solid #e96452;
 }
-/* line 136, ../scss/modules/_list-view.scss */
+/* line 140, ../scss/modules/_list-view.scss */
 .results.red:before, .results.red:after {
   background-color: #e96452;
 }
-/* line 141, ../scss/modules/_list-view.scss */
+/* line 145, ../scss/modules/_list-view.scss */
 .results:after {
   left: 80%;
 }
-/* line 145, ../scss/modules/_list-view.scss */
+/* line 149, ../scss/modules/_list-view.scss */
 .results h2 {
   color: #ec9128;
   font-size: 1.2em;
   margin-bottom: 1.5em;
 }
-/* line 151, ../scss/modules/_list-view.scss */
+/* line 155, ../scss/modules/_list-view.scss */
 .results .maps-button {
   background-image: url("../img/maps-button-orange.png");
 }

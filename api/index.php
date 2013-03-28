@@ -181,7 +181,7 @@ $app->get('/wcs', function () {
     die($output);
 });
 
-$app->get('/wc/:id', function ($id) {
+$app->get('/wcs/:id', function ($id) {
     $wcs = new Wcs();
     die(json_encode($wcs->findById($id)));
 });

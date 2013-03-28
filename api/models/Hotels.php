@@ -54,6 +54,10 @@ class Hotels extends BaseModel
 
     public function getAll ()
     {
-        return $this->dbh->select('*', $this->table);
+        $sql = 'SELECT rolstende_hotels.*, rolstende_hotels_photos.path FROM rolstende_hotels, rolstende_hotels_photos WHERE rolstende_hotels_photos.hotel_id = rolstende_hotels.id';
+        $query = new \Riff\Database\Query($sql);
+        $result = $this->dbh->execute($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
     }
 }

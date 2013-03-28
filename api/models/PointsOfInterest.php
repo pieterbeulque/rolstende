@@ -53,6 +53,10 @@ class PointsOfInterest extends BaseModel
 
     public function getAll ()
     {
-        return $this->dbh->select('*', $this->table);
+        $sql = 'SELECT rolstende_points_of_interest.*, rolstende_points_of_interest_photos.path FROM rolstende_points_of_interest, rolstende_points_of_interest_photos WHERE rolstende_points_of_interest_photos.point_of_interest_id = rolstende_points_of_interest.id';
+        $query = new \Riff\Database\Query($sql);
+        $result = $this->dbh->execute($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
     }
 }

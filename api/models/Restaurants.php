@@ -53,6 +53,10 @@ class Restaurants extends BaseModel
 
     public function getAll ()
     {
-        return $this->dbh->select('*', $this->table);
+        $sql = 'SELECT rolstende_restaurants.*, rolstende_restaurants_photos.path FROM rolstende_restaurants, rolstende_restaurants_photos WHERE rolstende_restaurants_photos.restaurant_id = rolstende_restaurants.id';
+        $query = new \Riff\Database\Query($sql);
+        $result = $this->dbh->execute($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
     }
 }
