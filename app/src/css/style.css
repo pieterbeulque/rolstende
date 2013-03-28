@@ -319,6 +319,11 @@ p a {
   }
 }
 
+/* line 235, ../scss/style.scss */
+.hide {
+  display: none;
+}
+
 /* line 1, ../scss/modules/_map.scss */
 #map_canvas {
   width: 100%;

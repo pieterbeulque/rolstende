@@ -14,6 +14,7 @@ class Event extends BaseModel
     public $description;
     public $latitude;
     public $longitude;
+    public $path;
 
     public function __construct ()
     {
@@ -25,8 +26,10 @@ class Event extends BaseModel
     public function findById ($id)
     {
         try {
+            $sql = 'SELECT rolstende_events.*, rolstende_events_photos.path FROM rolstende_events, rolstende_events_photos WHERE rolstende_events_photos.id = :id AND rolstende_events_photos.event_id = rolstende_events.id LIMIT 1';
+            $query = new \Riff\Database\Query($sql, array('id' => $id));
+            $result = $this->dbh->execute($query)->fetch(\PDO::FETCH_ASSOC);
 
-            $result = $this->dbh->select('*', $this->table, array('id' => $id), 1);
             $this->id = (int) $result['id'];
             $this->start = $result['start'];
             $this->end = $result['end'];
@@ -35,6 +38,7 @@ class Event extends BaseModel
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
             $this->address = $result['address'];
+            $this->path = $result['path'];
 
 
         } catch (\Exception $e) {
@@ -45,6 +49,7 @@ class Event extends BaseModel
             $this->latitude = 0.0;
             $this->longitude = 0.0;
             $this->description = '';
+            $this->path = 'noimage.jpg';
         }
 
         return $this;

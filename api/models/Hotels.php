@@ -13,7 +13,7 @@ class Hotels extends BaseModel
     public $latitude;
     public $longitude;
     public $description;
-
+    public $path;
 
     public function __construct ()
     {
@@ -26,7 +26,9 @@ class Hotels extends BaseModel
     public function findById ($id)
     {
         try {
-            $result = $this->dbh->select('*', $this->table, array('id' => $id), 1);
+            $sql = 'SELECT rolstende_hotels.*, rolstende_hotels_photos.path FROM rolstende_hotels, rolstende_hotels_photos WHERE rolstende_hotels.id = :id AND rolstende_hotels_photos.hotel_id = rolstende_hotels.id LIMIT 1';
+            $query = new \Riff\Database\Query($sql, array('id' => $id));
+            $result = $this->dbh->execute($query)->fetch(\PDO::FETCH_ASSOC);
 
             $this->id = (int) $result['id'];
             $this->name = $result['name'];
@@ -35,8 +37,7 @@ class Hotels extends BaseModel
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
             $this->available = $result['available'];
-
-           
+            $this->path = $result['path'];
 
         } catch (\Exception $e) {
             $this->id = 0;
@@ -45,6 +46,7 @@ class Hotels extends BaseModel
             $this->latitude = 0.0;
             $this->longitude = 0.0;
             $this->description = '';
+            $this->path = 'noimage.jpg';
         }
 
         return $this;

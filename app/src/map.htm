@@ -44,25 +44,26 @@
 
             <div id="map_canvas"></div>
             <div class="wide-container container">
-                <form action="#" id="map-filter">
-                       <div class="small">
-                            <input type="checkbox" class="changeMap" checked="checked" id="hotels" name="hotels" value="hotels">
-                            <label for="hotels">Hotels</label>
-                        </div>
-                        <div class="wide">
-                            <input type="checkbox" class="changeMap" checked="checked" id="wcs" name="wcs" value="wcs">
-                            <label for="wcs">Toiletten</label>
-                        </div>
-                        <div class="small hasborder">
-                            <input type="checkbox" class="changeMap" checked="checked" id="restaurants" name="restaurants" value="restaurants">
-                            <label for="restaurants">restaurants</label>
-                        </div>
-                            <div class="wide hasborder" >
-                            <input type="checkbox" class="changeMap" checked="checked" id="bezienswaardigheden" name="pointsofinterest" value="bezienswaardigheden">
-                            <label for="bezienswaardigheden">bezienswaardigheden</label>
-                        </div>
-                </form>
-                <div class="results red">
+            <form action="#" id="map-filter">                   
+                   <div class="small">
+                        <input type="checkbox" class="changeMap" checked="checked" id="hotels" name="hotels" value="hotels">
+                        <label for="hotels">Hotels</label>
+                    </div>
+                    <div class="wide">
+                        <input type="checkbox" class="changeMap" checked="checked" id="wcs" name="wcs" value="wcs">
+                        <label for="wcs">Toiletten</label>
+                    </div>
+                    <div class="small hasborder">
+                        <input type="checkbox" class="changeMap" checked="checked" id="restaurants" name="restaurants" value="restaurants">
+                        <label for="restaurants">restaurants</label>
+                    </div>
+                        <div class="wide hasborder" >
+                        <input type="checkbox" class="changeMap" checked="checked" id="bezienswaardigheden" name="pointsofinterest" value="bezienswaardigheden">
+                        <label for="bezienswaardigheden">bezienswaardigheden</label>
+                    </div>
+            
+            </form>
+            <div class="results red hide">
                     <div class="detail-view">
                         <h2>Voorbeeldevenement</h2>
                         <img src="img/photos/noimage.jpg" />
@@ -71,7 +72,7 @@
                         </p>
                         <div class="location">
                             <p class="address">
-                                Schoolkaai 40,<br />
+                                <span>Schoolkaai 40</span>,<br />
                                 8400 Oostende<br />
                                 0472 89 52 43
                             </p>
@@ -94,6 +95,8 @@
     <script type="text/javascript" src="js/vendors/jquery.animate-enhanced.js"></script>
     <script type="text/javascript" src="js/vendors/slidingview.js"></script>
     <script type="text/javascript" src="js/vendors/oriDomi.js"></script>
+    <script type="text/javascript" src="js/vendors/makisu.min.js"></script>
+    <script type="text/javascript" src="js/vendors/mustache.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
