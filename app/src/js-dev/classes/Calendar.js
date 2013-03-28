@@ -7,6 +7,41 @@ var Calendar = (function () {
         this.today = new Date();
         this.counter = new Date();
         this.settings = new Settings();
+        this.events = [];
+
+        var that = this;
+
+        this.table.on('click', 'a', function () {
+            var date = parseInt($(this).attr('href').substr(7), 10),
+                showFromStart = true,
+                showFromEnd = true,
+                events = [];
+
+            $.each(that.events, function (key, value) {
+                var startDate = that.dateFromMySQL(value.start),
+                    endDate = that.dateFromMySQL(value.end);
+
+                if (startDate.getMonth() === that.counter.getMonth()) {
+                    showFromStart = (startDate.getDate() <= date);
+                }
+
+                if (endDate.getMonth() === that.counter.getMonth()) {
+                    showFromEnd = (endDate.getDate() >= date);
+                }
+
+                if (showFromStart && showFromEnd) {
+                    events.push(value);
+                }
+            });
+
+            var template = $('#calendarListTemplate').html();
+            var html = Mustache.to_html(template, {results: events}, {
+                result: $('#calendarDetailTemplate').html()
+            });
+            $('.results').html(html);
+
+            return false;
+        });
 
         this.fillTable();
     };
@@ -49,7 +84,6 @@ var Calendar = (function () {
 
     Calendar.prototype.getEvents = function () {
         var that = this;
-        console.log(this.settings.api + 'events/for/' + this.counter.getFullYear() + '/' + (this.counter.getMonth() + 1));
         $.getJSON(
             this.settings.api + 'events/for/' + this.counter.getFullYear() + '/' + (this.counter.getMonth() + 1),
             function (data) {
@@ -87,7 +121,7 @@ var Calendar = (function () {
 
             for (i; i < max; i++) {
                 var index = i + beginDay;
-                cells.eq(index).html('<a href="#event-' + value.id + '">' + (i + 1) + '</a>');
+                cells.eq(index).html('<a href="#event-' + (i + 1)    + '">' + (i + 1) + '</a>');
             }
         });
     };

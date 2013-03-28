@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 =======
 =======
@@ -56,6 +57,9 @@ Backtrace:
 /* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 >>>>>>> Cleanup
 >>>>>>> Cleanup
+=======
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+>>>>>>> Working calendar
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -297,11 +301,17 @@ body {
   backface-visibility: hidden;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 92, ../scss/style.scss */
 =======
 /* line 89, ../scss/style.scss */
 >>>>>>> Geen idee
 .top .pull {
+=======
+
+/* line 91, ../scss/style.scss */
+.pull-button {
+>>>>>>> Working calendar
   width: 33px;
   height: 29px;
   background: url(../img/pull_01.png) no-repeat;
@@ -311,15 +321,21 @@ body {
   margin-top: -15px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 101, ../scss/style.scss */
 =======
 /* line 98, ../scss/style.scss */
 >>>>>>> Geen idee
 .top .pull a {
+=======
+/* line 100, ../scss/style.scss */
+.pull-button a {
+>>>>>>> Working calendar
   width: 100%;
   height: 100%;
   display: block;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* line 107, ../scss/style.scss */
 =======
@@ -335,6 +351,16 @@ body {
 /* line 110, ../scss/style.scss */
 >>>>>>> Geen idee
 .top .info {
+=======
+/* line 106, ../scss/style.scss */
+.pull-button.activef {
+  background: url(../img/pull_02.png) no-repeat;
+  background-size: 100%;
+}
+
+/* line 112, ../scss/style.scss */
+.info-button {
+>>>>>>> Working calendar
   width: 32px;
   height: 32px;
   background: url(../img/info.png) no-repeat;
@@ -345,11 +371,17 @@ body {
   margin-top: -15px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 124, ../scss/style.scss */
 =======
 /* line 121, ../scss/style.scss */
 >>>>>>> Geen idee
 .top .switch {
+=======
+
+/* line 123, ../scss/style.scss */
+.switch-button {
+>>>>>>> Working calendar
   width: 82px;
   height: 31px;
   display: block;
@@ -362,21 +394,31 @@ body {
   margin-top: -14px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 135, ../scss/style.scss */
 =======
 /* line 132, ../scss/style.scss */
 >>>>>>> Geen idee
 .top .switch a {
+=======
+/* line 134, ../scss/style.scss */
+.switch-button a {
+>>>>>>> Working calendar
   width: 100%;
   height: 100%;
   display: block;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* line 141, ../scss/style.scss */
 =======
 /* line 138, ../scss/style.scss */
 >>>>>>> Geen idee
 .top .switch.active {
+=======
+/* line 140, ../scss/style.scss */
+.switch-button.active {
+>>>>>>> Working calendar
   background: url(../img/switch_01.png) no-repeat;
   background-size: 100%;
 }
@@ -529,35 +571,49 @@ p a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @-webkit-keyframes logo-animatie {
 <<<<<<< HEAD
   /* line 228, ../scss/style.scss */
 =======
   /* line 225, ../scss/style.scss */
 >>>>>>> Geen idee
+=======
+@-webkit-keyframes logo-animatie {
+  /* line 223, ../scss/style.scss */
+>>>>>>> Working calendar
   0% {
     -webkit-transform: rotate(-10deg);
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /* line 232, ../scss/style.scss */
 =======
   /* line 229, ../scss/style.scss */
 >>>>>>> Geen idee
+=======
+  /* line 227, ../scss/style.scss */
+>>>>>>> Working calendar
   50% {
     -webkit-transform: rotate(10deg);
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /* line 236, ../scss/style.scss */
 =======
   /* line 233, ../scss/style.scss */
 >>>>>>> Geen idee
+=======
+  /* line 231, ../scss/style.scss */
+>>>>>>> Working calendar
   100% {
     -webkit-transform: rotate(-10deg);
   }
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* line 242, ../scss/style.scss */
 =======
@@ -565,6 +621,9 @@ p a {
 >>>>>>> Working calendar
 /* line 239, ../scss/style.scss */
 >>>>>>> Geen idee
+=======
+/* line 237, ../scss/style.scss */
+>>>>>>> Working calendar
 .hide {
   display: none;
 }
@@ -653,6 +712,9 @@ input[type="text"], input[type="email"], textarea, select {
   letter-spacing: -0.75px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Working calendar
 /* line 19, ../scss/modules/_form.scss */
 input[type="text"].error, input[type="email"].error, textarea.error, select.error {
   border: 2px solid #e96452;
@@ -662,21 +724,30 @@ input[type="text"].error, input[type="email"].error, textarea.error, select.erro
 input:focus, textarea:focus {
   outline: none;
 }
+<<<<<<< HEAD
 
 /* line 27, ../scss/modules/_form.scss */
 =======
 
 /* line 21, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+
+/* line 27, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 textarea {
   height: 10em;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 31, ../scss/modules/_form.scss */
 =======
 /* line 25, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 31, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 input[type="submit"] {
   background-color: transparent;
   background-image: url("../img/submit-button.png");
@@ -692,10 +763,14 @@ input[type="submit"] {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 42, ../scss/modules/_form.scss */
 =======
 /* line 36, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 42, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 input[type="checkbox"], input[type="checkbox"]:checked {
   -webkit-appearance: none;
   display: none;
@@ -703,10 +778,14 @@ input[type="checkbox"], input[type="checkbox"]:checked {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 50, ../scss/modules/_form.scss */
 =======
 /* line 44, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 50, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 #map-filter {
   font-family: 'DIN Condensed';
   font-size: 0.85em;
@@ -721,10 +800,14 @@ input[type="checkbox"], input[type="checkbox"]:checked {
   *zoom: 1;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 62, ../scss/modules/_form.scss */
 =======
 /* line 56, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 62, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 #map-filter label {
   display: block;
   padding-left: 20px;
@@ -733,6 +816,7 @@ input[type="checkbox"], input[type="checkbox"]:checked {
   background-size: contain;
   background-repeat: no-repeat;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* line 72, ../scss/modules/_form.scss */
 #map-filter input[type="checkbox"] + label {
@@ -745,15 +829,22 @@ input[type="checkbox"], input[type="checkbox"]:checked {
 /* line 79, ../scss/modules/_form.scss */
 =======
 /* line 66, ../scss/modules/_form.scss */
+=======
+/* line 72, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 #map-filter input[type="checkbox"] + label {
   background-image: url("../img/checkbox_unchecked.png");
 }
-/* line 69, ../scss/modules/_form.scss */
+/* line 75, ../scss/modules/_form.scss */
 #map-filter input[type="checkbox"]:checked + label {
   background-image: url("../img/checkbox_checked.png");
 }
+<<<<<<< HEAD
 /* line 73, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 79, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 #map-filter div.small, #map-filter div.wide {
   box-sizing: border-box;
   background-color: #f4f1e3;
@@ -764,6 +855,7 @@ input[type="checkbox"], input[type="checkbox"]:checked {
   border-top: 3px solid #e96452;
   border-left: 3px solid #e96452;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* line 89, ../scss/modules/_form.scss */
 #map-filter .small {
@@ -777,24 +869,39 @@ input[type="checkbox"], input[type="checkbox"]:checked {
 }
 /* line 86, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 89, ../scss/modules/_form.scss */
+#map-filter .small {
+  width: 40%;
+}
+/* line 92, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 #map-filter .wide {
   width: 60%;
   border-right: 3px solid #e96452;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 97, ../scss/modules/_form.scss */
 =======
 /* line 91, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 97, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 #map-filter .hasborder {
   border-bottom: 3px solid #e96452;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 104, ../scss/modules/_form.scss */
 =======
 /* line 98, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 104, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 ::-webkit-input-placeholder {
   color: #81ccc5;
   font-family: 'Bitter';
@@ -803,19 +910,27 @@ input[type="checkbox"], input[type="checkbox"]:checked {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 111, ../scss/modules/_form.scss */
 =======
 /* line 105, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 111, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 form div {
   position: relative;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* line 114, ../scss/modules/_form.scss */
 =======
 /* line 108, ../scss/modules/_form.scss */
 >>>>>>> Geen idee
+=======
+/* line 114, ../scss/modules/_form.scss */
+>>>>>>> Working calendar
 span.arrow {
   display: block;
   width: 10px;
@@ -1436,10 +1551,14 @@ span.arrow {
   background-color: #f4f1e3;
   font-family: 'DIN Condensed';
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-top: 3em;
 =======
   margin-top: 2em;
 >>>>>>> Geen idee
+=======
+  margin: 4em 0 2em;
+>>>>>>> Working calendar
 }
 
 /* line 7, ../scss/modules/_calendar.scss */
@@ -1786,6 +1905,7 @@ a {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> Cleanup
@@ -1880,3 +2000,5 @@ body:before {
 =======
 >>>>>>> Cleanup
 >>>>>>> Cleanup
+=======
+>>>>>>> Working calendar

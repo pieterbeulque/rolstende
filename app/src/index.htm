@@ -56,8 +56,8 @@
                 </div>
                 <div class="logo-front"></div>
             </div>
-            <div class="pull"><a href="#"></a></div>
-            <div class="switch {{switchClass}}"><a href="#"></a></div>
+            <div class="pull-button"><a href="#"></a></div>
+            <div class="switch-button {{switchClass}}"><a href="#"></a></div>
         </header>
     </script>
 
@@ -95,70 +95,46 @@
                 </div>
                 <table class="calendar-table">
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <a href="#" title=""></a>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                 </table>
             </div>
             <div class="results">
-                <div class="detail-view">
-                    <h2>Voorbeeldevenement</h2>
-                    <img src="img/photos/noimage.jpg" />
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore officiis omnis ad tempora nobis!
-                    </p>
-                    <div class="location">
-                        <p class="address">
-                            Schoolkaai 40,<br />
-                            8400 Oostende<br />
-                            0472 89 52 43
-                        </p>
-                        <a href="maps:ll=38.870454,-77.055702&z=10" title="" class="button maps-button">Toon in Maps</a>
-                    </div>
-                </div>
+                <p>Klik op de oranje dagen en ontdek wat er te doen is.</p>
+            </div>
+        </div>
+    </script>
+
+    <script id="calendarListTemplate" type="text/template">
+        {{#results}}
+            {{>result}}
+        {{/results}}
+    </script>
+
+    <script id="calendarDetailTemplate" type="text/template">
+        <div class="detail-view">
+            <h2>{{name}}</h2>
+            <img src="{{path}}" />
+            <p>
+                {{description}}
+            </p>
+            <div class="location">
+                <p class="address">
+                    {{address}}<br />
+                    8400 Oostende
+                </p>
             </div>
             <form id="subscribeform">
                 <h2>Inschrijven voor nieuwsbrief</h2>
@@ -217,12 +193,12 @@
                 <dd class="brown">a.k.a "Dreamteam"</dd>
             </dl>
         </div>
-            <header class="top">
-                <!-- <a href="#" class="nav-toggle">Menu</a> -->
-                <img src="img/logo.png" alt="logo_rolstende" title="Logo Rolstende" id="logo" class="image" />
-                <div class="pull"><a href="#"></a></div>
-                <div class="info"><a href="#"></a></div>
-            </header>
+        <header class="top">
+            <!-- <a href="#" class="nav-toggle">Menu</a> -->
+            <img src="img/logo.png" alt="logo_rolstende" title="Logo Rolstende" id="logo" class="image" />
+            <div class="pull"><a href="#"></a></div>
+            <div class="info"><a href="#"></a></div>
+        </header>
         <div class="wide-container container">
             <p class="introduction">
                 Rolstende is een website ontwikkeld voor blablabla Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
