@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -249,7 +249,7 @@ body {
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
-  margin: 1em 0 0.5em;
+  margin: 1em 0 .5em;
   text-transform: uppercase;
 }
 
@@ -770,11 +770,7 @@ span.arrow {
 
 /* line 49, ../scss/modules/_list-view.scss */
 .list-detail-view {
-<<<<<<< HEAD
-  padding: 0.5em 5% 1em;
-=======
   padding: .5em 5% 1em;
->>>>>>> OOP JS
 }
 
 /* line 53, ../scss/modules/_list-view.scss */
@@ -796,7 +792,7 @@ span.arrow {
   text-transform: none;
   top: .55rem;
   right: .6rem;
-  padding: 1em 0.8em 0 0.8em;
+  padding: 1em .8em 0 .8em;
   letter-spacing: 0px;
   height: 29px;
   width: 65px;
@@ -826,7 +822,7 @@ span.arrow {
 }
 /* line 94, ../scss/modules/_list-view.scss */
 .detail-view img {
-  border: 6px solid white;
+  border: 6px solid #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -839,7 +835,7 @@ span.arrow {
   background-color: #f4f1e3;
   border: 3px solid #331f14;
   margin: 1em 0;
-  padding: 0.5em 5%;
+  padding: .5em 5%;
   position: relative;
 }
 /* line 110, ../scss/modules/_list-view.scss */
@@ -906,7 +902,7 @@ span.arrow {
   display: block;
   float: left;
   margin: 0;
-  padding: 0.3em 0 0;
+  padding: .3em 0 0;
   text-align: center;
   width: 80%;
 }
@@ -930,7 +926,7 @@ span.arrow {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  padding: 0.8em 0;
+  padding: .8em 0;
   position: relative;
   width: 14%;
   z-index: 1;
@@ -954,7 +950,7 @@ span.arrow {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0.8em 0;
+  padding: .8em 0;
   text-decoration: none;
   width: 100%;
   z-index: -1;

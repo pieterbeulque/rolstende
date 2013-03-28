@@ -2,9 +2,7 @@
 
     var sv,
         location,
-        server = "http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/",
-        map,
-        markersArray = [];
+        server = "http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/";
 
     sv = new SlidingView( 'sidebar', 'app' );
     sv.sidebarWidth = 90;
@@ -35,6 +33,7 @@
 
     });
 
+    var map = new RolstendeMap($('#map_canvas'));
 
     $("#body").click(function() {
         sv.close();
