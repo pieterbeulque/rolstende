@@ -33,7 +33,19 @@
 
     });
 
-    var map = new RolstendeMap($('#map_canvas'));
+    // var map = new RolstendeMap($('#map_canvas'));
+
+    var calendar = new Calendar($('#calendar'));
+
+    $('#calendar-prev').on('click', function () {
+        calendar.previousMonth();
+        return false;
+    });
+
+    $('#calendar-next').on('click', function () {
+        calendar.nextMonth();
+        return false;
+    });
 
     $("#body").click(function() {
         sv.close();
