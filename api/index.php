@@ -99,7 +99,7 @@ $app->get('/pointsofinterest', function () {
     die($output);
 });
 
-$app->get('/pointofinterest/:id', function ($id) {
+$app->get('/pointsofinterest/:id', function ($id) {
     $poi = new PointsOfInterest();
     die(json_encode($poi->findById($id)));
 });
@@ -126,7 +126,7 @@ $app->get('/hotels', function () {
     die($output);
 });
 
-$app->get('/hotel/:id', function ($id) {
+$app->get('/hotels/:id', function ($id) {
     $hotels = new Hotels();
     die(json_encode($hotels->findById($id)));
 });
@@ -153,7 +153,7 @@ $app->get('/restaurants', function () {
     die($output);
 });
 
-$app->get('/restaurant/:id', function ($id) {
+$app->get('/restaurants/:id', function ($id) {
     $restaurants = new Restaurants();
     die(json_encode($restaurants->findById($id)));
 });
@@ -208,7 +208,7 @@ $app->get('/events', function() {
     
 });
 
-$app->get('/event/:id', function ($id) {
+$app->get('/events/:id', function ($id) {
     $event = new Event();
     die(json_encode($event->findByID($id)));
 });
