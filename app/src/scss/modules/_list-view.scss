@@ -46,6 +46,12 @@
     width: 100%;
 }
 
+.address {
+    width: 52%;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+}
+
 .list-view.blue 
 .list-view-toggle {
        color: darken($blue, 20); 

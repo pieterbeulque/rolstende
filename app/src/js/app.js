@@ -94,13 +94,16 @@ var Dropdown = (function () {
                 if(open) {
                     $maki.makisu('close');
                     open = false;
-                    setTimeout(function(){
-                    	   $("#dropdown-container").css({'top': '0px'}).delay(500).stop().animate({'top' : '-60px'});
-                    	}, 1000);
+                    setTimeout(function() {
+                        $("#dropdown-container").css({'top': '0px'}).delay(500).stop().animate({'top' : '-60px'}, function() {
+                            $("#dropdown-container").css({'display': 'none'});
+                        });
+                    }, 1000);
+            
                  
                 } else {
                
-                	$("#dropdown-container").css({'top': '-60px'}).stop().animate({'top' : '0px'}, 500, function(){
+                	$("#dropdown-container").css({'display': 'block', 'top': '-60px'}).stop().animate({'top' : '0px'}, 500, function(){
                 		$maki.makisu('open');
                    		open = true;
                 	});
@@ -355,7 +358,7 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        this.api = 'http://192.168.2.4/rolstende/api/'
     };
 
     return Settings;

@@ -12,13 +12,16 @@ var Dropdown = (function () {
                 if(open) {
                     $maki.makisu('close');
                     open = false;
-                    setTimeout(function(){
-                    	   $("#dropdown-container").css({'top': '0px'}).delay(500).stop().animate({'top' : '-60px'});
-                    	}, 1000);
+                    setTimeout(function() {
+                        $("#dropdown-container").css({'top': '0px'}).delay(500).stop().animate({'top' : '-60px'}, function() {
+                            $("#dropdown-container").css({'display': 'none'});
+                        });
+                    }, 1000);
+            
                  
                 } else {
                
-                	$("#dropdown-container").css({'top': '-60px'}).stop().animate({'top' : '0px'}, 500, function(){
+                	$("#dropdown-container").css({'display': 'block', 'top': '-60px'}).stop().animate({'top' : '0px'}, 500, function(){
                 		$maki.makisu('open');
                    		open = true;
                 	});
