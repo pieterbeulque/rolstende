@@ -35,6 +35,7 @@
 
     var loadInfo = function () {
         var dropdown = new Dropdown();
+        var validate = new Validate();
     };
 
     var loadCalendar = function () {
@@ -176,6 +177,8 @@
         var template = $('#indexTemplate').html();
         var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
         $('#app').html(html);
+
+     
 
         loadSidebar();
         initNavigation();

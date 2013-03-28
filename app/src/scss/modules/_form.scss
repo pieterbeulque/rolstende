@@ -16,6 +16,12 @@ input[type="text"], input[type="email"], textarea, select {
     font-family: 'Bitter';
     font-weight: bold;
     letter-spacing: -0.75px;
+    &.error {
+         border: 2px solid $red; 
+    }
+}
+input:focus, textarea:focus {
+    outline: none;
 }
 
 textarea {
