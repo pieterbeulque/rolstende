@@ -471,6 +471,15 @@ var Settings =(function () {
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'wcs',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('blue-wood');
                     break;
 
@@ -485,6 +494,15 @@ var Settings =(function () {
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'points_of_interest',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('orange-wood');
                     break;
 
@@ -500,6 +518,15 @@ var Settings =(function () {
                         longitude: 2
                     }];
                     $('body').attr('class', '').addClass('blue-wood');
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'restaurants',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     break;
 
                 case '#list-hotels':
@@ -513,6 +540,15 @@ var Settings =(function () {
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'hotels',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('red-wood');
                     break;
 
