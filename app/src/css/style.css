@@ -556,6 +556,30 @@ span.arrow {
   width: 123px;
 }
 
+/* line 13, ../scss/modules/_headings.scss */
+.heading-restaurants {
+  background-image: url("../img/heading-restaurants.png");
+  height: 77px;
+  margin: 0 auto;
+  width: 138px;
+}
+
+/* line 20, ../scss/modules/_headings.scss */
+.heading-bezienswaardigheden {
+  background-image: url("../img/heading-bezienswaardigheden.png");
+  height: 77px;
+  margin: 0 auto;
+  width: 201px;
+}
+
+/* line 27, ../scss/modules/_headings.scss */
+.heading-wcs {
+  background-image: url("../img/heading-wcs.png");
+  height: 78px;
+  margin: 0 auto;
+  width: 157px;
+}
+
 /* line 1, ../scss/modules/_icon-grid.scss */
 .icon-grid {
   overflow: hidden;
@@ -841,12 +865,24 @@ span.arrow {
   width: 100%;
 }
 
-/* line 49, ../scss/modules/_list-view.scss */
+/* line 50, ../scss/modules/_list-view.scss */
+.list-view.blue
+.list-view-toggle {
+  color: #43a49b;
+}
+
+/* line 55, ../scss/modules/_list-view.scss */
+.list-view.orange
+.list-view-toggle {
+  color: #ec9128;
+}
+
+/* line 59, ../scss/modules/_list-view.scss */
 .list-detail-view {
   padding: 0.5em 5% 1em;
 }
 
-/* line 53, ../scss/modules/_list-view.scss */
+/* line 63, ../scss/modules/_list-view.scss */
 .list-view-annotation {
   background-image: url("../img/annotation.png");
   -webkit-background-size: 100%;
@@ -871,12 +907,12 @@ span.arrow {
   width: 65px;
 }
 
-/* line 72, ../scss/modules/_list-view.scss */
+/* line 82, ../scss/modules/_list-view.scss */
 .list-view-annotation-alternate {
   background-image: url("../img/annotation-alternate.png");
 }
 
-/* line 77, ../scss/modules/_list-view.scss */
+/* line 87, ../scss/modules/_list-view.scss */
 .detail-view .location {
   margin: 1em 0;
   font-style: italic;
@@ -887,13 +923,13 @@ span.arrow {
   background-position: 0 3px;
   position: relative;
 }
-/* line 88, ../scss/modules/_list-view.scss */
+/* line 98, ../scss/modules/_list-view.scss */
 .detail-view .maps-button {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 94, ../scss/modules/_list-view.scss */
+/* line 104, ../scss/modules/_list-view.scss */
 .detail-view img {
   border: 6px solid white;
   -webkit-box-sizing: border-box;
@@ -903,7 +939,7 @@ span.arrow {
   max-width: 100%;
 }
 
-/* line 102, ../scss/modules/_list-view.scss */
+/* line 112, ../scss/modules/_list-view.scss */
 .results {
   background-color: #f4f1e3;
   border: 3px solid #331f14;
@@ -911,7 +947,7 @@ span.arrow {
   padding: 0.5em 5%;
   position: relative;
 }
-/* line 112, ../scss/modules/_list-view.scss */
+/* line 122, ../scss/modules/_list-view.scss */
 .results:before, .results:after {
   content: " ";
   display: block;
@@ -923,25 +959,25 @@ span.arrow {
   top: -1.3rem;
   left: 20%;
 }
-/* line 123, ../scss/modules/_list-view.scss */
+/* line 133, ../scss/modules/_list-view.scss */
 .results.red {
   border: 3px solid #e96452;
 }
-/* line 126, ../scss/modules/_list-view.scss */
+/* line 136, ../scss/modules/_list-view.scss */
 .results.red:before, .results.red:after {
   background-color: #e96452;
 }
-/* line 131, ../scss/modules/_list-view.scss */
+/* line 141, ../scss/modules/_list-view.scss */
 .results:after {
   left: 80%;
 }
-/* line 135, ../scss/modules/_list-view.scss */
+/* line 145, ../scss/modules/_list-view.scss */
 .results h2 {
   color: #ec9128;
   font-size: 1.2em;
   margin-bottom: 1.5em;
 }
-/* line 141, ../scss/modules/_list-view.scss */
+/* line 151, ../scss/modules/_list-view.scss */
 .results .maps-button {
   background-image: url("../img/maps-button-orange.png");
 }
@@ -1098,6 +1134,7 @@ a {
   letter-spacing: -0.7px;
   font-weight: 800;
   text-transform: uppercase;
+  color: #e96452;
   /* Since we're hiding elements behind here, we need it in 3d */
   -webkit-transform: translateZ(0.3px);
   -moz-transform: translateZ(0.3px);
@@ -1110,24 +1147,15 @@ a {
 /* line 78, ../scss/modules/_dropdown.scss */
 .list dd {
   text-transform: none;
-  border-top: 1px dashed #331f14;
   line-height: 35px;
   font-size: 13px;
   height: 35px;
   margin: 0;
   letter-spacing: -0.7px;
 }
-/* line 87, ../scss/modules/_dropdown.scss */
-.list dd:first-of-type {
-  background-color: #ec9128;
-}
-/* line 90, ../scss/modules/_dropdown.scss */
-.list dd:nth-of-type(2n) {
-  background-color: #81ccc5;
-}
 
 /* No CSS 3D support warning */
-/* line 100, ../scss/modules/_dropdown.scss */
+/* line 91, ../scss/modules/_dropdown.scss */
 .warning {
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
@@ -1144,7 +1172,7 @@ a {
   top: 0;
 }
 
-/* line 118, ../scss/modules/_dropdown.scss */
+/* line 109, ../scss/modules/_dropdown.scss */
 .warning .message {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
   border-radius: 5px;
@@ -1162,39 +1190,28 @@ a {
   top: 50%;
 }
 
-/* line 136, ../scss/modules/_dropdown.scss */
+/* line 127, ../scss/modules/_dropdown.scss */
 .warning .message h1 {
   font-weight: 300;
   font-size: 14px;
 }
 
-/* line 142, ../scss/modules/_dropdown.scss */
+/* line 133, ../scss/modules/_dropdown.scss */
 .warning .message a {
   text-decoration: none;
   color: #73C8A9;
 }
 
-/* Individual styles */
-/* line 150, ../scss/modules/_dropdown.scss */
-.sashimi dt, .sashimi dd, .sashimi a {
-  background: #73C8A9;
-}
-
-/* line 151, ../scss/modules/_dropdown.scss */
-.nigiri dt, .nigiri dd, .nigiri a {
-  background: #E32551;
-}
-
-/* line 152, ../scss/modules/_dropdown.scss */
+/* line 139, ../scss/modules/_dropdown.scss */
 .maki dt {
-  background-image: url("../img/patterns/red-wood.png");
+  background-image: url("../img/patterns/white-wood.png");
   -webkit-background-size: 30%;
   -moz-background-size: 30%;
   -o-background-size: 30%;
   background-size: 30%;
 }
 
-/* line 156, ../scss/modules/_dropdown.scss */
+/* line 143, ../scss/modules/_dropdown.scss */
 .maki dd {
   background-image: url("../img/patterns/orange-wood.png");
   -webkit-background-size: 30%;
@@ -1202,23 +1219,20 @@ a {
   -o-background-size: 30%;
   background-size: 30%;
 }
-
-/* line 161, ../scss/modules/_dropdown.scss */
-.sashimi a:hover {
-  background: #61c19e;
+/* line 147, ../scss/modules/_dropdown.scss */
+.maki dd.blue {
+  background-image: url("../img/patterns/blue-wood.png");
+}
+/* line 150, ../scss/modules/_dropdown.scss */
+.maki dd.red {
+  background-image: url("../img/patterns/red-wood.png");
+}
+/* line 153, ../scss/modules/_dropdown.scss */
+.maki dd.brown {
+  background-image: url("../img/patterns/brown-wood.png");
 }
 
-/* line 162, ../scss/modules/_dropdown.scss */
-.nigiri a:hover {
-  background: #d31b46;
-}
-
-/* line 163, ../scss/modules/_dropdown.scss */
-.maki a:hover {
-  background: #d65345;
-}
-
-/* line 165, ../scss/modules/_dropdown.scss */
+/* line 160, ../scss/modules/_dropdown.scss */
 .maki {
   -webkit-transform: perspective(600px) translateZ(1px) !important;
   -moz-transform: perspective(600px) translateZ(1px) !important;

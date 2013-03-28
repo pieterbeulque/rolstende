@@ -64,7 +64,7 @@ a {
     letter-spacing: -0.7px;
     font-weight: 800;
     text-transform: uppercase;
-
+    color: $red;
     /* Since we're hiding elements behind here, we need it in 3d */
     -webkit-transform: translateZ(0.3px);
     -moz-transform: translateZ(0.3px);
@@ -77,21 +77,12 @@ a {
 
 .list dd {
     text-transform: none;
-    border-top: 1px dashed $brown;
+   // border-top: 1px solid $brown;
     line-height: 35px;
     font-size: 13px;
     height: 35px;
     margin: 0;
     letter-spacing: -0.7px;
-
-    &:first-of-type{
-        background-color: $orange;
-    }
-    &:nth-of-type(2n){
-        background-color: $blue;
-    }
-
-
 
 }
 
@@ -145,22 +136,26 @@ a {
     color: #73C8A9;
 }
 
-/* Individual styles */
-
-.sashimi dt, .sashimi dd, .sashimi a { background: #73C8A9; }
-.nigiri dt, .nigiri dd, .nigiri a { background: #E32551; }
 .maki dt {   
-    background-image: url('../img/patterns/red-wood.png');
+    background-image: url('../img/patterns/white-wood.png');
     @include background-size(30%);
 }
 .maki dd {   
     background-image: url('../img/patterns/orange-wood.png');
     @include background-size(30%);
+    
+    &.blue {
+        background-image: url('../img/patterns/blue-wood.png');
+    }
+    &.red {
+        background-image: url('../img/patterns/red-wood.png');
+    }
+    &.brown {
+        background-image: url('../img/patterns/brown-wood.png');
+        
+    }
 }
 
-.sashimi a:hover { background: #61c19e; }
-.nigiri a:hover { background: #d31b46; }
-.maki a:hover { background: #d65345; }
 
 .maki {
 
