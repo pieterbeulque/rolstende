@@ -50,6 +50,7 @@ input[type="checkbox"], input[type="checkbox"]:checked{
     text-decoration: none;
     text-transform: uppercase;
     color: $red;
+    margin-top: -20px;
     @include clearfix;
 
     label {

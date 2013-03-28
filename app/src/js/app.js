@@ -174,8 +174,8 @@ var RolstendeMap = (function () {
     RolstendeMap.prototype.error = function (msg) {
         var position = {
             'coords': {
-                'latitude': 51.227857,
-                'longitude': 2.925346,
+                'latitude': 51.231613,
+                'longitude': 2.923822,
                 'accuracy' : 666
             }
         };
@@ -196,7 +196,7 @@ var RolstendeMap = (function () {
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
         var mapOptions = {
-            zoom: 14,
+            zoom: 12,
             center: user_location,
             mapTypeControl: false,
             streetViewControl: false,
@@ -226,15 +226,20 @@ var RolstendeMap = (function () {
 
     RolstendeMap.prototype.checkMarkers = function () {
         var that = this;
-        $.each(that.markers, function() {
-            var huidigeCategorie = $(this);
+
+        $('input[type="checkbox"]:not(:checked)').each(function () {
+            $.each(that.markers[$(this).attr('name')], function() {
+                console.log($(this)[0]);
+                $(this)[0].setMap(null);
+            });
         });
-        // $('input[type="checkbox"]:not(:checked)').each(function () {
-        //     $.each(that.markers[$(this).attr('name')], function() {
-        //         console.log($(this)[0]);
-        //         $(this)[0].setMap(null);
-        //     });
-        // });
+
+        $('input[type="checkbox"]:checked').each(function () {
+            $.each(that.markers[$(this).attr('name')], function() {
+                console.log($(this)[0]);
+                $(this)[0].setMap(that.map);
+            });
+        });
     };
 
     RolstendeMap.prototype.generateMarker = function (object, category) {
