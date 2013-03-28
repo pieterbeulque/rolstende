@@ -393,7 +393,7 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-        this.api = 'http://192.168.2.4/rolstende/api/'
+        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
     };
 
     return Settings;
@@ -407,6 +407,7 @@ var Validate = (function () {
         console.log("init validate");
 
         var that = this;
+        this.settings = new Settings();
 
         $('#contactform #name, #subscribeform #name').blur(function () {
             that.checkTwoCharacters($(this).val(), $(this));
@@ -523,10 +524,34 @@ var Validate = (function () {
             return false;
         }else{
           console.log(id);
+
+            console.log(this.settings["api"]);
+
+
            if (id === "subscribeform"){
                 console.log("ingeschreven");
-                $(element).fadeOut(300).html('<h2>Inschrijven voor nieuwsbrief</h2><div class="succes">Je bent succesvol ingeschreven voor de nieuwsbrief.</div>')
-                $(element).delay(300).fadeIn(300);
+                
+                $.ajax({
+                  type:'POST',
+                  cache: false,
+                  url: this.settings.api + 'subscribers',
+                  data: {'name': $("#name").val(), 'email': $("#email").val()},
+                  success: function(data) {
+                    console.log('gelukt');
+                    console.log(data);
+                    if(data == "Could not insert data into rolstende_subscribers") {
+                      $(element).fadeOut(300).html('<h2>Inschrijven voor nieuwsbrief</h2><div class="succes">Je was al ingeschreven voor de nieuwsbrief.</div>')
+                      $(element).delay(300).fadeIn(300);
+                    } else {
+                      $(element).fadeOut(300).html('<h2>Inschrijven voor nieuwsbrief</h2><div class="succes">Je bent succesvol ingeschreven voor de nieuwsbrief.</div>')
+                      $(element).delay(300).fadeIn(300);
+                    }
+                  },
+                  error: function (data) {
+                    console.log('niet gelukt');
+                    console.log(data);
+                  }
+                });
                 
 
                 return false;
@@ -576,9 +601,9 @@ var Validate = (function () {
             }
         });
 
-        $("#app").on('click', function() {
-            sv.close();
-        });
+        // $("#app").on('click', function() {
+        //     sv.close();
+        // });
     };
 
     var loadMap = function () {

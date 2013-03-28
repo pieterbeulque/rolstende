@@ -28,9 +28,9 @@
             }
         });
 
-        $("#app").on('click', function() {
-            sv.close();
-        });
+        // $("#app").on('click', function() {
+        //     sv.close();
+        // });
     };
 
     var loadMap = function () {

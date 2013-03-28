@@ -19,6 +19,7 @@ require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Event.php';
 require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Hotels.php';
 require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Restaurants.php';
 require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Wcs.php';
+require_once WWW_ROOT . 'models' . DIRECTORY_SEPARATOR . 'Subscriber.php';
 
 // Slim's autoloader also loads Riff!
 \Slim\Slim::registerAutoloader();
@@ -213,19 +214,19 @@ $app->get('/events/:id', function ($id) {
     die(json_encode($event->findByID($id)));
 });
 
-$app->run();
-
-
 /********************************************************************************
 ********************************** SUBSCRIBERS **********************************
 ********************************************************************************/
 
-$app->post('/subscribers', function () {
-    $request = $app->request();
+$app->post('/subscribers', 'addSubscriber');
+
+function addSubscriber () {
+    $request = Slim::getInstance()->request();
     $data['name'] = $request->post('name');
     $data['email'] = $request->post('email');
 
     $subscriber = new Subscriber();
-    $subscriber->add($data);
-});
+    die(json_encode($subscriber->add($data)));
+}
 
+$app->run();
