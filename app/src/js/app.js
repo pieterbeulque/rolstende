@@ -19,7 +19,8 @@ var RolstendeMap = (function () {
     var RolstendeMap = function (element) {
         this.element = element;
         this.map = null;
-        this.markers = [];
+        this.markers = {};
+        this.showMyLocation = true;
 
         var that = this;
 
@@ -32,6 +33,10 @@ var RolstendeMap = (function () {
         } else {
             this.error();
         }
+
+        $(".changeMap").change(function() {
+            that.checkMarkers();
+        });
     };
 
     RolstendeMap.prototype.error = function (msg) {
@@ -42,7 +47,7 @@ var RolstendeMap = (function () {
                 'accuracy' : 666
             }
         };
-
+        this.showMyLocation = false;
         this.maps(position);
     };
 
@@ -70,19 +75,34 @@ var RolstendeMap = (function () {
 
         this.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-            map: this.map,
-            icon: new google.maps.MarkerImage("img/current_location.png", null, null, null, new google.maps.Size(20,20)),
-            title:"Current Location",
-            optimized: false,
-            animation: google.maps.Animation.DROP
-        });
+        if(this.showMyLocation) {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                map: this.map,
+                icon: new google.maps.MarkerImage("img/current_location.png", null, null, null, new google.maps.Size(20,20)),
+                title:"Current Location",
+                optimized: false,
+                animation: google.maps.Animation.DROP
+            });
+        }
 
         this.map.mapTypes.set('map_style', styledMap);
         this.map.setMapTypeId('map_style');
 
         this.setMarkers();
+    };
+
+    RolstendeMap.prototype.checkMarkers = function () {
+        var that = this;
+        $.each(that.markers, function() {
+            var huidigeCategorie = $(this);
+        });
+        // $('input[type="checkbox"]:not(:checked)').each(function () {
+        //     $.each(that.markers[$(this).attr('name')], function() {
+        //         console.log($(this)[0]);
+        //         $(this)[0].setMap(null);
+        //     });
+        // });
     };
 
     RolstendeMap.prototype.generateMarker = function (object, category) {
@@ -125,23 +145,27 @@ var RolstendeMap = (function () {
 
                 $.each(data.results, function (key, value) {
                     var category = key;
+                    that.markers[category] = [];
 
                     $.each(value, function () {
                         var obj = $(this);
                         var marker = that.generateMarker(obj, category);
-                        that.markers.push(marker);
+                        that.markers[category].push(marker);
                         google.maps.event.addListener(marker, 'click', function (event) {
                             that.markerClickHandler(marker);
                         });
                     });
                 });
+
+                console.log(that.markers);
             }
         );
+
+        
     };
 
     RolstendeMap.prototype.markerClickHandler = function (marker) {
-        console.log(this.markers);
-
+        
         // var id = marker.id,
         //     substr = id.split('-'),
         //     type = substr[0],
