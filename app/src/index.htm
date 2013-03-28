@@ -114,6 +114,20 @@
             <div class="results">
                 <p>Klik op de oranje dagen en ontdek wat er te doen is.</p>
             </div>
+            <form id="subscribeform">
+                <h2>Inschrijven voor nieuwsbrief</h2>
+                <div>
+                    <label for="name">Mijn naam</label>
+                    <input type="text" name="name" id="name" placeholder="Mijn naam" />
+                </div>
+                <div>
+                    <label for="email">Mijn email</label>
+                    <input type="email" name="email" id="email" placeholder="Mijn email" />
+                </div>
+                <div>
+                    <input type="submit" value="" name="info-submit" />
+                </div>
+            </form>
         </div>
     </script>
 
@@ -121,6 +135,7 @@
         {{#results}}
             {{>result}}
         {{/results}}
+
     </script>
 
     <script id="calendarDetailTemplate" type="text/template">
@@ -136,20 +151,7 @@
                     8400 Oostende
                 </p>
             </div>
-            <form id="subscribeform">
-                <h2>Inschrijven voor nieuwsbrief</h2>
-                <div>
-                    <label for="name">Mijn naam</label>
-                    <input type="text" name="name" id="name" placeholder="Mijn naam" />
-                </div>
-                <div>
-                    <label for="email">Mijn email</label>
-                    <input type="email" name="email" id="email" placeholder="Mijn email" />
-                </div>
-                <div>
-                    <input type="submit" value="" name="info-submit" />
-                </div>
-            </form>
+            
         </div>
     </script>
 
