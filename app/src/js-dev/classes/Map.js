@@ -7,6 +7,7 @@ var RolstendeMap = (function () {
         this.markers = {};
         this.showMyLocation = true;
         this.userLocation = {};
+        this.settings = new Settings();
 
         var that = this;
 
@@ -132,7 +133,7 @@ var RolstendeMap = (function () {
     RolstendeMap.prototype.setMarkers = function () {
         var that = this;
         $.getJSON(
-            'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/all',
+            this.settings.api + 'all',
             function (data) {
                 // clearOverlays();
 
@@ -155,7 +156,7 @@ var RolstendeMap = (function () {
                 for (var i = 0; i < that.rawmarkers.length; i++){
                     var latitude = parseFloat(that.rawmarkers[i]["position"]["jb"]);
                     var longitude = parseFloat(that.rawmarkers[i]["position"]["kb"]);
-                    var point = new google.maps.LatLng(lat,longitude);
+                    var point = new google.maps.LatLng(latitude,longitude);
 
                     fullBounds.extend(point);
                 }
@@ -177,7 +178,7 @@ var RolstendeMap = (function () {
 
             $.ajax({
                 type: 'get',
-                url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/' + type + '/'  + db_id,
+                url: this.settings.api + type + '/'  + db_id,
                 dataType:'json',
                 success: function(data) {
                     var template = $('#listDetailTemplate').html();

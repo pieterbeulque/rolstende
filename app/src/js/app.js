@@ -153,7 +153,7 @@ var RolstendeMap = (function () {
         this.markers = {};
         this.showMyLocation = true;
         this.userLocation = {};
-
+        this.settings = new Settings();
 
         var that = this;
 
@@ -279,7 +279,7 @@ var RolstendeMap = (function () {
     RolstendeMap.prototype.setMarkers = function () {
         var that = this;
         $.getJSON(
-            'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/all',
+            this.settings.api + 'all',
             function (data) {
                 // clearOverlays();
 
@@ -302,7 +302,7 @@ var RolstendeMap = (function () {
                 for (var i = 0; i < that.rawmarkers.length; i++){
                     var latitude = parseFloat(that.rawmarkers[i]["position"]["jb"]);
                     var longitude = parseFloat(that.rawmarkers[i]["position"]["kb"]);
-                    var point = new google.maps.LatLng(lat,longitude);
+                    var point = new google.maps.LatLng(latitude,longitude);
 
                     fullBounds.extend(point);
                 }
@@ -324,7 +324,7 @@ var RolstendeMap = (function () {
 
             $.ajax({
                 type: 'get',
-                url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/' + type + '/'  + db_id,
+                url: this.settings.api + type + '/'  + db_id,
                 dataType:'json',
                 success: function(data) {
                     var template = $('#listDetailTemplate').html();
@@ -349,6 +349,16 @@ var RolstendeMap = (function () {
     };
 
     return RolstendeMap;
+
+})();
+
+var Settings =(function () {
+
+    var Settings = function () {
+        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+    };
+
+    return Settings;
 
 })();
 
@@ -461,15 +471,6 @@ var RolstendeMap = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
-                    $.ajax({
-                        type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'wcs',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
-                        }
-                    });
                     $('body').attr('class', '').addClass('blue-wood');
                     break;
 
@@ -484,15 +485,6 @@ var RolstendeMap = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
-                    $.ajax({
-                        type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'pointsofinterest',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
-                        }
-                    });
                     $('body').attr('class', '').addClass('orange-wood');
                     break;
 
@@ -507,20 +499,10 @@ var RolstendeMap = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
-                    $.ajax({
-                        type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'restaurants',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
-                        }
-                    });
                     $('body').attr('class', '').addClass('blue-wood');
                     break;
 
                 case '#list-hotels':
-                    console.log(this.server);
                     info.headingClass = 'heading-hotels';
                     info.color = 'red';
                     info.results = [{
@@ -531,20 +513,13 @@ var RolstendeMap = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
-                    $.ajax({
-                        type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'hotels',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
-
-                        }
-                    });
                     $('body').attr('class', '').addClass('red-wood');
                     break;
 
             }
+
+            html = Mustache.to_html(template, info, partials);
+            $('#app').html(html);
 
             return false;
         });
