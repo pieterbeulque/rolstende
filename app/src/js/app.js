@@ -452,6 +452,91 @@ var RolstendeMap = (function () {
             return false;
         });
 
+        $('#app').on('click', '.grid-item a', function () {
+            console.log($(this).attr('href'));
+
+            var template = $('#listTemplate').html(),
+                partials = {
+                    result: $('#listDetailTemplate').html()
+                },
+                info = {},
+                html;
+
+            switch ($(this).attr('href')) {
+                case '#list-wcs':
+                    info.headingClass = 'heading-wcs';
+                    info.color = 'blue';
+                    info.results = [{
+                        name: 'Test',
+                        description: 'Mustache',
+                        address: 'Schoolkaai 40',
+                        phone: '0579608770',
+                        latitude: 2,
+                        longitude: 2
+                    }];
+                    $('body').attr('class', '').addClass('blue-wood');
+                    break;
+
+                case '#list-poi':
+                    info.headingClass = 'heading-bezienswaardigheden';
+                    info.color = 'orange';
+                    info.results = [{
+                        name: 'Test',
+                        description: 'Mustache',
+                        address: 'Schoolkaai 40',
+                        phone: '0579608770',
+                        latitude: 2,
+                        longitude: 2
+                    }];
+                    $('body').attr('class', '').addClass('orange-wood');
+                    break;
+
+                case '#list-restaurants':
+                    info.headingClass = 'heading-restaurants';
+                    info.color = 'blue';
+                    info.results = [{
+                        name: 'Test',
+                        description: 'Mustache',
+                        address: 'Schoolkaai 40',
+                        phone: '0579608770',
+                        latitude: 2,
+                        longitude: 2
+                    }];
+                    $('body').attr('class', '').addClass('blue-wood');
+                    break;
+
+                case '#list-hotels':
+                    info.headingClass = 'heading-hotels';
+                    info.color = 'red';
+                    info.results = [{
+                        name: 'Test',
+                        description: 'Mustache',
+                        address: 'Schoolkaai 40',
+                        phone: '0579608770',
+                        latitude: 2,
+                        longitude: 2
+                    }];
+                    $('body').attr('class', '').addClass('red-wood');
+                    break;
+
+            }
+
+            html = Mustache.to_html(template, info, partials);
+            $('#app').html(html);
+
+            return false;
+        });
+
+        $('#app').on('click', '.back-button', function () {
+            var template = $('#indexTemplate').html();
+            var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
+            $('#app').html(html);
+
+            $('body').attr('class', '');
+
+            return false;
+        });
+
     };
 
     var init = function () {

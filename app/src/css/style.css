@@ -216,7 +216,7 @@ body {
 .zoek {
   width: 85px;
   height: 15px;
-  margin: 60px auto 0 auto;
+  margin: 60px auto 20px auto;
   background: url(../img/anchors.png) no-repeat 0px 3px;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -319,7 +319,7 @@ p a {
   }
 }
 
-/* line 235, ../scss/style.scss */
+/* line 239, ../scss/style.scss */
 .hide {
   display: none;
 }
