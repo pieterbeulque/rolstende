@@ -35,6 +35,7 @@
     });
 
     var map = new RolstendeMap($('#map_canvas'));
+    var dropdown = new Dropdown();
 
     var calendar = new Calendar($('#calendar'));
 
