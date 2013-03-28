@@ -153,6 +153,7 @@ var RolstendeMap = (function () {
         this.markers = {};
         this.showMyLocation = true;
         this.userLocation = {};
+        this.settings = new Settings();
 
         var that = this;
 
@@ -196,13 +197,6 @@ var RolstendeMap = (function () {
 
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
-        
-        // var p1 = new google.maps.LatLng(51.231613, 2.923822);
-        // var p2 = new google.maps.LatLng(this.userLocation.latitude, this.userLocation.longitude);
-
-        // var distance = this.calculateDistance(p1, p2);
-
-
         var mapOptions = {
             zoom: 13,
             center: user_location,
@@ -232,8 +226,6 @@ var RolstendeMap = (function () {
         this.map.setMapTypeId('map_style');
 
         this.setMarkers();
-
-
     };
 
     RolstendeMap.prototype.checkMarkers = function () {
@@ -271,6 +263,7 @@ var RolstendeMap = (function () {
                 path = "img/pin_blue.png";
                 break;
         }
+
         var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(object[0]["latitude"], object[0]["longitude"]),
                         map: this.map,
@@ -286,7 +279,7 @@ var RolstendeMap = (function () {
     RolstendeMap.prototype.setMarkers = function () {
         var that = this;
         $.getJSON(
-            'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/all',
+            this.settings.api + 'all',
             function (data) {
                 // clearOverlays();
 
@@ -306,10 +299,10 @@ var RolstendeMap = (function () {
                 });
 
                 var fullBounds = new google.maps.LatLngBounds();
-                for(var i=0;i<that.rawmarkers.length;i++){
-                    var lat=parseFloat(that.rawmarkers[i]["position"]["jb"]);
-                    var long=parseFloat(that.rawmarkers[i]["position"]["kb"]);
-                    var point=new google.maps.LatLng(lat,long);
+                for (var i = 0; i < that.rawmarkers.length; i++){
+                    var latitude = parseFloat(that.rawmarkers[i]["position"]["jb"]);
+                    var longitude = parseFloat(that.rawmarkers[i]["position"]["kb"]);
+                    var point = new google.maps.LatLng(latitude,longitude);
 
                     fullBounds.extend(point);
                 }
@@ -318,37 +311,31 @@ var RolstendeMap = (function () {
 
             }
         );
-        
+
     };
 
     RolstendeMap.prototype.markerClickHandler = function (marker) {
-        
+
         var id = marker.id,
             substr = id.split('-'),
             type = substr[0],
             db_id = substr[1],
             that = this;
-            console.log(that);
-
-            console.log(type);
-            console.log(db_id);
 
             $.ajax({
                 type: 'get',
-                url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/' + type + '/'  + db_id,
+                url: this.settings.api + type + '/'  + db_id,
                 dataType:'json',
                 success: function(data) {
-                    $(".detail-view > p").text(data["description"]);
-                    $(".detail-view .address span").text(data["address"]);
+                    var template = $('#listDetailTemplate').html();
+                    var html = Mustache.to_html(template, data);
+                    $('#results').html(html).removeClass('hide');
 
                     if(!that.showMyLocation) {
                         $(".location a").attr('href', 'maps:ll=' + that.userLocation.latitude + ',' + that.userLocation.longitude);
                     } else {
                         $(".location a").attr('href', 'maps:saddr=' + that.userLocation.latitude + ',' + that.userLocation.longitude + '&daddr='+data["latitude"]+','+data["longitude"]+'&z=12');
                     }
-
-                    $(".detail-view img").attr('src', 'img/photos/' + data['path']);
-                    $(".results").removeClass('hide');
 
                     $('#app').animate({
                         scrollTop: $(".detail-view").offset().top
@@ -362,6 +349,16 @@ var RolstendeMap = (function () {
     };
 
     return RolstendeMap;
+
+})();
+
+var Settings =(function () {
+
+    var Settings = function () {
+        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+    };
+
+    return Settings;
 
 })();
 
@@ -558,21 +555,21 @@ var Validate = (function () {
             switch ($(this).attr('href')) {
                 case '#events':
                     template = $('#calendarTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
                     $('#app').html(html);
                     loadCalendar();
                     break;
 
                 case '#spots':
                     template = $('#mapTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'active'}, partials);
                     $('#app').html(html);
                     loadMap();
                     break;
 
                 case '#info':
                     template = $('#infoTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
                     $('#app').html(html);
                     loadInfo();
                     break;
@@ -589,7 +586,8 @@ var Validate = (function () {
                     result: $('#listDetailTemplate').html()
                 },
                 info = {},
-                html;
+                html,
+                settings = new Settings();
 
             switch ($(this).attr('href')) {
                 case '#list-wcs':
@@ -603,6 +601,15 @@ var Validate = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'wcs',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('blue-wood');
                     break;
 
@@ -617,6 +624,15 @@ var Validate = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'points_of_interest',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('orange-wood');
                     break;
 
@@ -632,6 +648,15 @@ var Validate = (function () {
                         longitude: 2
                     }];
                     $('body').attr('class', '').addClass('blue-wood');
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'restaurants',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     break;
 
                 case '#list-hotels':
@@ -645,6 +670,15 @@ var Validate = (function () {
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'hotels',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('red-wood');
                     break;
 
@@ -658,7 +692,7 @@ var Validate = (function () {
 
         $('#app').on('click', '.back-button', function () {
             var template = $('#indexTemplate').html();
-            var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
+            var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
             $('#app').html(html);
 
             $('body').attr('class', '');
@@ -666,18 +700,39 @@ var Validate = (function () {
             return false;
         });
 
+        $("#app").on('click', '.switch', function() {
+            if($(this).hasClass('active')) {
+                loadIndex();
+            } else {
+                var template,
+                partials = {
+                    header: $('#headerTemplate').html()
+                },
+                html;
+                
+                template = $('#mapTemplate').html();
+                html = Mustache.to_html(template, {switchClass: 'active'}, partials);
+                $('#app').html(html);
+                loadMap();
+            }
+        });
+
     };
 
     var init = function () {
-        var template = $('#indexTemplate').html();
-        var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
-        $('#app').html(html);
+        loadIndex();
 
      
 
         loadSidebar();
         initNavigation();
     };
+
+    var loadIndex = function() {
+        var template = $('#indexTemplate').html();
+        var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
+        $('#app').html(html);
+    }
 
     init();
 

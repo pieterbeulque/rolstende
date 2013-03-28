@@ -63,21 +63,21 @@
             switch ($(this).attr('href')) {
                 case '#events':
                     template = $('#calendarTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
                     $('#app').html(html);
                     loadCalendar();
                     break;
 
                 case '#spots':
                     template = $('#mapTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'active'}, partials);
                     $('#app').html(html);
                     loadMap();
                     break;
 
                 case '#info':
                     template = $('#infoTemplate').html();
-                    html = Mustache.to_html(template, null, partials);
+                    html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
                     $('#app').html(html);
                     loadInfo();
                     break;
@@ -94,7 +94,8 @@
                     result: $('#listDetailTemplate').html()
                 },
                 info = {},
-                html;
+                html,
+                settings = new Settings();
 
             switch ($(this).attr('href')) {
                 case '#list-wcs':
@@ -108,6 +109,15 @@
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'wcs',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('blue-wood');
                     break;
 
@@ -122,6 +132,15 @@
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'points_of_interest',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('orange-wood');
                     break;
 
@@ -137,6 +156,15 @@
                         longitude: 2
                     }];
                     $('body').attr('class', '').addClass('blue-wood');
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'restaurants',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     break;
 
                 case '#list-hotels':
@@ -150,6 +178,15 @@
                         latitude: 2,
                         longitude: 2
                     }];
+                    $.ajax({
+                        type: 'get',
+                        url: settings.api + 'hotels',
+                        success: function(data) {
+                            info.results = data.results;
+                            html = Mustache.to_html(template, info, partials);
+                            $('#app').html(html);
+                        }
+                    });
                     $('body').attr('class', '').addClass('red-wood');
                     break;
 
@@ -163,7 +200,7 @@
 
         $('#app').on('click', '.back-button', function () {
             var template = $('#indexTemplate').html();
-            var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
+            var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
             $('#app').html(html);
 
             $('body').attr('class', '');
@@ -171,18 +208,39 @@
             return false;
         });
 
+        $("#app").on('click', '.switch', function() {
+            if($(this).hasClass('active')) {
+                loadIndex();
+            } else {
+                var template,
+                partials = {
+                    header: $('#headerTemplate').html()
+                },
+                html;
+                
+                template = $('#mapTemplate').html();
+                html = Mustache.to_html(template, {switchClass: 'active'}, partials);
+                $('#app').html(html);
+                loadMap();
+            }
+        });
+
     };
 
     var init = function () {
-        var template = $('#indexTemplate').html();
-        var html = Mustache.to_html(template, null, {header: $('#headerTemplate').html()});
-        $('#app').html(html);
+        loadIndex();
 
      
 
         loadSidebar();
         initNavigation();
     };
+
+    var loadIndex = function() {
+        var template = $('#indexTemplate').html();
+        var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
+        $('#app').html(html);
+    }
 
     init();
 
