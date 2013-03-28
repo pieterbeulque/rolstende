@@ -265,8 +265,7 @@ body {
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
-  margin: 1em 0 .5em;
-  text-transform: uppercase;
+  margin: 1em 0 0.5em;
 }
 
 /* line 192, ../scss/style.scss */
@@ -885,7 +884,7 @@ span.arrow {
 
 /* line 59, ../scss/modules/_list-view.scss */
 .list-detail-view {
-  padding: .5em 5% 1em;
+  padding: 0.5em 5% 1em;
 }
 
 /* line 63, ../scss/modules/_list-view.scss */
@@ -907,7 +906,7 @@ span.arrow {
   text-transform: none;
   top: .55rem;
   right: .6rem;
-  padding: 1em .8em 0 .8em;
+  padding: 1em 0.8em 0 0.8em;
   letter-spacing: 0px;
   height: 29px;
   width: 65px;
@@ -937,7 +936,7 @@ span.arrow {
 }
 /* line 104, ../scss/modules/_list-view.scss */
 .detail-view img {
-  border: 6px solid #fff;
+  border: 6px solid white;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -950,7 +949,7 @@ span.arrow {
   background-color: #f4f1e3;
   border: 3px solid #331f14;
   margin: 1em 0;
-  padding: .5em 5%;
+  padding: 0.5em 5%;
   position: relative;
 }
 /* line 122, ../scss/modules/_list-view.scss */
@@ -1025,7 +1024,7 @@ span.arrow {
   display: block;
   float: left;
   margin: 0;
-  padding: .3em 0 0;
+  padding: 0.3em 0 0;
   text-align: center;
   width: 80%;
 }
@@ -1049,7 +1048,7 @@ span.arrow {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  padding: .8em 0;
+  padding: 0.8em 0;
   position: relative;
   width: 14%;
   z-index: 1;
@@ -1073,7 +1072,7 @@ span.arrow {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: .8em 0;
+  padding: 0.8em 0;
   text-decoration: none;
   width: 100%;
   z-index: -1;
