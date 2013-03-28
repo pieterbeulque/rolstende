@@ -13,7 +13,7 @@ class PointsOfInterest extends BaseModel
     public $latitude;
     public $longitude;
     public $description;
-
+    public $path;
 
     public function __construct ()
     {
@@ -25,7 +25,9 @@ class PointsOfInterest extends BaseModel
     public function findById ($id)
     {
         try {
-            $result = $this->dbh->select('*', $this->table, array('id' => $id), 1);
+            $sql = 'SELECT rolstende_points_of_interest.*, rolstende_points_of_interest_photos.path FROM rolstende_points_of_interest, rolstende_points_of_interest_photos WHERE rolstende_points_of_interest_photos.id = :id AND rolstende_points_of_interest_photos.point_of_interest_id = rolstende_points_of_interest.id LIMIT 1';
+            $query = new \Riff\Database\Query($sql, array('id' => $id));
+            $result = $this->dbh->execute($query)->fetch(\PDO::FETCH_ASSOC);
 
             $this->id = (int) $result['id'];
             $this->name = $result['name'];
@@ -33,6 +35,7 @@ class PointsOfInterest extends BaseModel
             $this->latitude = (float) $result['latitude'];
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
+            $this->path = $result['path'];
 
 
         } catch (\Exception $e) {
@@ -42,7 +45,7 @@ class PointsOfInterest extends BaseModel
             $this->latitude = 0.0;
             $this->longitude = 0.0;
             $this->description = '';
-
+            $this->path = 'noimage.jpg';
         }
 
         return $this;

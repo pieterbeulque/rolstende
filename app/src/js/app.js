@@ -153,6 +153,7 @@ var RolstendeMap = (function () {
         this.map = null;
         this.markers = {};
         this.showMyLocation = true;
+        this.userLocation = {};
 
         var that = this;
 
@@ -189,6 +190,7 @@ var RolstendeMap = (function () {
             return false;
         }
 
+        this.userLocation = position.coords;
         var user_location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
         var styles = [{"featureType": "landscape.man_made","stylers": [{ "color": "#fffff1" }]},{"featureType": "transit.line","stylers": [{ "visibility": "off" }]},{"featureType": "landscape.natural","stylers": [{ "color": "#f9edba" }]},{},{"featureType": "water","stylers": [{ "color": "#e4f4f3" }]},{"featureType": "road","elementType": "labels","stylers": [{ "visibility": "off" }]},{"featureType": "poi","elementType": "labels","stylers": [{ "visibility": "off" }]},{"featureType": "administrative.neighborhood","elementType": "labels","stylers": [{ "visibility": "off" }]},{"featureType": "poi.park","stylers": [{ "color": "#94cc99" },{ "lightness": 44 }]},{"featureType": "poi.medical","stylers": [{ "color": "#ea0f00" },{ "lightness": 92 }]},{"featureType": "poi.business","stylers": [{ "color": "#fffff3" }]},{},{"featureType": "road.local","elementType": "geometry.stroke","stylers": [{ "visibility": "off" }]},{"featureType": "road.local","elementType": "geometry.fill","stylers": [{ "color": "#e6e7d2" },{ "lightness": 27 },{ "visibility": "off" }]},{"featureType": "road.highway","elementType": "geometry.fill","stylers": [{ "visibility": "on" },{ "color": "#f08f80" },{ "lightness": 77 }]},{"featureType": "road.highway","elementType": "geometry.stroke","stylers": [{ "visibility": "on" },{ "color": "#e28080" },{ "lightness": 49 }]},{"featureType": "road.arterial","elementType": "geometry.fill","stylers": [{ "visibility": "on" },{ "color": "#f08680" },{ "lightness": 77 }]},{"featureType": "administrative.locality","elementType": "labels.text.stroke","stylers": [{ "visibility": "off" }]},{"featureType": "administrative.locality","elementType": "labels.text.fill","stylers": [{ "color": "#000000" },{ "lightness": 72 }]},{}];
@@ -196,7 +198,7 @@ var RolstendeMap = (function () {
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 
         var mapOptions = {
-            zoom: 12,
+            zoom: 13,
             center: user_location,
             mapTypeControl: false,
             streetViewControl: false,
@@ -303,21 +305,38 @@ var RolstendeMap = (function () {
 
     RolstendeMap.prototype.markerClickHandler = function (marker) {
         
-        // var id = marker.id,
-        //     substr = id.split('-'),
-        //     type = substr[0],
-        //     db_id = substr[1];
+        var id = marker.id,
+            substr = id.split('-'),
+            type = substr[0],
+            db_id = substr[1],
+            that = this;
+            console.log(that);
 
-        //     console.log(type);
-        //     console.log(db_id);
+            console.log(type);
+            console.log(db_id);
 
-        // $.ajax({
-        //     type: 'get',
-        //     url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/' + type + '/'  + db_id,
-        //     success: function(data) {
-        //         console.log(data);
-        //     }
-        // });
+            $.ajax({
+                type: 'get',
+                url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/' + type + '/'  + db_id,
+                dataType:'json',
+                success: function(data) {
+                    $(".detail-view > p").text(data["description"]);
+                    $(".detail-view .address span").text(data["address"]);
+
+                    if(!that.showMyLocation) {
+                        $(".location a").attr('href', 'maps:ll=' + that.userLocation.latitude + ',' + that.userLocation.longitude);
+                    } else {
+                        $(".location a").attr('href', 'maps:saddr=' + that.userLocation.latitude + ',' + that.userLocation.longitude + '&daddr='+data["latitude"]+','+data["longitude"]+'&z=12');
+                    }
+
+                    $(".detail-view img").attr('src', 'img/photos/' + data['path']);
+                    $(".results").removeClass('hide');
+
+                    $('#app').animate({
+                        scrollTop: $(".detail-view").offset().top
+                    }, 1000);
+                }
+            });
     };
 
     return RolstendeMap;

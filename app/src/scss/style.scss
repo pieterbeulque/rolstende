@@ -231,6 +231,9 @@ p {
     }
 }
 
+//Hulpklasses
+.hide {display: none;}
+
 @import "modules/_map";
 @import "modules/_loader";
 @import "modules/_form";
