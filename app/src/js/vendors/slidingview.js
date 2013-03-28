@@ -1,233 +1,197 @@
-/*
-THIS SOFTWARE IS PROVIDED BY ANDREW M. TRICE ''AS IS'' AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL ANDREW M. TRICE OR
-CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+var SlidingView = function (sidebarID, bodyID) {
+    window.slidingView = this;
 
-var SlidingView = function( sidebarId, bodyId ) {
-	
-	window.slidingView = this;
-	$(".sidebar ul li").each(function() {
-		$(this).css({'height': '34%'});
-		$(this).css('height', $(this).height());
-	});
-	
-	this.gestureStarted = false;
-	this.bodyOffset = 0;
-	
-	this.sidebarWidth = 90;
-	
-	this.sidebar = $("#"+sidebarId);
-	this.body = $("#"+bodyId);
-	
-	this.sidebar.addClass( "slidingview_sidebar" );
-	this.body.addClass( "slidingview_body" );
-		
-	var self = this;
-	$(window).resize( function(event){ self.resizeContent() } );
-	$(this.parent).resize( function(event){ self.resizeContent() } );
-	
-	if ( "onorientationchange" in window ) {
-		$(window).bind( "onorientationchange", function(event){ self.resizeContent() } )
-	}
-	this.resizeContent();
-	this.setupEventHandlers();
+    $(".sidebar ul li").each(function () {
+        $(this).css({'height': '34%'});
+        $(this).css('height', $(this).height());
+    });
 
+    this.gestureStarted = false;
+    this.bodyOffset = 0;
 
+    this.sidebarWidth = 90;
 
-}
+    this.sidebar = $('#' + sidebarID);
+    this.body = $('#' + bodyID);
 
-SlidingView.prototype.setupEventHandlers = function() {
+    this.sidebar.addClass('slidingview_sidebar');
+    this.body.addClass('slidingview_body');
 
-	this.touchSupported =  ('ontouchstart' in window);
-	
-	this.START_EVENT = this.touchSupported ? 'touchstart' : 'mousedown';
-	this.MOVE_EVENT = this.touchSupported ? 'touchmove' : 'mousemove';
-	this.END_EVENT = this.touchSupported ? 'touchend' : 'mouseup';
+    var self = this;
 
-	var self = this;
-	var func = function( event ){ self.onTouchStart(event), true };
-	var body = this.body.get()[0];
-	body.addEventListener( this.START_EVENT, func, false );
-}
+    $(window).on('resize', function (event) {
+        self.resizeContent();
+    });
 
-SlidingView.prototype.onTouchStart = function(event) {
-	//console.log( event.type );
-	
-	this.gestureStartPosition = this.getTouchCoordinates( event );
-	
-	var self = this;
-	this.touchMoveHandler = function( event ){ self.onTouchMove(event) };
-	this.touchUpHandler = function( event ){ self.onTouchEnd(event) };
-	
-	this.body.get()[0].addEventListener( this.MOVE_EVENT, this.touchMoveHandler, false );
-	this.body.get()[0].addEventListener( this.END_EVENT, this.touchUpHandler, false );
-	this.body.stop();
-}
+    $(this.parent).on('resize', function (event) {
+        self.resizeContent();
+    });
 
-SlidingView.prototype.onTouchMove = function(event) {
-	if ($(event.target).closest('#map_canvas').length > 0) {
-		event.preventDefault();
-		event.stopPropagation();
-		this.unbindEvents();
-		return false;
-	}
+    if ('onorientationchange' in window) {
+        $(window).on('onorientationchange', function (event) {
+            self.resizeContent();
+        });
+    }
 
+    this.resizeContent();
+    this.setupEventHandlers();
+};
 
-	var currentPosition = this.getTouchCoordinates( event );
-	
-	if ( this.gestureStarted ) {
-		event.preventDefault();
-		event.stopPropagation();
-		this.updateBasedOnTouchPoints( currentPosition );
-		return;
-	}
-	else {
-		//console.log( Math.abs( currentPosition.x - this.gestureStartPosition.x ) );
-		//detect the gesture
-		if ( Math.abs( currentPosition.y - this.gestureStartPosition.y ) > 50 ) {
-			
-			//dragging veritcally - ignore this gesture
-			this.unbindEvents();
-			return;
-		}
-		else if ( Math.abs( currentPosition.x - this.gestureStartPosition.x ) > 50 ) {
-			
-			//dragging horizontally - let's handle this
-			this.gestureStarted = true;
-			event.preventDefault();
-			event.stopPropagation();
-			this.updateBasedOnTouchPoints( currentPosition );
-			return;
-		}
-	}
-}
+SlidingView.prototype.setupEventHandlers = function () {
+    this.touchSupported = ('ontouchstart' in window);
 
-SlidingView.prototype.onTouchEnd = function(event) {
-	if ( this.gestureStarted ) {
-		this.snapToPosition();
-	}
-	this.gestureStarted = false;
-	this.unbindEvents();
-}
+    this.START_EVENT = this.touchSupported ? 'touchstart' : 'mousedown';
+    this.MOVE_EVENT = this.touchSupported ? 'touchmove' : 'mousemove';
+    this.END_EVENT = this.touchSupported ? 'touchend' : 'mouseup';
 
+    var self = this;
+    this.touchStartHandler = function (event) {
+        self.onTouchStart(event);
+    };
 
+    this.body.get()[0].addEventListener(this.START_EVENT, this.touchStartHandler, false);
+};
 
-SlidingView.prototype.updateBasedOnTouchPoints = function( currentPosition ) {
-	
-	var deltaX = (currentPosition.x - this.gestureStartPosition.x);
-	var targetX = this.bodyOffset + deltaX;
-	
-	targetX = Math.max( targetX, 0 );
-	targetX = Math.min( targetX, this.sidebarWidth );
-	
-	this.bodyOffset = targetX;
-	
-	//console.log( targetX );
-	//this.body.css("left", targetX );
-	//console.log( this.body.css("left") );
-	
-	if ( this.body.css("left") != "0px" ) {
-		this.body.css("left", "0px" );
-	}
-	this.body.css("-webkit-transform", "translate3d(" + targetX + "px,0,0)" );
-	this.body.css("-moz-transform", "translate3d(" + targetX + "px,0,0)" );
-	this.body.css("transform", "translate3d(" + targetX + "px,0,0)" );
-	
-	//console.log( this.body.css("-moz-transform"), targetX );
-	
-	
-	/*if ( currentPosition != targetX ) {
-	
-		this.body.stop(true,false).animate({
-				left:targetX,
-				avoidTransforms:false,
-				useTranslate3d: true
-			}, 100);
-	}*/
-	
-	this.sidebar.trigger( "slidingViewProgress", { current: targetX, max:this.sidebarWidth } );
-	
-	this.gestureStartPosition = currentPosition;
-}
+SlidingView.prototype.onTouchStart = function (event) {
+    this.gestureStartPosition = this.getTouchCoordinates(event);
 
-SlidingView.prototype.snapToPosition = function() {
+    var self = this;
+    this.touchMoveHandler = function (event) {
+        self.onTouchMove(event);
+    };
 
-	//this.body.css("-webkit-transform", "translate3d(0,0,0)" );
-	this.body.css("left", "0px" );
-	var currentPosition = this.bodyOffset;
-	var halfWidth = this.sidebarWidth / 2;
-	var targetX;
-	if ( currentPosition < halfWidth ) {
-		targetX = 0;
-	}
-	else {
-		targetX = this.sidebarWidth;
-	}
-	this.bodyOffset = targetX;
-	
-	//console.log( currentPosition, halfWidth, targetX );
+    this.touchUpHandler = function (event) {
+        self.onTouchEnd(event);
+    };
 
-	if ( currentPosition != targetX ) {
-	    this.slideView(targetX);
-	}
-}
+    this.body.get()[0].addEventListener(this.MOVE_EVENT, this.touchMoveHandler, false);
+    this.body.get()[0].addEventListener(this.END_EVENT, this.touchUpHandler, false);
+    this.body.stop();
+};
 
-SlidingView.prototype.slideView = function(targetX) {
+SlidingView.prototype.onTouchMove = function (event) {
+
+    // Block sidebar when in map view
+    // TO DO
+    if ($(event.target).closest('#map_canvas').length > 0) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.unbindEvents();
+        return false;
+    }
+
+    var currentPosition = this.getTouchCoordinates(event);
+
+    if (this.gestureStarted) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.updateBasedOnTouchPoints(currentPosition);
+        return;
+    } else {
+        if (Math.abs(currentPosition.y - this.gestureStartPosition.y) > 50) {
+            this.unbindEvents();
+            return;
+        } else if (Math.abs(currentPosition.x - this.gestureStartPosition.x) > 50) {
+            this.gestureStarted = true;
+            event.preventDefault();
+            event.stopPropagation();
+            this.updateBasedOnTouchPoints(currentPosition);
+            return;
+        }
+    }
+};
+
+SlidingView.prototype.onTouchEnd = function (event) {
+    if (this.gestureStarted) {
+        this.snapToPosition();
+    }
+
+    this.gestureStarted = false;
+    this.unbindEvents();
+};
+
+SlidingView.prototype.updateBasedOnTouchPoints = function (currentPosition) {
+    var deltaX = (currentPosition.x - this.gestureStartPosition.x),
+        targetX = Math.min(Math.max(this.bodyOffset + deltaX, 0), this.sidebarWidth);
+
+    this.bodyOffset = targetX;
+
+    if (this.body.css("left") != "0px") {
+        this.body.css("left", "0px" );
+    }
+
+    this.body.css('-webkit-transform', 'translate3d(' + targetX + 'px,0,0)');
+    this.body.css('transform', 'translate3d(' + targetX + 'px,0,0)');
+
+    this.sidebar.trigger('slidingViewProgress', {current: targetX, max:this.sidebarWidth});
+
+    this.gestureStartPosition = currentPosition;
+};
+
+SlidingView.prototype.snapToPosition = function () {
+    var currentPosition = this.bodyOffset,
+        halfWidth = this.sidebarWidth / 2,
+        targetX;
+
+    this.body.css('left', '0px');
+
+    targetX = (currentPosition < halfWidth) ? 0 : this.sidebarWidth;
+
+    this.bodyOffset = targetX;
+
+    if (currentPosition != targetX) {
+        this.slideView(targetX);
+    }
+};
+
+SlidingView.prototype.slideView = function (targetX) {
     this.body.stop(true, false).animate({
-        left:targetX,
-        avoidTransforms:false,
+        left: targetX,
+        avoidTransforms: false,
         useTranslate3d: true
     }, 300);
 
-    this.sidebar.trigger( "slidingViewProgress", { current:targetX, max:this.sidebarWidth } );
-}
+    this.sidebar.trigger('slidingViewProgress', {current: targetX, max: this.sidebarWidth});
+};
 
-SlidingView.prototype.close = function() {
+SlidingView.prototype.close = function () {
     this.bodyOffset = 0;
     this.slideView(0);
-}
+};
 
-SlidingView.prototype.open = function() {
+SlidingView.prototype.open = function () {
     if(this.bodyOffset == this.sidebarWidth) return;
     this.bodyOffset = this.sidebarWidth;
     this.slideView(this.sidebarWidth);
-}
+};
 
-SlidingView.prototype.unbindEvents = function() {
-	this.body.get()[0].removeEventListener( this.MOVE_EVENT, this.touchMoveHandler, false );
-	this.body.get()[0].removeEventListener( this.END_EVENT, this.touchUpHandler, false );
-}
+SlidingView.prototype.unbindEvents = function () {
+    this.body.get()[0].removeEventListener(this.MOVE_EVENT, this.touchMoveHandler, false);
+    this.body.get()[0].removeEventListener(this.END_EVENT, this.touchUpHandler, false);
+};
 
+SlidingView.prototype.getTouchCoordinates = function (event) {
+    var coords = {x: 0, y: 0};
+    if (this.touchSupported) {
+        var touchEvent = event.touches[0];
+        coords.x = touchEvent.pageX;
+        coords.y = touchEvent.pageY;
+    } else {
+        coords.x = event.screenX;
+        coords.y = event.screenY;
+    }
+    return coords;
+};
 
+SlidingView.prototype.resizeContent = function () {
+    this.body.width($(window).width());
 
-SlidingView.prototype.getTouchCoordinates = function(event) {
-	if ( this.touchSupported ) {
-		var touchEvent = event.touches[0];
-		return { x:touchEvent.pageX, y:touchEvent.pageY }
-	}
-	else {
-		return { x:event.screenX, y:event.screenY };
-	}
-}
-
-SlidingView.prototype.resizeContent = function() {
-	$(".sidebar ul li").each(function() {
-		$(this).css({'height': '34%'});
-		$(this).css('height', $(this).height());
-	});
-
-	var $window = $(window)
-    var w = $window.width();
-    var h = $window.height();
-    
-    this.body.width( w );
-}
+    // Set every sidebar item to 33% height
+    $('.sidebar, .sidebar ul').height($(window).height());
+    $('.sidebar ul li').each(function () {
+        $(this).css({'height': '34%'});
+        $(this).css('height', $(this).height());
+    });
+};
