@@ -99,7 +99,7 @@ $app->get('/pointsofinterest', function () {
     die($output);
 });
 
-$app->get('/pointsofinterest/:id', function ($id) {
+$app->get('/pointofinterest/:id', function ($id) {
     $poi = new PointsOfInterest();
     die(json_encode($poi->findById($id)));
 });

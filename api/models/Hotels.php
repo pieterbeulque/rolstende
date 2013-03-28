@@ -34,6 +34,7 @@ class Hotels extends BaseModel
             $this->latitude = (float) $result['latitude'];
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
+            $this->available = $result['available'];
 
            
 

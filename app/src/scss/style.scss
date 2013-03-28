@@ -150,11 +150,20 @@ body {
 }
 
 .app {
+    position: relative;
     background-image: url('../img/patterns/white-wood.png');
     @include background-size(30%);
 
     .red-wood & {
         background-image: url('../img/patterns/red-wood.png');
+     
+    }
+    .blue-wood & {
+         background-image: url('../img/patterns/blue-wood.png');
+    }
+
+    .orange-wood & {
+          background-image: url('../img/patterns/orange-wood.png'); 
     }
 }
 
@@ -194,6 +203,8 @@ p {
         width: 50%;
     }
 }
+
+
 
 @-webkit-keyframes logo-animatie {
     0% {
