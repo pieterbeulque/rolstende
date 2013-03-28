@@ -315,6 +315,16 @@ p a {
   max-width: none !important;
 }
 
+/* line 11, ../scss/modules/_map.scss */
+.gmnoprint {
+  display: none;
+}
+
+/* line 15, ../scss/modules/_map.scss */
+#map_canvas > div > div:first-child + div {
+  display: none;
+}
+
 @-webkit-keyframes swinging {
   /* line 2, ../scss/modules/_loader.scss */
   0% {
@@ -683,7 +693,8 @@ span.arrow {
   -o-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   background-color: #dfded7;
 }
@@ -759,7 +770,11 @@ span.arrow {
 
 /* line 49, ../scss/modules/_list-view.scss */
 .list-detail-view {
+<<<<<<< HEAD
   padding: 0.5em 5% 1em;
+=======
+  padding: .5em 5% 1em;
+>>>>>>> OOP JS
 }
 
 /* line 53, ../scss/modules/_list-view.scss */
