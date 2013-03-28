@@ -40,7 +40,6 @@ class Event extends BaseModel
             $this->address = $result['address'];
             $this->path = $result['path'];
 
-
         } catch (\Exception $e) {
             $this->id = 0;
             $this->start = '';
@@ -53,6 +52,38 @@ class Event extends BaseModel
         }
 
         return $this;
+    }
+
+    public function findEventsForDay ($day, $month, $year)
+    {
+        $sql = "SELECT * FROM rolstende_events WHERE start <= ':startyear-:startmonth-:startday 00:00:00' AND end >= ':endyear-:endmonth-:endday 00:00:00'";
+        $params = array();
+        $params['startyear'] = $year;
+        $params['startmonth'] = $month;
+        $params['startday'] = $day;
+        $params['endyear'] = $year;
+        $params['endmonth'] = $month;
+        $params['endday'] = $day;
+        $query = new \Riff\Database\Query($sql);
+        $result = $this->dbh->execute($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function findEventsForMonth ($month, $year)
+    {
+        $year = (int) $year;
+        $month = (int) $month;
+
+        $sql = "SELECT * FROM rolstende_events WHERE (DATE(start) >= DATE('" . $year . "-" . $month . "-01 00:00:00') "
+             . "AND DATE(start) < DATE('" . $year . "-" . ($month + 1) . "-01 00:00:00')) "
+             . "OR (DATE(end) > DATE('" . $year . "-" . ($month) . "-01 00:00:00') AND DATE(end) < DATE('" . $year . "-" . ($month + 1) . "-01 00:00:00'))";
+
+        $query = new \Riff\Database\Query($sql);
+
+        $result = $this->dbh->execute($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
     }
 
     public function getAll ()

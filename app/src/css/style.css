@@ -528,6 +528,7 @@ p a {
   width: 50%;
 }
 
+<<<<<<< HEAD
 @-webkit-keyframes logo-animatie {
 <<<<<<< HEAD
   /* line 228, ../scss/style.scss */
@@ -560,6 +561,8 @@ p a {
 <<<<<<< HEAD
 /* line 242, ../scss/style.scss */
 =======
+=======
+>>>>>>> Working calendar
 /* line 239, ../scss/style.scss */
 >>>>>>> Geen idee
 .hide {
@@ -1510,9 +1513,8 @@ span.arrow {
 .calendar-table td.today {
   color: #331f14;
 }
-
-/* line 62, ../scss/modules/_calendar.scss */
-.calendar-active {
+/* line 61, ../scss/modules/_calendar.scss */
+.calendar-table a {
   background-color: #ec9128;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

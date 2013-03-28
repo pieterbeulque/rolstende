@@ -6,6 +6,7 @@ var Calendar = (function () {
         this.table = element.find('.calendar-table');
         this.today = new Date();
         this.counter = new Date();
+        this.settings = new Settings();
 
         this.fillTable();
     };
@@ -39,11 +40,71 @@ var Calendar = (function () {
         }
     };
 
-    Calendar.prototype.fillTable = function () {
-        var beginDay = new Date(this.counter.getFullYear(), this.counter.getMonth(), 1).getDay() - 1,
-            daysInMonth = new Date(this.counter.getFullYear(), this.counter.getMonth() + 1, 0).getDate();
+    Calendar.prototype.dateFromMySQL = function (datetime) {
+        var t = datetime.split(/[- :]/),
+            d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
 
+        return d;
+    };
+
+    Calendar.prototype.getEvents = function () {
+        var that = this;
+        console.log(this.settings.api + 'events/for/' + this.counter.getFullYear() + '/' + (this.counter.getMonth() + 1));
+        $.getJSON(
+            this.settings.api + 'events/for/' + this.counter.getFullYear() + '/' + (this.counter.getMonth() + 1),
+            function (data) {
+                that.events = data.results;
+                that.showEvents();
+            }
+        );
+    };
+
+    Calendar.prototype.showEvents = function () {
+        var beginDay = this.getBeginDay(),
+            daysInMonth = this.getDaysInMonth(),
+            that = this;
+
+        $.each(this.events, function (key, value) {
+            var start = that.dateFromMySQL(value.start),
+                end = that.dateFromMySQL(value.end),
+                i,
+                max;
+
+            // Start ligt in huidige maand
+            if (start.getMonth() === that.counter.getMonth()) {
+                i = start.getDate() - 1;
+
+                // If end day smaller than big date, end is in next month, so set it to end of month
+                max = (end.getDate() < start.getDate()) ? daysInMonth : end.getDate();
+            } else {
+                // Start ligt in vorige maand
+                i = 0;
+
+                max = end.getDate();
+            }
+
+            var cells = that.table.find('td');
+
+            for (i; i < max; i++) {
+                var index = i + beginDay;
+                cells.eq(index).html('<a href="#event-' + value.id + '">' + (i + 1) + '</a>');
+            }
+        });
+    };
+
+    Calendar.prototype.getBeginDay = function () {
+        var beginDay = new Date(this.counter.getFullYear(), this.counter.getMonth(), 1).getDay() - 1;
         beginDay = (beginDay < 0) ? 6 : beginDay; // Reset it to monday = 0 and sunday = 6
+        return beginDay;
+    };
+
+    Calendar.prototype.getDaysInMonth = function () {
+        return new Date(this.counter.getFullYear(), this.counter.getMonth() + 1, 0).getDate();
+    };
+
+    Calendar.prototype.fillTable = function () {
+        var beginDay = this.getBeginDay(),
+            daysInMonth = this.getDaysInMonth();
 
         var cells = this.table.find('td').empty(),
             eqCounter = beginDay;
@@ -60,6 +121,8 @@ var Calendar = (function () {
         }
 
         this.heading.html(this.readableMonth() + ' ' + this.counter.getFullYear());
+
+        this.getEvents();
     };
 
     Calendar.prototype.nextMonth = function () {
