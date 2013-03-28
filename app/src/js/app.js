@@ -2,16 +2,84 @@
 
 "use strict";
 
-(function () {
-    var Calendar = function () {
+var Calendar = (function () {
 
-        var Calendar = function () {
-            this.today = new Date();
-            this.month = this.today.getMonth();
-        };
+    var Calendar = function (element) {
+        this.element = element;
+        this.heading = element.find('.calendar-heading h2');
+        this.table = element.find('.calendar-table');
+        this.today = new Date();
+        this.counter = new Date();
 
-        return Calendar;
+        console.log(this);
+
+        this.fillTable();
     };
+
+    Calendar.prototype.readableMonth = function () {
+        switch (this.counter.getMonth()) {
+            case 0:
+                return 'Januari';
+            case 1:
+                return 'Februari';
+            case 2:
+                return 'Maart';
+            case 3:
+                return 'April';
+            case 4:
+                return 'Mei';
+            case 5:
+                return 'Juni';
+            case 6:
+                return 'Juli';
+            case 7:
+                return 'Augustus';
+            case 8:
+                return 'September';
+            case 9:
+                return 'Oktober';
+            case 10:
+                return 'November';
+            case 11:
+                return 'December';
+        }
+    };
+
+    Calendar.prototype.fillTable = function () {
+        var beginDay = new Date(this.counter.getFullYear(), this.counter.getMonth(), 1).getDay() - 1,
+            daysInMonth = new Date(this.counter.getFullYear(), this.counter.getMonth() + 1, 0).getDate();
+
+        beginDay = (beginDay < 0) ? 6 : beginDay; // Reset it to monday = 0 and sunday = 6
+
+        var cells = this.table.find('td').empty(),
+            eqCounter = beginDay;
+
+        for (var i = 1; i <= daysInMonth; i++) {
+            cells.eq(eqCounter).html(i);
+            eqCounter++;
+        }
+
+        $('.today').removeClass('today');
+
+        if (this.today.getMonth() === this.counter.getMonth() && this.today.getFullYear() === this.counter.getFullYear()) {
+            cells.eq(this.today.getDate() + beginDay - 1).addClass('today');
+        }
+
+        this.heading.html(this.readableMonth() + ' ' + this.counter.getFullYear());
+    };
+
+    Calendar.prototype.nextMonth = function () {
+        this.counter.setMonth(this.counter.getMonth() + 1);
+        this.fillTable();
+    };
+
+    Calendar.prototype.previousMonth = function () {
+        this.counter.setMonth(this.counter.getMonth() - 1);
+        this.fillTable();
+    };
+
+    return Calendar;
+
 }());
 
 var RolstendeMap = (function () {
@@ -194,35 +262,48 @@ var RolstendeMap = (function () {
         server = "http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/";
 
     sv = new SlidingView( 'sidebar', 'app' );
-    sv.sidebarWidth = 90;
 
     sv.sidebar.oriDomi({ hPanels: 1, vPanels: 2, speed:1, perspective:1000, shadingIntensity:2 });
-    sv.sidebar.oriDomi( 'accordion', 45 );
+    sv.sidebar.oriDomi('accordion', 45);
 
-    sv.sidebar.bind( "slidingViewProgress", function(event, data) {
+    sv.sidebar.on('slidingViewProgress', function(event, data) {
+        console.log('sdkjflm');
+        var fudge = 1,
+            half = data.max/2;
 
-        var fudge = 1
-        var half = data.max/2;
         if ( data.current < half ) {
-            fudge = (data.current)/half
+            fudge = (data.current)/half;
         } else if ( data.current > half ) {
-            fudge = (half-(data.current-half))/half
+            fudge = (half-(data.current-half))/half;
         }
-        fudge *= 15
+
+        fudge *= 15;
 
         var angle = 90-((90*(data.current/data.max)));
 
         if ( (angle+fudge) > 0 ) {
+            console.log('oridomi');
             sv.sidebar.oriDomi( 'restoreOriDomi' );
             sv.sidebar.oriDomi( 'accordion', (angle+fudge) );
-        }
-        else {
+        } else {
+            console.log('amai');
             sv.sidebar.oriDomi( 'restoreDOM' );
-        }   
-
+        }
     });
 
     var map = new RolstendeMap($('#map_canvas'));
+
+    var calendar = new Calendar($('#calendar'));
+
+    $('#calendar-prev').on('click', function () {
+        calendar.previousMonth();
+        return false;
+    });
+
+    $('#calendar-next').on('click', function () {
+        calendar.nextMonth();
+        return false;
+    });
 
     $("#body").click(function() {
         sv.close();
