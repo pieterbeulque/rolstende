@@ -457,7 +457,8 @@ var Settings =(function () {
                     result: $('#listDetailTemplate').html()
                 },
                 info = {},
-                html;
+                html,
+                settings = new Settings();
 
             switch ($(this).attr('href')) {
                 case '#list-wcs':
@@ -473,7 +474,7 @@ var Settings =(function () {
                     }];
                     $.ajax({
                         type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'wcs',
+                        url: settings.api + 'wcs',
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
@@ -496,7 +497,7 @@ var Settings =(function () {
                     }];
                     $.ajax({
                         type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'points_of_interest',
+                        url: settings.api + 'points_of_interest',
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
@@ -520,7 +521,7 @@ var Settings =(function () {
                     $('body').attr('class', '').addClass('blue-wood');
                     $.ajax({
                         type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'restaurants',
+                        url: settings.api + 'restaurants',
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
@@ -542,7 +543,7 @@ var Settings =(function () {
                     }];
                     $.ajax({
                         type: 'get',
-                        url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/' + 'hotels',
+                        url: settings.api + 'hotels',
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
