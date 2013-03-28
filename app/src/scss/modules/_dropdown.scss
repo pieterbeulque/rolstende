@@ -1,0 +1,172 @@
+
+
+
+#dropdown-container {
+    width: 70%;
+    left: 50%;
+    margin-left: -35%;
+    position: absolute;
+    top: -60px;
+    z-index: 999;
+   
+}
+
+a {
+
+    -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -moz-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -ms-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -o-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+    text-decoration: none;
+}
+
+/* List styles */
+
+.list {
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+}
+
+.list a {
+    
+    display: block;
+    color: #fff;
+}
+
+.list a:hover {
+    text-indent: 20px;
+}
+
+.list dt, .list dd {
+
+    text-indent: 10px;
+    line-height: 55px;
+    margin: 0;
+    height: 55px;
+    width: 100%;
+    color: #fff;
+
+}
+
+.list dt {
+    font-family: 'DIN Condensed';
+    font-size: 1.3em;
+    letter-spacing: -0.7px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    /* Since we're hiding elements behind here, we need it in 3d */
+    -webkit-transform: translateZ(0.3px);
+    -moz-transform: translateZ(0.3px);
+    -ms-transform: translateZ(0.3px);
+    -o-transform: translateZ(0.3px);
+    transform: translateZ(0.3px);
+
+    background-image: url('../img/patterns/red-wood.png');
+}
+
+.list dd {
+    text-transform: none;
+    border-top: 1px dashed $brown;
+    line-height: 35px;
+    font-size: 13px;
+    height: 35px;
+    margin: 0;
+    letter-spacing: -0.7px;
+
+    &:first-of-type{
+        background-color: $orange;
+    }
+    &:nth-of-type(2n){
+        background-color: $blue;
+    }
+
+
+
+}
+
+
+/* No CSS 3D support warning */
+.warning {
+
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    -ms-transform: translateZ(2px);
+    -o-transform: translateZ(2px);
+    transform: translateZ(2px);
+
+    background: rgba(255,255,255,0.6);
+    position: fixed;
+    display: none;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.warning .message {
+
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: -150px;
+    margin-top: -60px;
+    line-height: 1.5;
+    background: #222;
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    width: 280px;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+}
+
+.warning .message h1 {
+
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.warning .message a {
+
+    text-decoration: none;
+    color: #73C8A9;
+}
+
+/* Individual styles */
+
+.sashimi dt, .sashimi dd, .sashimi a { background: #73C8A9; }
+.nigiri dt, .nigiri dd, .nigiri a { background: #E32551; }
+.maki dt {   
+    background-image: url('../img/patterns/red-wood.png');
+    @include background-size(30%);
+}
+.maki dd {   
+    background-image: url('../img/patterns/orange-wood.png');
+    @include background-size(30%);
+}
+
+.sashimi a:hover { background: #61c19e; }
+.nigiri a:hover { background: #d31b46; }
+.maki a:hover { background: #d65345; }
+
+.maki {
+
+    -webkit-transform: perspective(600px) translateZ(1px) !important;
+    -moz-transform: perspective(600px) translateZ(1px) !important;
+    -ms-transform: perspective(600px) translateZ(1px) !important;
+    -o-transform: perspective(600px) translateZ(1px) !important;
+    transform: perspective(600px) translateZ(1px) !important;
+}

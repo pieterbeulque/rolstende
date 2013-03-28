@@ -34,6 +34,7 @@
     });
 
     var map = new RolstendeMap($('#map_canvas'));
+    var dropdown = new Dropdown();
 
     $("#body").click(function() {
         sv.close();

@@ -2,7 +2,7 @@ label {
     display: none;
 }
 
-input[type="text"], textarea, select {
+input[type="text"], input[type="email"], textarea, select {
     -webkit-appearance: none;
     appearance: none;
     background-color: $white;
