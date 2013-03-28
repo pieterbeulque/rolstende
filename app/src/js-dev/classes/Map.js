@@ -10,7 +10,9 @@ var RolstendeMap = (function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 that.maps(position);
-            }, this.error);
+            }, function (msg) {
+                that.error(msg);
+            });
         } else {
             this.error();
         }
@@ -68,14 +70,34 @@ var RolstendeMap = (function () {
     };
 
     RolstendeMap.prototype.generateMarker = function (object, category) {
+        var path;
+        switch(category) {
+            case 'restaurants':
+                path = "img/pin_blueDark.png";
+                break;
+
+            case 'hotels':
+                path = "img/pin_red.png";
+                break;
+
+            case 'pointsofinterest':
+                path = "img/pin_orange.png";
+                break;
+
+            case 'wcs':
+                path = "img/pin_blue.png";
+                break;
+        }
         var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(object[0]["latitude"], object[0]["longitude"]),
                         map: this.map,
-                        icon: new google.maps.MarkerImage("img/pin_orange.png", null, null, null, new google.maps.Size(20,20)),
+                        icon: new google.maps.MarkerImage(path, null, null, null, new google.maps.Size(20,20)),
                         title: object[0]["name"],
                         animation: google.maps.Animation.DROP,
-                        id: category + '-' + obj[0]["id"]
+                        id: category + '-' + object[0]["id"]
                     });
+
+        return marker;
     };
 
     RolstendeMap.prototype.setMarkers = function () {
@@ -102,18 +124,23 @@ var RolstendeMap = (function () {
     };
 
     RolstendeMap.prototype.markerClickHandler = function (marker) {
-        var id = marker.id,
-            substr = id.split('-'),
-            type = substr[0],
-            db_id = substr[1];
+        console.log(this.markers);
 
-        $.ajax({
-            type: 'get',
-            url: server + 'api/' + type + '/'  + db_id,
-            success: function(data) {
-                console.log(data);
-            }
-        });
+        // var id = marker.id,
+        //     substr = id.split('-'),
+        //     type = substr[0],
+        //     db_id = substr[1];
+
+        //     console.log(type);
+        //     console.log(db_id);
+
+        // $.ajax({
+        //     type: 'get',
+        //     url: 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/' + 'api/' + type + '/'  + db_id,
+        //     success: function(data) {
+        //         console.log(data);
+        //     }
+        // });
     };
 
     return RolstendeMap;
