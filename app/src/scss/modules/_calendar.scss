@@ -1,7 +1,7 @@
 .calendar {
     background-color: $white;
     font-family: 'DIN Condensed';
-    margin-top: 3em;
+    margin-top: :;em;
 }
 
 .calendar-heading {
@@ -74,4 +74,15 @@
     text-decoration: none;
     width: 100%;
     z-index: -1;
+}
+
+#calendar-prev {
+    background: url('../img/arrow_left.png') no-repeat 8px 8px;
+    background-size: 30%;
+
+}
+
+#calendar-next {
+background: url('../img/arrow_right.png') no-repeat 8px 8px;
+    background-size: 30%;
 }
