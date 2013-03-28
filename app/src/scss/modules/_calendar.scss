@@ -1,0 +1,77 @@
+.calendar {
+    background-color: $white;
+    font-family: 'DIN Condensed';
+    margin-top: 3em;
+}
+
+.calendar-heading {
+    border: 3px solid $brown;
+    @include clearfix;
+
+    a {
+        display: block;
+        float: left;
+        height: 26px;
+        @include hide-text;
+        width: 25px;
+
+        &:first-child {
+            border-right: 3px solid $brown;
+        }
+
+        &:last-child {
+            float: right;
+            border-left: 3px solid $brown;
+        }
+    }
+
+    h2 {
+        display: block;
+        float: left;
+        margin: 0;
+        padding: .3em 0 0;
+        text-align: center;
+        width: 80%;
+    }
+}
+
+.calendar-table {
+    border-collapse: collapse;
+    border-left: 3px solid $brown;
+    border-bottom: 1px solid $brown;
+    @include box-sizing(border-box);
+    color: $blue;
+    width: 100%;
+
+    td {
+        border-bottom: 3px solid $brown;
+        border-right: 3px solid $brown;
+        @include box-sizing(border-box);
+        text-align: center;
+        padding: .8em 0;
+        position: relative;
+        width: 14%;
+        z-index: 1;
+
+        &.today {
+            color: $brown;
+        }
+    }
+}
+
+.calendar-active {
+    background-color: $orange;
+    @include box-sizing(border-box);
+    color: $white;
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .8em 0;
+    text-decoration: none;
+    width: 100%;
+    z-index: -1;
+}
