@@ -87,6 +87,21 @@
 
 .list-view-annotation-alternate {
     background-position:  -350px -252px;
+    @include sprite;
+    @include box-sizing(border-box);
+    color: $brown;
+    display: block;
+    font-family: 'Bitter';
+    font-size: .6em;
+    position: absolute;
+    text-align: center;
+    text-transform: none;
+    top: .55rem;
+    right: .6rem;
+    padding: 1em .8em 0 .8em;
+    letter-spacing: 0px;
+    height: 29px;
+    width: 65px;
 }
 
 .list-view .detail-view {

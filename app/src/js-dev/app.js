@@ -1,6 +1,7 @@
 (function () {
 
-    if (!!('ontouchstart' in window)) {
+    //if (!!('ontouchstart' in window)) {
+    if (1 == 1) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {

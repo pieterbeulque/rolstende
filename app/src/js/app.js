@@ -793,6 +793,24 @@ var RolstendeMap = (function () {
                     var html = Mustache.to_html(template, data);
                     $('#results').html(html).removeClass('hide');
 
+                    if(data.available !== undefined) {
+                        if(data.available == 0) {
+                            $("article header h1 span").removeClass('hide').addClass('list-view-annotation-alternate');
+                            $("article header h1 span").html('volzet');
+                            console.log('hallo');
+                        } else if(data.available == 1) {
+                            $("article header h1 span").removeClass('hide').addClass('list-view-annotation');
+                            $("article header h1 span").html('1 kamer');
+                        } else {
+                            $("article header h1 span").removeClass('hide').addClass('list-view-annotation');
+                            $("article header h1 span").html(data.available + ' kamers');
+                        }
+                    } else if(data.isOpen !== undefined) {
+                        console.log('restaurant');
+                    } else {
+                        console.log('ik moet weg gaan');
+                    }
+
                     if(!that.showMyLocation) {
                         $(".location a").attr('href', 'maps:ll=' + that.userLocation.latitude + ',' + that.userLocation.longitude);
                     } else {
@@ -1000,7 +1018,8 @@ var Validate = (function () {
 
 (function () {
 
-    if (!!('ontouchstart' in window)) {
+    //if (!!('ontouchstart' in window)) {
+    if (1 == 1) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {
