@@ -4,6 +4,12 @@
 @import "base/_variables";
 @import "base/_fonts";
 
+@mixin sprite {
+    background-image: url('../img/sprite.png');
+    background-repeat: no-repeat;
+    background-size: 530px 322px;
+}
+
 *:not(input):not(textarea) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -14,7 +20,7 @@
 
 body {
     background-color: $brown;
-    background-image: url(../img/patterns/white-wood.png);
+    background-image: url('../img/patterns/white-wood.png');
     color: $brown;
     font-family: 'Bitter';
     font-size: 93.75%;
@@ -23,7 +29,7 @@ body {
 }
 
 .top {
-    background: url(../img/pattern_header.png);
+    background: url('../img/pattern_header.png');
     @include background-size(68px);
     height: 70px;
     position: relative;
@@ -43,8 +49,8 @@ body {
                 top: 15px;
                 width: 106px;
                 height: 99px;
-                background: url("../img/logo_back.png") no-repeat 0 0;
-                background-size: 100%;
+                @include sprite;
+                background-position: -311px -46px;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
@@ -53,10 +59,10 @@ body {
                 position: absolute;
                 top: 15px;
                 left: 0;
-                width: 106px;
+                width: 107px;
                 height: 99px;
-                background: url("../img/logo_front.png") no-repeat 0 0;
-                background-size: 100%;
+                @include sprite;
+                background-position: -126px -35px;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
@@ -94,8 +100,8 @@ body {
 .pull-button {
     width: 33px;
     height: 29px;
-    background: url(../img/pull_01.png) no-repeat;
-    background-size: 100%;
+    @include sprite;
+    background-position: -278px -3px;
     position: absolute;
     top: 100%;
     margin-top: -15px;
@@ -105,18 +111,13 @@ body {
         height: 100%;
         display: block;
     }
-
-    &.activef {
-        background: url(../img/pull_02.png) no-repeat;
-        background-size: 100%;
-    }
 }
 
 .info-button {
     width: 32px;
     height: 32px;
-    background: url(../img/info.png) no-repeat;
-    background-size: 100%;
+    @include sprite;
+    background-position: -424px -52px;
     position: absolute;
     right: 10px;
     top: 100%;
@@ -127,8 +128,8 @@ body {
     width: 82px;
     height: 31px;
     display: block;
-    background: url(../img/switch_02.png) no-repeat;
-    background-size: 100%;
+    @include sprite;
+    background-position: -1px 0;
     position: absolute;
     top: 100%; left: 100%;
     margin-left: -85px;
@@ -141,8 +142,7 @@ body {
     }
 
     &.active {
-        background: url(../img/switch_01.png) no-repeat;
-        background-size: 100%;
+        background-position: -85px 0;
     }
 }
 
@@ -150,8 +150,6 @@ body {
     width: 85px;
     height: 15px;
     margin: 60px auto 20px auto;
-    background: url(../img/anchors.png) no-repeat 0px 3px;
-    @include background-size(100%);
     color: $brown;
     font-family: 'DIN Condensed';
     text-transform: uppercase;
@@ -174,14 +172,14 @@ body {
 
     .red-wood & {
         background-image: url('../img/patterns/red-wood.png');
-     
     }
+
     .blue-wood & {
-         background-image: url('../img/patterns/blue-wood.png');
+        background-image: url('../img/patterns/blue-wood.png');
     }
 
     .orange-wood & {
-          background-image: url('../img/patterns/orange-wood.png'); 
+        background-image: url('../img/patterns/orange-wood.png');
     }
 }
 
@@ -236,6 +234,7 @@ p {
     }
 }
 
+<<<<<<< HEAD
 #ajax-loader {
     position: absolute;
     top: 150px;
@@ -245,6 +244,11 @@ p {
 
 //Hulpklasses
 .hide {display: none;}
+=======
+.hide {
+    display: none;
+}
+>>>>>>> 48ae38a8f0ab7362459a5dd8c1352fe16f879769
 
 @import "modules/_map";
 @import "modules/_loader";

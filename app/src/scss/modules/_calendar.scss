@@ -77,12 +77,11 @@
 }
 
 #calendar-prev {
-    background: url('../img/arrow_left.png') no-repeat 8px 8px;
-    background-size: 30%;
-
+    @include sprite;
+    background-position: -494px -166px;
 }
 
 #calendar-next {
-background: url('../img/arrow_right.png') no-repeat 8px 8px;
-    background-size: 30%;
+    @include sprite;
+    background-position: -494px -190px;
 }

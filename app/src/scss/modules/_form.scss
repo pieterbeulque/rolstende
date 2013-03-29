@@ -17,7 +17,7 @@ input[type="text"], input[type="email"], textarea, select {
     font-weight: bold;
     letter-spacing: -0.75px;
     &.error {
-         border: 2px solid $red; 
+         border: 2px solid $red;
     }
 }
 input:focus, textarea:focus {
@@ -30,9 +30,10 @@ textarea {
 
 input[type="submit"] {
     background-color: transparent;
-    background-image: url('../img/submit-button.png');
-    @include background-size(100%);
+    @include sprite;
+    background-position: -172px -4px;
     border: 0;
+    border-radius: 0;
     float: right;
     height: 27px;
     width: 101px;
@@ -43,8 +44,6 @@ input[type="checkbox"], input[type="checkbox"]:checked{
     -webkit-appearance: none;
     display: none;
     background-color: transparent;
-
-
 }
 
 #map-filter {
@@ -61,19 +60,19 @@ input[type="checkbox"], input[type="checkbox"]:checked{
 
     label {
         display: block;
-        padding-left: 20px;    
+        padding-left: 20px;
         width: 16px;
         height: 14px;
-        background-size: contain; 
+        background-size: contain;
         background-repeat: no-repeat;
-     
     }
-    
+
     input[type="checkbox"] + label {
-        background-image: url('../img/checkbox_unchecked.png');
+        @include sprite;
+        background-position: -440px -298px;
     }
     input[type="checkbox"]:checked + label {
-         background-image: url('../img/checkbox_checked.png');    
+         background-position: -465px -225px;
     }
 
     div.small, div.wide {
@@ -97,9 +96,8 @@ input[type="checkbox"], input[type="checkbox"]:checked{
     .hasborder {
          border-bottom: 3px solid $red;
     }
-   
-}
 
+}
 
 ::-webkit-input-placeholder {
     color: $blue;

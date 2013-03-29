@@ -1,31 +1,31 @@
 .heading {
-    @include background-size(100%);
+    @include sprite;
     display: block;
     @include hide-text;
 }
 
 .heading-hotels {
-    background-image: url('../img/heading-hotels.png');
+    background-position: -170px -242px;
     height: 78px;
     margin: 0 auto;
     width: 123px;
 }
 .heading-restaurants {
-    background-image: url('../img/heading-restaurants.png');
+    background-position: 0 -242px;
     height: 77px;
     margin: 0 auto;
     width: 138px;
 }
 
 .heading-bezienswaardigheden {
-    background-image: url('../img/heading-bezienswaardigheden.png');
+    background-position: -248px -152px;
     height: 77px;
     margin: 0 auto;
     width: 201px;
 }
 
 .heading-wcs {
-    background-image: url('../img/heading-wcs.png');
+    background-position: -70px -152px;
     height: 78px;
     margin: 0 auto;
     width: 157px;

@@ -67,8 +67,8 @@
 }
 
 .list-view-annotation {
-    background-image: url('../img/annotation.png');
-    @include background-size(100%);
+    @include sprite;
+    background-position: -572px -396px;
     @include box-sizing(border-box);
     color: $brown;
     display: block;
@@ -86,7 +86,7 @@
 }
 
 .list-view-annotation-alternate {
-    background-image: url('../img/annotation-alternate.png');
+    background-position: -646px -396px;
 }
 
 .list-view .detail-view {
@@ -98,10 +98,8 @@
         margin: 1em 0;
         font-style: italic;
         padding-left: 25px;
-        background-image: url('../img/address.png');
-        background-size: 19px 18px;
-        background-repeat: no-repeat;
-        background-position: 0 3px;
+        @include sprite;
+        background-position: -607px -363px;
         position: relative;
     }
 
@@ -126,8 +124,6 @@
     padding: .5em 5%;
     position: relative;
 
-    
-
     &:before,
     &:after {
         content: " ";
@@ -141,7 +137,7 @@
         left: 20%;
     }
     &.red {
-            border: 3px solid $red;
+        border: 3px solid $red;
             &:before,
             &:after {
                 background-color: $red;
@@ -159,7 +155,7 @@
     }
 
     .maps-button {
-        background-image: url('../img/maps-button-orange.png');
+        background-position: -423px -5px;
     }
 
 }
