@@ -213,6 +213,7 @@ var App = (function () {
         });
 
         $('#app').on('click', '.back-button', function () {
+            $("#ajax-loader").html('');
             var template = $('#indexTemplate').html();
             var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
             $('#app').html(html);
@@ -934,7 +935,7 @@ var Validate = (function () {
 
 (function () {
 
-    //if (!!('ontouchstart' in window)) {
+    if (!!('ontouchstart' in window)) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {
@@ -963,12 +964,9 @@ var Validate = (function () {
                 });
             }, 0);
         });
-    // } else {
-    //     console.log('desktop');
-    //     $.ajax({
-
-    //     });
-    // }
+    } else {
+        window.location = 'desktop.htm';
+    }
 
 })();
 

@@ -1,0 +1,303 @@
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+    line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+    list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+    quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+    border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display: block;
+}
+
+@font-face {
+    font-family: 'DIN Condensed';
+    src: url(../fonts/dincondbold.ttf);
+}
+
+#container {
+    width: 80%;
+    max-width: 1021px;
+    height: 800px;
+    margin: 40px auto;
+    background: url('../img/desktop/iphone.png') no-repeat ;
+    background-position-y: 70px;
+    background-size: contain;
+    position: relative;
+}
+
+section {
+    margin-top: 30px;
+    position: absolute;
+    right: 80px;
+    color: #42291d;
+    width: 300px;
+    font-family: 'Bitter';
+    font-size: 0.9em;
+    line-height: 1.6em;
+    font-weight: bold;
+    letter-spacing: -0.75px;
+    text-align: right;
+}
+
+section h1 {
+    font-family: 'DIN Condensed';
+    text-transform: uppercase;
+    letter-spacing: -0.75px;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+section mark {
+    color: #d3453d;
+    background-color: transparent;
+}
+.info-button {
+    display: block;
+    width: 64px;
+    height: 64px;
+    background: url('../img/desktop/info.png') no-repeat ;
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    z-index: 10;
+}
+
+.info-button span {
+display: none;
+}
+
+#dropdown-container {
+    width: 70%;
+    left: 50%;
+    margin-left: -35%;
+    position: absolute;
+    top: -60px;
+    z-index: 999;
+    display: none;
+}
+
+/* List styles */
+/* line 17, ../scss/modules/_dropdown.scss */
+.list {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+}
+
+/* line 30, ../scss/modules/_dropdown.scss */
+.list a {
+    display: block;
+    color: #fff;
+}
+
+/* line 36, ../scss/modules/_dropdown.scss */
+.list a:hover {
+    text-indent: 20px;
+}
+
+/* line 40, ../scss/modules/_dropdown.scss */
+.list dt, .list dd {
+    text-indent: 10px;
+    line-height: 55px;
+    margin: 0;
+    height: 55px;
+    width: 100%;
+    color: #fff;
+}
+
+/* line 51, ../scss/modules/_dropdown.scss */
+.list dt {
+    font-family: 'DIN Condensed';
+    font-size: 1.3em;
+    letter-spacing: -0.7px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #e96452;
+    /* Since we're hiding elements behind here, we need it in 3d */
+    -webkit-transform: translateZ(0.3px);
+    -moz-transform: translateZ(0.3px);
+    -ms-transform: translateZ(0.3px);
+    -o-transform: translateZ(0.3px);
+    transform: translateZ(0.3px);
+    background-image: url("../img/patterns/red-wood.png");
+}
+
+/* line 68, ../scss/modules/_dropdown.scss */
+.list dd {
+    text-transform: none;
+    line-height: 35px;
+    font-size: 13px;
+    height: 35px;
+    margin: 0;
+    letter-spacing: -0.7px;
+}
+
+/* No CSS 3D support warning */
+/* line 81, ../scss/modules/_dropdown.scss */
+.warning {
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    -ms-transform: translateZ(2px);
+    -o-transform: translateZ(2px);
+    transform: translateZ(2px);
+    background: rgba(255, 255, 255, 0.6);
+    position: fixed;
+    display: none;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+/* line 99, ../scss/modules/_dropdown.scss */
+.warning .message {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: -150px;
+    margin-top: -60px;
+    line-height: 1.5;
+    background: #222;
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    width: 280px;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+}
+
+/* line 117, ../scss/modules/_dropdown.scss */
+.warning .message h1 {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* line 123, ../scss/modules/_dropdown.scss */
+.warning .message a {
+    text-decoration: none;
+    color: #73C8A9;
+}
+
+/* line 129, ../scss/modules/_dropdown.scss */
+.maki dt {
+    background-image: url("../img/patterns/white-wood.png");
+    -webkit-background-size: 30%;
+    -moz-background-size: 30%;
+    -o-background-size: 30%;
+    background-size: 30%;
+}
+
+/* line 133, ../scss/modules/_dropdown.scss */
+.maki dd {
+background-color: #f69a23;
+}
+/* line 137, ../scss/modules/_dropdown.scss */
+.maki dd.blue {
+    background-color: #5ec1b3;
+}
+/* line 140, ../scss/modules/_dropdown.scss */
+.maki dd.red {
+    background-color: #e96552;
+}
+/* line 143, ../scss/modules/_dropdown.scss */
+.maki dd.brown {
+    background-color: #332015;
+}
+
+/* line 150, ../scss/modules/_dropdown.scss */
+.maki {
+    -webkit-transform: perspective(600px) translateZ(1px) !important;
+    -moz-transform: perspective(600px) translateZ(1px) !important;
+    -ms-transform: perspective(600px) translateZ(1px) !important;
+    -o-transform: perspective(600px) translateZ(1px) !important;
+    transform: perspective(600px) translateZ(1px) !important;
+}
+
+
+
+
+
+
+
+
+
+#logo {
+    width: 202px;
+    height: 189px;
+    background: url('../img/logo_big.png') no-repeat;
+    background-size: 100%;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+}
+#logo span {
+    display: none;
+}
+
+@media only screen and (max-width: 970px) {
+    /* line 65, ../sass/screen.scss */
+    #container {
+        background: none;
+    }
+}
