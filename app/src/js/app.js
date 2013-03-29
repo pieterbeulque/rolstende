@@ -239,9 +239,24 @@ var Listview = (function() {
 
         if (this.data.results[0].available !== undefined) {
             this.showAvailability();
+        } else if (this.data.results[0].isOpen !== undefined) {
+            this.showOpen();
         }
 
     };
+
+    Listview.prototype.showOpen = function() {
+        for(var i = 0; i < this.data.results.length; i++) {
+            if(this.data.results[i].isOpen == true) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").html('open');
+            } else {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").html('gesloten');
+            }
+        }
+    };
+
 
     Listview.prototype.showAvailability = function () {
         for(var i = 0; i < this.data.results.length; i++) {
@@ -490,8 +505,8 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-        // this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-        this.api = 'http://192.168.2.8/maiv_oostende/api/';
+        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        //this.api = 'http://192.168.2.8/maiv_oostende/api/';
     };
 
     return Settings;
@@ -786,12 +801,12 @@ var Validate = (function () {
                 case '#list-wcs':
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
+                    info.statusLocatie = 'hide'
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'wcs',
                         success: function(data) {
                             info.results = data.results;
-                            info.statusLocatie = 'list-view-annotation';
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
@@ -803,7 +818,7 @@ var Validate = (function () {
 
                 case '#list-poi':
                     info.headingClass = 'heading-bezienswaardigheden';
-                    info.statusLocatie = 'list-view-annotation';
+                    info.statusLocatie = 'hide';
                     info.color = 'orange';
                     $.ajax({
                         type: 'get',

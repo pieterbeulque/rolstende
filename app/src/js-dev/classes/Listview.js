@@ -14,9 +14,24 @@ var Listview = (function() {
 
         if (this.data.results[0].available !== undefined) {
             this.showAvailability();
+        } else if (this.data.results[0].isOpen !== undefined) {
+            this.showOpen();
         }
 
     };
+
+    Listview.prototype.showOpen = function() {
+        for(var i = 0; i < this.data.results.length; i++) {
+            if(this.data.results[i].isOpen == true) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").html('open');
+            } else {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").html('gesloten');
+            }
+        }
+    };
+
 
     Listview.prototype.showAvailability = function () {
         for(var i = 0; i < this.data.results.length; i++) {

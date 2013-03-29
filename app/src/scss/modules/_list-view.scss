@@ -68,7 +68,7 @@
 
 .list-view-annotation {
     @include sprite;
-    background-position: -572px -396px;
+    background-position: -350px -293px;
     @include box-sizing(border-box);
     color: $brown;
     display: block;
@@ -86,7 +86,7 @@
 }
 
 .list-view-annotation-alternate {
-    background-position: -646px -396px;
+    background-position:  -350px -252px;
 }
 
 .list-view .detail-view {
