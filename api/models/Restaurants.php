@@ -75,6 +75,38 @@ class Restaurants extends BaseModel
 
         foreach ($result as $key => $value) {
             $result[$key]['isOpen'] = $this->checkIfOpen($value['id']);
+            $result[$key]['open'] = array();
+
+            $open = $this->dbh->select('*', 'rolstende_hours', array('restaurant_id' => $value['id']));
+            foreach ($open as $hours) {
+                $spans = array();
+
+                $currentlyOpen = false;
+                $span = array('start' => 0, 'end' => 0);
+
+                for ($i = 0; $i < 24; $i++) {
+                    if ((int) $hours['hour_' . $i] === 1 && $currentlyOpen === false) {
+                        $span['start'] = $i;
+                        $currentlyOpen = true;
+                    }
+
+                    if ((int) $hours['hour_' . $i] === 0 && $currentlyOpen === true) {
+                        $span['end'] = $i;
+                        $spans[] = $span;
+                        $span = array('start' => 0, 'end' => 0);
+                        $currentlyOpen = false;
+                    }
+
+                    if ($i === 23 && $currentlyOpen === true) {
+                        $span['end'] = '0';
+                        $spans[] = $span;
+                        $span = array('start' => 0, 'end' => 0);
+                        $currentlyOpen = false;
+                    }
+                }
+
+                $result[$key]['open'][$hours['day']] = $spans;
+            }
         }
 
         return $result;
