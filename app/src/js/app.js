@@ -78,9 +78,9 @@ var App = (function () {
             }
         });
 
-        $("#app").on('click', function() {
-            that.sv.close();
-        });
+        // $("#app").on('click', function() {
+        //     that.sv.close();
+        // });
     };
 
     App.prototype.loadMap = function () {
@@ -1033,7 +1033,8 @@ var Validate = (function () {
 
 (function () {
 
-    if (!!('ontouchstart' in window)) {
+    //if (!!('ontouchstart' in window)) {
+    if (1 == 1) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {

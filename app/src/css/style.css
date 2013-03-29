@@ -1167,7 +1167,7 @@ span.arrow {
 .results h2 {
   color: #ec9128;
   font-size: 1.2em;
-  margin-bottom: 1.5em;
+  margin-top: 1em;
 }
 /* line 173, ../scss/modules/_list-view.scss */
 .results .maps-button {

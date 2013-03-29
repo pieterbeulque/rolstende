@@ -74,9 +74,9 @@ var App = (function () {
             }
         });
 
-        $("#app").on('click', function() {
-            that.sv.close();
-        });
+        // $("#app").on('click', function() {
+        //     that.sv.close();
+        // });
     };
 
     App.prototype.loadMap = function () {
