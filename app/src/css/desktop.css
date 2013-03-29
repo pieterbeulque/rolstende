@@ -121,6 +121,7 @@ display: none;
 }
 
 #dropdown-container {
+    font-family: 'Bitter';
     width: 70%;
     left: 50%;
     margin-left: -35%;
@@ -241,10 +242,10 @@ display: none;
 /* line 129, ../scss/modules/_dropdown.scss */
 .maki dt {
     background-image: url("../img/patterns/white-wood.png");
-    -webkit-background-size: 30%;
-    -moz-background-size: 30%;
-    -o-background-size: 30%;
-    background-size: 30%;
+    -webkit-background-size: 65px;
+    -moz-background-size: 65px;
+    -o-background-size: 65px;
+    background-size: 65px;
 }
 
 /* line 133, ../scss/modules/_dropdown.scss */

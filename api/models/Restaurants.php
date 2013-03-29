@@ -16,6 +16,7 @@ class Restaurants extends BaseModel
     public $path;
 
     public $isOpen;
+    public $open;
 
     public function __construct ()
     {
@@ -41,6 +42,41 @@ class Restaurants extends BaseModel
             $this->path = $result['path'];
             $this->isOpen = $this->checkIfOpen($this->id);
 
+            $this->open = array();
+
+            $open = $this->dbh->select('*', 'rolstende_hours', array('restaurant_id' => $this->id));
+            foreach ($open as $hours) {
+                $spans = array();
+
+                $currentlyOpen = false;
+                $span = array('start' => 0, 'end' => 0);
+
+                for ($i = 0; $i < 24; $i++) {
+                    if ((int) $hours['hour_' . $i] === 1 && $currentlyOpen === false) {
+                        $span['start'] = $i;
+                        $currentlyOpen = true;
+                    }
+
+                    if ((int) $hours['hour_' . $i] === 0 && $currentlyOpen === true) {
+                        $span['end'] = $i;
+                        $spans[] = $span;
+                        $span = array('start' => 0, 'end' => 0);
+                        $currentlyOpen = false;
+                    }
+
+                    if ($i === 23 && $currentlyOpen === true) {
+                        $span['end'] = '0';
+                        $spans[] = $span;
+                        $span = array('start' => 0, 'end' => 0);
+                        $currentlyOpen = false;
+                    }
+                }
+
+                $this->open[] = array('day' => $this->readableDay($hours['day']), 'spans' => $spans);
+            }
+
+            $this->open[] = array_shift($this->open);
+
         } catch (\Exception $e) {
             $this->id = 0;
             $this->name = '';
@@ -50,6 +86,7 @@ class Restaurants extends BaseModel
             $this->description = '';
             $this->path = 'noimage.jpg';
             $this->isOpen = false;
+            $this->open = array();
         }
 
         return $this;
