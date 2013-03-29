@@ -7,6 +7,8 @@ var App = (function () {
     var App = function () {
         this.sv = new SlidingView('sidebar', 'app');
 
+        this.showMap = false;
+
         this.loadIndex();
 
         this.loadSidebar();
@@ -49,6 +51,7 @@ var App = (function () {
     App.prototype.loadMap = function () {
         if($(".switch-button").hasClass('active')) {
             var map = new RolstendeMap($('#map_canvas'));
+            this.showMap = true;
         }
     };
 
@@ -97,10 +100,14 @@ var App = (function () {
                     break;
 
                 case '#spots':
-                    template = $('#mapTemplate').html();
-                    html = Mustache.to_html(template, {switchClass: 'active'}, partials);
-                    $('#app').html(html);
-                    that.loadMap();
+                    if (that.showMap === true) {
+                        template = $('#mapTemplate').html();
+                        html = Mustache.to_html(template, {switchClass: 'active'}, partials);
+                        $('#app').html(html);
+                        that.loadMap();
+                    } else {
+                        that.loadIndex();
+                    }
                     break;
 
                 case '#info':
@@ -236,6 +243,7 @@ var App = (function () {
     };
 
     App.prototype.loadIndex = function() {
+        this.showMap = false;
         var template = $('#indexTemplate').html();
         var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
         $('#app').html(html);
@@ -434,16 +442,19 @@ var Dropdown = (function () {
                     $('.list').show();
                     $maki.makisu('close');
                     open = false;
-                    $("#dropdown-container").css({'top': '0px'}).delay(500).stop().animate({'top' : '-60px'}, function() {
-                        $("#dropdown-container").css({'display': 'none'});
-                        $('.list').hide();
-                    });
-                } else {
-                    $('.list').hide();
-                    $('#dropdown-container').show();
 
+                    setTimeout(function() {
+                    $("#dropdown-container").css({'top': '0px'}).delay(1000).stop().animate({'top' : '-60px'}, function() {             
+                       $("#dropdown-container").css({'visibility': 'hidden'});
+                    });
+
+                    }, 1000);
+
+                  
+                } else {
+                    $("#dropdown-container").css({'visibility': 'visible'});
                     $("#dropdown-container").stop().animate({'top' : '0px'}, 500, function () {
-                        $('.list').show();
+                        
                         $maki.makisu('open');
                         open = true;
                     });
@@ -761,8 +772,14 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
+<<<<<<< HEAD
         this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
         // this.api = 'http://192.168.2.8/maiv_oostende/api/';
+=======
+        //this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        //this.api = 'http://192.168.2.8/maiv_oostende/api/';
+        this.api = 'http://192.168.2.4/rolstende/api/';
+>>>>>>> 72e8d51402f7736b9f7923c1927cdef34e866941
     };
 
     return Settings;

@@ -74,6 +74,10 @@
         width: 100%;
         z-index: -1;
     }
+    td.today a {
+        color: $brown;
+        font-weight: bolder;
+    }
 }
 
 #calendar-prev {

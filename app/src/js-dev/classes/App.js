@@ -3,6 +3,8 @@ var App = (function () {
     var App = function () {
         this.sv = new SlidingView('sidebar', 'app');
 
+        this.showMap = false;
+
         this.loadIndex();
 
         this.loadSidebar();
@@ -45,6 +47,7 @@ var App = (function () {
     App.prototype.loadMap = function () {
         if($(".switch-button").hasClass('active')) {
             var map = new RolstendeMap($('#map_canvas'));
+            this.showMap = true;
         }
     };
 
@@ -93,10 +96,14 @@ var App = (function () {
                     break;
 
                 case '#spots':
-                    template = $('#mapTemplate').html();
-                    html = Mustache.to_html(template, {switchClass: 'active'}, partials);
-                    $('#app').html(html);
-                    that.loadMap();
+                    if (that.showMap === true) {
+                        template = $('#mapTemplate').html();
+                        html = Mustache.to_html(template, {switchClass: 'active'}, partials);
+                        $('#app').html(html);
+                        that.loadMap();
+                    } else {
+                        that.loadIndex();
+                    }
                     break;
 
                 case '#info':
@@ -232,6 +239,7 @@ var App = (function () {
     };
 
     App.prototype.loadIndex = function() {
+        this.showMap = false;
         var template = $('#indexTemplate').html();
         var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
         $('#app').html(html);
