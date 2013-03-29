@@ -7,12 +7,47 @@ var App = (function () {
     var App = function () {
         this.sv = new SlidingView('sidebar', 'app');
 
+        this.setupLocalStorage();
+
         this.showMap = false;
 
         this.loadIndex();
 
         this.loadSidebar();
         this.initNavigation();
+    };
+
+    App.prototype.setupLocalStorage = function () {
+        if (localStorage['wcs_updated'] === undefined) {
+            localStorage['wcs_updated'] = new Date(400).getTime();
+        }
+
+        if (localStorage['wcs'] === undefined) {
+            localStorage['wcs'] = '{"results":[]}';
+        }
+
+        if (localStorage['restaurants_updated'] === undefined) {
+            localStorage['restaurants_updated'] = new Date(400).getTime();
+        }
+
+        if (localStorage['restaurants'] === undefined) {
+            localStorage['restaurants'] = '{"results":[]}';
+        }
+
+        if (localStorage['hotels_updated'] === undefined) {
+            localStorage['hotels_updated'] = new Date(400).getTime();
+        }
+        if (localStorage['hotels'] === undefined) {
+            localStorage['hotels'] = '{"results":[]}';
+        }
+
+        if (localStorage['pointsofinterest_updated'] === undefined) {
+            localStorage['pointsofinterest_updated'] = new Date(400).getTime();
+        }
+
+        if (localStorage['pointsofinterest'] === undefined) {
+            localStorage['pointsofinterest'] = '{"results":[]}';
+        }
     };
 
     App.prototype.loadSidebar = function () {
@@ -130,24 +165,44 @@ var App = (function () {
                 },
                 info = {},
                 html,
-                settings = new Settings();
+                settings = new Settings(),
+                now = new Date().getTime();
 
             switch ($(this).attr('href')) {
                 case '#list-wcs':
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
                     info.statusLocatie = 'hide';
-                    $.ajax({
-                        type: 'get',
-                        url: settings.api + 'wcs',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $("#anim-container").html(html);
-                            that.listView(data);
-                            $("#ajax-loader").html('');
-                        }
-                    });
+                    if (parseInt(localStorage['wcs_updated'], 10) < (now - 3600)) {
+                        $.ajax({
+                            type: 'get',
+                            url: settings.api + 'wcs',
+                            success: function(data) {
+                                localStorage['wcs'] = JSON.stringify(data);
+                                localStorage['wcs_updated'] = new Date().getTime();
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            },
+                            error: function () {
+                                var data = JSON.parse(localStorage['wcs']);
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            }
+                        });
+                    } else {
+                        var data = JSON.parse(localStorage['wcs']);
+                        info.results = data.results;
+                        html = Mustache.to_html(template, info, partials);
+                        $('#app').html(html);
+                        that.listView(data);
+                        $("#ajax-loader").html('');
+                    }
                     $('body').attr('class', '').addClass('blue-wood');
                     break;
 
@@ -155,17 +210,37 @@ var App = (function () {
                     info.headingClass = 'heading-bezienswaardigheden';
                     info.statusLocatie = 'hide';
                     info.color = 'orange';
-                    $.ajax({
-                        type: 'get',
-                        url: settings.api + 'pointsofinterest',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $("#anim-container").html(html);
-                            that.listView(data);
-                            $("#ajax-loader").html('');
-                        }
-                    });
+                    if (parseInt(localStorage['pointsofinterest_updated'], 10) < (now - 3600)) {
+                        $.ajax({
+                            type: 'get',
+                            url: settings.api + 'pointsofinterest',
+                            success: function(data) {
+                                localStorage['pointsofinterest'] = JSON.stringify(data);
+                                localStorage['pointsofinterest_updated'] = new Date().getTime();
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            },
+                            error: function () {
+                                var data = JSON.parse(localStorage['pointsofinterest']);
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            }
+                        });
+                    } else {
+                        var data = JSON.parse(localStorage['pointsofinterest']);
+                        info.results = data.results;
+                        html = Mustache.to_html(template, info, partials);
+                        $('#app').html(html);
+                        that.listView(data);
+                        $("#ajax-loader").html('');
+                    }
+
                     $('body').attr('class', '').addClass('orange-wood');
                     break;
 
@@ -174,34 +249,73 @@ var App = (function () {
                     info.color = 'blue';
                     info.statusLocatie = 'list-view-annotation';
                     $('body').attr('class', '').addClass('blue-wood');
-                    $.ajax({
-                        type: 'get',
-                        url: settings.api + 'restaurants',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $("#anim-container").html(html);
-                            that.listView(data);
-                            $("#ajax-loader").html('');
-                        }
-                    });
+                    if (localStorage['restaurants'] === '' || parseInt(localStorage['restaurants_updated'], 10) < (now - 3600)) {
+                        $.ajax({
+                            type: 'get',
+                            url: settings.api + 'restaurants',
+                            success: function(data) {
+                                localStorage['restaurants'] = JSON.stringify(data);
+                                localStorage['restaurants_updated'] = new Date().getTime();
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            },
+                            error: function () {
+                                var data = JSON.parse(localStorage['restaurants']);
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            }
+                        });
+                    } else {
+                        var data = JSON.parse(localStorage['restaurants']);
+                        info.results = data.results;
+                        html = Mustache.to_html(template, info, partials);
+                        $('#app').html(html);
+                        that.listView(data);
+                        $("#ajax-loader").html('');
+                    }
+                    $('body').attr('class', '').addClass('blue-wood');
                     break;
 
                 case '#list-hotels':
                     info.headingClass = 'heading-hotels';
                     info.color = 'red';
                     info.statusLocatie = 'list-view-annotation';
-                    $.ajax({
-                        type: 'get',
-                        url: settings.api + 'hotels',
-                        success: function(data) {
-                            info.results = data.results;
-                            html = Mustache.to_html(template, info, partials);
-                            $("#anim-container").html(html);
-                            that.listView(data);
-                            $("#ajax-loader").html('');
-                        }
-                    });
+                    if (parseInt(localStorage['hotels_updated'], 10) < (now - 3600)) {
+                        $.ajax({
+                            type: 'get',
+                            url: settings.api + 'hotels',
+                            success: function(data) {
+                                localStorage['hotels'] = JSON.stringify(data);
+                                localStorage['hotels_updated'] = new Date().getTime();
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            },
+                            error: function () {
+                                var data = JSON.parse(localStorage['hotels']);
+                                info.results = data.results;
+                                html = Mustache.to_html(template, info, partials);
+                                $('#app').html(html);
+                                that.listView(data);
+                                $("#ajax-loader").html('');
+                            }
+                        });
+                    } else {
+                        var data = JSON.parse(localStorage['hotels']);
+                        info.results = data.results;
+                        html = Mustache.to_html(template, info, partials);
+                        $('#app').html(html);
+                        that.listView(data);
+                        $("#ajax-loader").html('');
+                    }
                     $('body').attr('class', '').addClass('red-wood');
                     break;
             }
@@ -774,8 +888,8 @@ var Settings =(function () {
 
     var Settings = function () {
         //this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-        //this.api = 'http://192.168.2.8/maiv_oostende/api/';
-        this.api = 'http://192.168.2.4/rolstende/api/';
+        this.api = 'http://192.168.2.8/maiv_oostende/api/';
+        //this.api = 'http://192.168.2.4/rolstende/api/';
     };
 
     return Settings;
