@@ -68,7 +68,7 @@ var App = (function () {
         });
     };
 
-    App.prototype.listView = function () {
+    App.prototype.listView = function (data) {
         var listview = new Listview($(".list-view"), data);
     };
 
@@ -125,12 +125,12 @@ var App = (function () {
                 case '#list-wcs':
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
+                    info.statusLocatie = 'hide';
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'wcs',
                         success: function(data) {
                             info.results = data.results;
-                            info.statusLocatie = 'list-view-annotation';
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             that.listView(data);
@@ -142,7 +142,7 @@ var App = (function () {
 
                 case '#list-poi':
                     info.headingClass = 'heading-bezienswaardigheden';
-                    info.statusLocatie = 'list-view-annotation';
+                    info.statusLocatie = 'hide';
                     info.color = 'orange';
                     $.ajax({
                         type: 'get',

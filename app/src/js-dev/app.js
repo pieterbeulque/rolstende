@@ -1,6 +1,7 @@
 (function () {
 
-    // if (!!('ontouchstart' in window)) {
+    //if (!!('ontouchstart' in window)) {
+        $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {
             setTimeout(function() {
@@ -28,6 +29,11 @@
                 });
             }, 0);
         });
+    // } else {
+    //     console.log('desktop');
+    //     $.ajax({
+
+    //     });
     // }
 
 })();
