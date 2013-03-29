@@ -1140,6 +1140,28 @@ span.arrow {
   background-position: -423px -5px;
 }
 
+/* line 163, ../scss/modules/_list-view.scss */
+.opening-hours table {
+  width: 100%;
+  font-size: 0.9em;
+  letter-spacing: -0.7px;
+  line-height: 1.4em;
+}
+/* line 169, ../scss/modules/_list-view.scss */
+.opening-hours table tr {
+  border-bottom: 1px dotted #331f14;
+}
+/* line 173, ../scss/modules/_list-view.scss */
+.opening-hours table td {
+  width: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/* line 175, ../scss/modules/_list-view.scss */
+.opening-hours table td.hours {
+  font-style: italic;
+}
+
 /* line 1, ../scss/modules/_calendar.scss */
 .calendar {
   background-color: #f4f1e3;

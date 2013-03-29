@@ -40,7 +40,7 @@ var Listview = (function() {
                 for(var j = 0; j < this.data.results[i].open.length; j++) {
                     if(this.data.results[i].open[j].spans.length > 0) {
                         console.log(this.data.results[i].name + ' is open op ' + this.data.results[i].open[j].day + ' van ' + this.data.results[i].open[j].spans[0].start + ' tot ' + this.data.results[i].open[j].spans[0].end);
-                        var toInsert = '<tr><td>' + this.data.results[i].open[j].day + '</td><td>' + this.data.results[i].open[j].spans[0].start + 'u - ' + this.data.results[i].open[j].spans[0].end + 'u</td></tr>';
+                        var toInsert = '<tr><td>' + this.data.results[i].open[j].day + '</td><td class="hours">' + this.data.results[i].open[j].spans[0].start + 'u - ' + this.data.results[i].open[j].spans[0].end + 'u</td></tr>';
                         $(".opening-hours:eq(" + i + ") table").append(toInsert);
                     }    
                 }
