@@ -74,9 +74,9 @@ var App = (function () {
             }
         });
 
-        // $("#app").on('click', function() {
-        //     sv.close();
-        // });
+        $("#app").on('click', function() {
+            that.sv.close();
+        });
     };
 
     App.prototype.loadMap = function () {
@@ -162,157 +162,84 @@ var App = (function () {
                 info = {},
                 html,
                 settings = new Settings(),
-                now = new Date().getTime();
+                now = new Date().getTime(),
+                bodyClass,
+                localStorageName,
+                apiPath;
 
             switch ($(this).attr('href')) {
                 case '#list-wcs':
-                    $('body').attr('class', '').addClass('blue-wood');
+                    bodyClass = 'blue-wood';
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
                     info.statusLocatie = 'hide';
-                    if (parseInt(localStorage['wcs_updated'], 10) < (now - 3600)) {
-                        $.ajax({
-                            type: 'get',
-                            url: settings.api + 'wcs',
-                            success: function(data) {
-                                localStorage['wcs'] = JSON.stringify(data);
-                                localStorage['wcs_updated'] = new Date().getTime();
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            },
-                            error: function () {
-                                var data = JSON.parse(localStorage['wcs']);
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            }
-                        });
-                    } else {
-                        var data = JSON.parse(localStorage['wcs']);
-                        info.results = data.results;
-                        html = Mustache.to_html(template, info, partials);
-                        $('#anim-container').html(html);
-                        that.listView(data);
-                        $("#ajax-loader").html('');
-                    }
+                    info.showPhotos = false;
+                    localStorageName = 'wcs';
+                    apiPath = 'wcs';
                     break;
 
                 case '#list-poi':
-                    $('body').attr('class', '').addClass('orange-wood');
+                    bodyClass = 'orange-wood';
                     info.headingClass = 'heading-bezienswaardigheden';
                     info.statusLocatie = 'hide';
                     info.color = 'orange';
-                    if (parseInt(localStorage['pointsofinterest_updated'], 10) < (now - 3600)) {
-                        $.ajax({
-                            type: 'get',
-                            url: settings.api + 'pointsofinterest',
-                            success: function(data) {
-                                localStorage['pointsofinterest'] = JSON.stringify(data);
-                                localStorage['pointsofinterest_updated'] = new Date().getTime();
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            },
-                            error: function () {
-                                var data = JSON.parse(localStorage['pointsofinterest']);
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            }
-                        });
-                    } else {
-                        var data = JSON.parse(localStorage['pointsofinterest']);
-                        info.results = data.results;
-                        html = Mustache.to_html(template, info, partials);
-                        $('#anim-container').html(html);
-                        that.listView(data);
-                        $("#ajax-loader").html('');
-                    }
-
+                    info.showPhotos = true;
+                    localStorageName = 'pointsofinterest';
+                    apiPath = 'pointsofinterest';
                     break;
 
                 case '#list-restaurants':
-                    $('body').attr('class', '').addClass('blue-wood');
+                    bodyClass = 'blue-wood';
                     info.headingClass = 'heading-restaurants';
-                    info.color = 'blue';
                     info.statusLocatie = 'list-view-annotation';
-                    if (localStorage['restaurants'] === '' || parseInt(localStorage['restaurants_updated'], 10) < (now - 3600)) {
-                        $.ajax({
-                            type: 'get',
-                            url: settings.api + 'restaurants',
-                            success: function(data) {
-                                localStorage['restaurants'] = JSON.stringify(data);
-                                localStorage['restaurants_updated'] = new Date().getTime();
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            },
-                            error: function () {
-                                var data = JSON.parse(localStorage['restaurants']);
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            }
-                        });
-                    } else {
-                        var data = JSON.parse(localStorage['restaurants']);
-                        info.results = data.results;
-                        html = Mustache.to_html(template, info, partials);
-                        $('#anim-container').html(html);
-                        that.listView(data);
-                        $("#ajax-loader").html('');
-                    }
+                    info.color = 'orange';
+                    info.showPhotos = true;
+                    localStorageName = 'restaurants';
+                    apiPath = 'restaurants';
                     break;
 
                 case '#list-hotels':
-                    $('body').attr('class', '').addClass('red-wood');
+                    bodyClass = 'red-wood';
                     info.headingClass = 'heading-hotels';
-                    info.color = 'red';
                     info.statusLocatie = 'list-view-annotation';
-                    if (parseInt(localStorage['hotels_updated'], 10) < (now - 3600)) {
-                        $.ajax({
-                            type: 'get',
-                            url: settings.api + 'hotels',
-                            success: function(data) {
-                                localStorage['hotels'] = JSON.stringify(data);
-                                localStorage['hotels_updated'] = new Date().getTime();
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            },
-                            error: function () {
-                                var data = JSON.parse(localStorage['hotels']);
-                                info.results = data.results;
-                                html = Mustache.to_html(template, info, partials);
-                                $('#anim-container').html(html);
-                                that.listView(data);
-                                $("#ajax-loader").html('');
-                            }
-                        });
-                    } else {
-                        var data = JSON.parse(localStorage['hotels']);
+                    info.color = 'red';
+                    info.showPhotos = true;
+                    localStorageName = 'hotels';
+                    apiPath = 'hotels';
+                    break;
+            }
+
+            $('body').addClass(bodyClass);
+
+            if (parseInt(localStorage[localStorageName + '_updated'], 10) < (now - 3600)) {
+                $.ajax({
+                    type: 'get',
+                    url: settings.api + apiPath,
+                    success: function(data) {
+                        localStorage[localStorageName] = JSON.stringify(data);
+                        localStorage[localStorageName + '_updated'] = new Date().getTime();
+                        info.results = data.results;
+                        html = Mustache.to_html(template, info, partials);
+                        $('#anim-container').html(html);
+                        that.listView(data);
+                        $("#ajax-loader").html('');
+                    },
+                    error: function () {
+                        var data = JSON.parse(localStorage[localStorageName]);
                         info.results = data.results;
                         html = Mustache.to_html(template, info, partials);
                         $('#anim-container').html(html);
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
-                    break;
+                });
+            } else {
+                var data = JSON.parse(localStorage[localStorageName]);
+                info.results = data.results;
+                html = Mustache.to_html(template, info, partials);
+                $('#anim-container').html(html);
+                that.listView(data);
+                $("#ajax-loader").html('');
             }
 
             html = Mustache.to_html(template, info, partials);

@@ -245,7 +245,9 @@
                 </h1>
             </header>
             <div class="list-detail-view detail-view">
-                <img src="img/photos/{{path}}" />
+                {{#showPhotos}}
+                    <img src="img/photos/{{path}}" />
+                {{/showPhotos}}
                 <p>
                     {{description}}
                 </p>
