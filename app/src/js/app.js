@@ -743,6 +743,7 @@ var RolstendeMap = (function () {
                 url: this.settings.api + type + '/'  + db_id,
                 dataType:'json',
                 success: function(data) {
+                    console.log(data);
                     var template = $('#listDetailTemplate').html();
                     var html = Mustache.to_html(template, data);
                     $('#results').html(html).removeClass('hide');
@@ -771,7 +772,7 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        this.api = 'http://192.168.1.113/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
         //this.api = 'http://192.168.2.8/maiv_oostende/api/';
         //this.api = 'http://192.168.2.4/rolstende/api/';
     };

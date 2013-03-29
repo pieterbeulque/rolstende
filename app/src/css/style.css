@@ -394,17 +394,29 @@ p a {
   height: 200px;
   margin-bottom: 0px;
 }
-/* line 6, ../scss/modules/_map.scss */
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  /* line 1, ../scss/modules/_map.scss */
+  #map_canvas {
+    height: 350px;
+  }
+}
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  /* line 1, ../scss/modules/_map.scss */
+  #map_canvas {
+    height: 350px;
+  }
+}
+/* line 14, ../scss/modules/_map.scss */
 #map_canvas img {
   max-width: none !important;
 }
 
-/* line 11, ../scss/modules/_map.scss */
+/* line 19, ../scss/modules/_map.scss */
 .gmnoprint {
   display: none;
 }
 
-/* line 15, ../scss/modules/_map.scss */
+/* line 23, ../scss/modules/_map.scss */
 #map_canvas > div > div:first-child + div {
   display: none;
 }
@@ -1141,24 +1153,24 @@ span.arrow {
   background-position: -423px -5px;
 }
 
-/* line 163, ../scss/modules/_list-view.scss */
+/* line 164, ../scss/modules/_list-view.scss */
 .opening-hours table {
   width: 100%;
   font-size: 0.9em;
   letter-spacing: -0.7px;
   line-height: 1.4em;
 }
-/* line 169, ../scss/modules/_list-view.scss */
+/* line 170, ../scss/modules/_list-view.scss */
 .opening-hours table tr {
   border-bottom: 1px dotted #331f14;
 }
-/* line 173, ../scss/modules/_list-view.scss */
+/* line 174, ../scss/modules/_list-view.scss */
 .opening-hours table td {
   width: 50%;
   padding-top: 5px;
   padding-bottom: 5px;
 }
-/* line 175, ../scss/modules/_list-view.scss */
+/* line 176, ../scss/modules/_list-view.scss */
 .opening-hours table td.hours {
   font-style: italic;
 }

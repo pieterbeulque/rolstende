@@ -181,6 +181,7 @@ var RolstendeMap = (function () {
                 url: this.settings.api + type + '/'  + db_id,
                 dataType:'json',
                 success: function(data) {
+                    console.log(data);
                     var template = $('#listDetailTemplate').html();
                     var html = Mustache.to_html(template, data);
                     $('#results').html(html).removeClass('hide');
