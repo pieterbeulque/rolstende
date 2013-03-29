@@ -98,7 +98,7 @@ var App = (function () {
                 case '#spots':
                     if (that.showMap === true) {
                         template = $('#mapTemplate').html();
-                        html = Mustache.to_html(template, {switchClass: 'active'}, partials);
+                        html = Mustache.to_html(template, {switchClass: 'active', statusLocatie: 'hide'}, partials);
                         $('#app').html(html);
                         that.loadMap();
                     } else {
