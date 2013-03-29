@@ -6,7 +6,7 @@ var Dropdown = (function () {
 
 
             var $maki = $( '.maki' ),
-                $dt = $('.info, dd');
+                $dt = $('.info-button, dd');
 
             $dt.click(function() {
                 if(open) {

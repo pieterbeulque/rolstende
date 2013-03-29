@@ -1,10 +1,11 @@
 var Listview = (function() {
 
-    var Listview = function(element) {
-        console.log(element);
+    var Listview = function(element, data) {
         this.element = element;
         this.active;
+        this.data = data;
         var that = this;
+        console.log(this.data);
 
         element.on('click', 'li header', function(event) {
             that.open($(this).parent());

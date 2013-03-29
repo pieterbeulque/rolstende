@@ -1,14 +1,28 @@
 .icon-grid {
     @include clearfix;
+
+    @media screen and (min-width: 330px) and (max-width: 768px) and (orientation:portrait) {
+        width: 460px;
+        margin: 50px auto;
+    }
+
+    @media screen and (min-width: 480px) and (max-width: 1024px) and (orientation: landscape) {
+        width: 755px;
+        margin: 50px auto;
+    }
 }
 
 .grid-item {
-    background-color: $blue;
     background-image: url(../img/start_icon_01.png);
     @include background-size(100%);
     margin-bottom: 1.2em;
     height: 108px;
     width: 108px;
+
+
+    @media screen and (min-width: 330px) and (max-width: 1024px) {
+        background-image: url(../img/icon_start_ipad_01.png);
+    }
 
     &:nth-child(odd) {
         float: left;
@@ -43,18 +57,50 @@
             margin-right: 0px !important;
         }
     }
+
+    @media screen and (min-width: 330px) and (max-width: 768px) and (orientation:portrait) {
+        &:nth-child(odd), &:nth-child(even) {
+            float: left;
+            width: 220px;
+            height: 220px;
+        }
+
+        &:nth-child(odd) {
+            margin-right: 20px;
+        }
+    }
+
+    @media screen and (min-width: 480px) and (max-width: 1024px) and (orientation: landscape) {
+        &:nth-child(odd), &:nth-child(even) {
+            float: left;
+            width: 181px;
+            height: 181px;
+        }
+    }
 }
 
 .icon-restaurants {
     background-image: url(../img/start_icon_02.png);
+
+    @media screen and (min-width: 330px) and (max-width: 1024px) {
+        background-image: url(../img/icon_start_ipad_02.png);
+    }
 }
 
 .icon-toilets {
     background-image: url(../img/start_icon_03.png);
+
+    @media screen and (min-width: 330px) and (max-width: 1024px) {
+        background-image: url(../img/icon_start_ipad_03.png);
+    }
 }
 
 .icon-poi {
     background-image: url(../img/start_icon_04.png);
+
+    @media screen and (min-width: 330px) and (max-width: 1024px) {
+        background-image: url(../img/icon_start_ipad_04.png);
+    }
 }
 
 .grid-item a {
