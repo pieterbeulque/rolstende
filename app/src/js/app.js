@@ -196,7 +196,7 @@ var App = (function () {
                     bodyClass = 'blue-wood';
                     info.headingClass = 'heading-restaurants';
                     info.statusLocatie = 'list-view-annotation';
-                    info.color = 'orange';
+                    info.color = 'blue';
                     info.showPhotos = true;
                     localStorageName = 'restaurants';
                     apiPath = 'restaurants';
@@ -248,6 +248,7 @@ var App = (function () {
 
             html = Mustache.to_html(template, info, partials);
             $("#anim-container").html(html);
+            $('#app').click();
             return false;
         });
 
@@ -521,7 +522,7 @@ var Listview = (function() {
 
     var Listview = function(element, data) {
         this.element = element;
-        this.active;
+        this.active = null;
         this.data = data;
         var that = this;
 
@@ -541,11 +542,11 @@ var Listview = (function() {
 
     Listview.prototype.showOpen = function() {
         for(var i = 0; i < this.data.results.length; i++) {
-            if(this.data.results[i].isOpen == true) {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+            if(this.data.results[i].isOpen === true) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
                 $("article header h1 span:eq(" + i + ")").html('open');
             } else {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
                 $("article header h1 span:eq(" + i + ")").html('gesloten');
             }
         }
@@ -997,7 +998,7 @@ var Validate = (function () {
 
 (function () {
 
-    if (1 == 1) {
+    if (!!('ontouchstart' in window)) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {

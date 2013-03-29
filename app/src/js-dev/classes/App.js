@@ -192,7 +192,7 @@ var App = (function () {
                     bodyClass = 'blue-wood';
                     info.headingClass = 'heading-restaurants';
                     info.statusLocatie = 'list-view-annotation';
-                    info.color = 'orange';
+                    info.color = 'blue';
                     info.showPhotos = true;
                     localStorageName = 'restaurants';
                     apiPath = 'restaurants';
@@ -244,6 +244,7 @@ var App = (function () {
 
             html = Mustache.to_html(template, info, partials);
             $("#anim-container").html(html);
+            $('#app').click();
             return false;
         });
 

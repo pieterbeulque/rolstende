@@ -2,7 +2,7 @@ var Listview = (function() {
 
     var Listview = function(element, data) {
         this.element = element;
-        this.active;
+        this.active = null;
         this.data = data;
         var that = this;
 
@@ -22,11 +22,11 @@ var Listview = (function() {
 
     Listview.prototype.showOpen = function() {
         for(var i = 0; i < this.data.results.length; i++) {
-            if(this.data.results[i].isOpen == true) {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+            if(this.data.results[i].isOpen === true) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
                 $("article header h1 span:eq(" + i + ")").html('open');
             } else {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
                 $("article header h1 span:eq(" + i + ")").html('gesloten');
             }
         }
