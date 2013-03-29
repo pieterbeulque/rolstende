@@ -95,7 +95,7 @@ var App = (function () {
                 case '#events':
                     template = $('#calendarTemplate').html();
                     html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
-                    $('#app').html(html);
+                    $("#anim-container").html(html);
                     that.loadCalendar();
                     break;
 
@@ -103,7 +103,7 @@ var App = (function () {
                     if (that.showMap === true) {
                         template = $('#mapTemplate').html();
                         html = Mustache.to_html(template, {switchClass: 'active', statusLocatie: 'hide'}, partials);
-                        $('#app').html(html);
+                        $("#anim-container").html(html);
                         that.loadMap();
                     } else {
                         that.loadIndex();
@@ -113,7 +113,7 @@ var App = (function () {
                 case '#info':
                     template = $('#infoTemplate').html();
                     html = Mustache.to_html(template, {switchClass: 'hide'}, partials);
-                    $('#app').html(html);
+                    $("#anim-container").html(html);
                     that.loadInfo();
                     break;
             }
@@ -143,7 +143,7 @@ var App = (function () {
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
+                            $("#anim-container").html(html);
                             that.listView(data);
                             $("#ajax-loader").html('');
                         }
@@ -161,7 +161,7 @@ var App = (function () {
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
+                            $("#anim-container").html(html);
                             that.listView(data);
                             $("#ajax-loader").html('');
                         }
@@ -180,7 +180,7 @@ var App = (function () {
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
+                            $("#anim-container").html(html);
                             that.listView(data);
                             $("#ajax-loader").html('');
                         }
@@ -197,18 +197,17 @@ var App = (function () {
                         success: function(data) {
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
-                            $('#app').html(html);
+                            $("#anim-container").html(html);
                             that.listView(data);
                             $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('red-wood');
                     break;
-
             }
 
             html = Mustache.to_html(template, info, partials);
-            $('#app').html(html);
+            $("#anim-container").html(html);
             return false;
         });
 
@@ -216,7 +215,7 @@ var App = (function () {
             $("#ajax-loader").html('');
             var template = $('#indexTemplate').html();
             var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
-            $('#app').html(html);
+            $("#anim-container").html(html);
 
             $('body').attr('class', '');
 
@@ -235,7 +234,7 @@ var App = (function () {
 
                 template = $('#mapTemplate').html();
                 html = Mustache.to_html(template, {switchClass: 'active'}, partials);
-                $('#app').html(html);
+                $("#anim-container").html(html);
                 that.loadMap();
             }
         });
@@ -246,7 +245,7 @@ var App = (function () {
         this.showMap = false;
         var template = $('#indexTemplate').html();
         var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
-        $('#app').html(html);
+        $("#anim-container").html(html);
     };
 
     return App;
