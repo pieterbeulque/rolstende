@@ -1,6 +1,3 @@
-
-
-
 #dropdown-container {
     width: 70%;
     left: 50%;
@@ -9,26 +6,24 @@
     top: -60px;
     z-index: 999;
     display: none;
-   
 }
 
 /* List styles */
 
 .list {
-
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    
+
     text-transform: uppercase;
     position: absolute;
     width: 100%;
+    display: none;
 }
 
 .list a {
-    
     display: block;
     color: #fff;
 }
@@ -67,73 +62,22 @@
 
 .list dd {
     text-transform: none;
-   // border-top: 1px solid $brown;
     line-height: 35px;
     font-size: 13px;
     height: 35px;
     margin: 0;
     letter-spacing: -0.7px;
-
 }
 
-
-/* No CSS 3D support warning */
-.warning {
-
-    -webkit-transform: translateZ(2px);
-    -moz-transform: translateZ(2px);
-    -ms-transform: translateZ(2px);
-    -o-transform: translateZ(2px);
-    transform: translateZ(2px);
-
-    background: rgba(255,255,255,0.6);
-    position: fixed;
-    display: none;
-    z-index: 999;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-}
-
-.warning .message {
-
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    text-align: center;
-    margin-left: -150px;
-    margin-top: -60px;
-    line-height: 1.5;
-    background: #222;
-    font-size: 12px;
-    position: absolute;
-    padding: 10px;
-    width: 280px;
-    color: #fff;
-    left: 50%;
-    top: 50%;
-}
-
-.warning .message h1 {
-
-    font-weight: 300;
-    font-size: 14px;
-}
-
-.warning .message a {
-
-    text-decoration: none;
-    color: #73C8A9;
-}
-
-.maki dt {   
+.maki dt {
     background-image: url('../img/patterns/white-wood.png');
     @include background-size(30%);
 }
-.maki dd {   
+
+.maki dd {
     background-image: url('../img/patterns/orange-wood.png');
     @include background-size(30%);
-    
+
     &.blue {
         background-image: url('../img/patterns/blue-wood.png');
     }
@@ -142,13 +86,10 @@
     }
     &.brown {
         background-image: url('../img/patterns/brown-wood.png');
-        
     }
 }
 
-
 .maki {
-
     -webkit-transform: perspective(600px) translateZ(1px) !important;
     -moz-transform: perspective(600px) translateZ(1px) !important;
     -ms-transform: perspective(600px) translateZ(1px) !important;

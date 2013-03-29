@@ -1,5 +1,5 @@
 .heading {
-    @include background-size(100%);
+    @include sprite;
     display: block;
     @include hide-text;
 }

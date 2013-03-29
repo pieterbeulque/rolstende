@@ -1,15 +1,15 @@
 .back-button {
-    background: url('../img/back-button.png');
-    @include background-size(100%);
+    @include sprite;
+    background-position: -522px -395px;
     display: block;
-    height: 29px;
+    height: 32px;
     @include hide-text;
-    width: 33px;
+    width: 35px;
 }
 
 .maps-button {
-    background: url('../img/maps-button.png');
-    @include background-size(100%);
+    @include sprite;
+    background-position: -374px -5px;
     display: block;
     height: 27px;
     @include hide-text;

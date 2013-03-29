@@ -4,6 +4,12 @@
 @import "base/_variables";
 @import "base/_fonts";
 
+@mixin sprite {
+    background-image: url('../img/sprite.png');
+    background-repeat: no-repeat;
+    background-size: 738px 504px;
+}
+
 *:not(input):not(textarea) {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -43,8 +49,8 @@ body {
                 top: 15px;
                 width: 106px;
                 height: 99px;
-                background: url("../img/logo_back.png") no-repeat 0 0;
-                background-size: 100%;
+                @include sprite;
+                background-position: -320px -164px;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
@@ -53,10 +59,10 @@ body {
                 position: absolute;
                 top: 15px;
                 left: 0;
-                width: 106px;
+                width: 107px;
                 height: 99px;
-                background: url("../img/logo_front.png") no-repeat 0 0;
-                background-size: 100%;
+                @include sprite;
+                background-position: -135px -153px;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
@@ -94,8 +100,8 @@ body {
 .pull-button {
     width: 33px;
     height: 29px;
-    background: url(../img/pull_01.png) no-repeat;
-    background-size: 100%;
+    @include sprite;
+    background-position: -293px -5px;
     position: absolute;
     top: 100%;
     margin-top: -15px;
@@ -105,18 +111,13 @@ body {
         height: 100%;
         display: block;
     }
-
-    &.activef {
-        background: url(../img/pull_02.png) no-repeat;
-        background-size: 100%;
-    }
 }
 
 .info-button {
     width: 32px;
     height: 32px;
-    background: url(../img/info.png) no-repeat;
-    background-size: 100%;
+    @include sprite;
+    background-position: -443px -195px;
     position: absolute;
     right: 10px;
     top: 100%;
@@ -127,8 +128,8 @@ body {
     width: 82px;
     height: 31px;
     display: block;
-    background: url(../img/switch_02.png) no-repeat;
-    background-size: 100%;
+    @include sprite;
+    background-position: -10px -1px;
     position: absolute;
     top: 100%; left: 100%;
     margin-left: -85px;
@@ -141,8 +142,7 @@ body {
     }
 
     &.active {
-        background: url(../img/switch_01.png) no-repeat;
-        background-size: 100%;
+        background-position: -94px -1px;
     }
 }
 
@@ -150,8 +150,8 @@ body {
     width: 85px;
     height: 15px;
     margin: 60px auto 20px auto;
-    background: url(../img/anchors.png) no-repeat 0px 3px;
-    @include background-size(100%);
+    @include sprite;
+    background-position: -537px -332px;
     color: $brown;
     font-family: 'DIN Condensed';
     text-transform: uppercase;
@@ -174,14 +174,14 @@ body {
 
     .red-wood & {
         background-image: url('../img/patterns/red-wood.png');
-     
     }
+
     .blue-wood & {
-         background-image: url('../img/patterns/blue-wood.png');
+        background-image: url('../img/patterns/blue-wood.png');
     }
 
     .orange-wood & {
-          background-image: url('../img/patterns/orange-wood.png'); 
+        background-image: url('../img/patterns/orange-wood.png');
     }
 }
 
@@ -236,8 +236,9 @@ p {
     }
 }
 
-//Hulpklasses
-.hide {display: none;}
+.hide {
+    display: none;
+}
 
 @import "modules/_map";
 @import "modules/_loader";
