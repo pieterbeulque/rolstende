@@ -489,10 +489,10 @@ var Listview = (function() {
     Listview.prototype.showOpen = function() {
         for(var i = 0; i < this.data.results.length; i++) {
             if(this.data.results[i].isOpen == true) {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
                 $("article header h1 span:eq(" + i + ")").html('open');
             } else {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
                 $("article header h1 span:eq(" + i + ")").html('gesloten');
             }
         }
@@ -502,13 +502,13 @@ var Listview = (function() {
     Listview.prototype.showAvailability = function () {
         for(var i = 0; i < this.data.results.length; i++) {
             if(this.data.results[i].available == 0) {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
                 $("article header h1 span:eq(" + i + ")").html('volzet');
             } else if(this.data.results[i].available == 1) {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
                 $("article header h1 span:eq(" + i + ")").html('1 kamer');
             } else {
-                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
                 $("article header h1 span:eq(" + i + ")").html(this.data.results[i].available + ' kamers');
             }
         }

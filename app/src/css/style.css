@@ -248,23 +248,52 @@ body {
   height: 15px;
   margin: 60px auto 20px auto;
   color: #331f14;
+  font-size: 1.2em;
   font-family: 'DIN Condensed';
   text-transform: uppercase;
   text-align: center;
+  position: relative;
+}
+/* line 160, ../scss/style.scss */
+.zoek:before {
+  content: " ";
+  font-style: 1px;
+  display: block;
+  background: url(../img/sprite.png) no-repeat -471px -140px;
+  background-size: 530px 322px;
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  top: 7px;
+  left: 0px;
+}
+/* line 172, ../scss/style.scss */
+.zoek:after {
+  display: block;
+  content: " ";
+  font-style: 1px;
+  display: block;
+  background: url(../img/sprite.png) no-repeat -494px -140px;
+  background-size: 530px 322px;
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  top: 7px;
+  right: 0px;
 }
 
-/* line 159, ../scss/style.scss */
+/* line 186, ../scss/style.scss */
 .container, .list-header {
   margin: 30px auto;
   width: 74%;
 }
 
-/* line 164, ../scss/style.scss */
+/* line 191, ../scss/style.scss */
 .wide-container, .list-header {
   width: 91%;
 }
 
-/* line 168, ../scss/style.scss */
+/* line 195, ../scss/style.scss */
 .app {
   position: relative;
   background-image: url("../img/patterns/white-wood.png");
@@ -273,20 +302,20 @@ body {
   -o-background-size: 68px;
   background-size: 68px;
 }
-/* line 173, ../scss/style.scss */
+/* line 200, ../scss/style.scss */
 .red-wood .app {
   background-image: url("../img/patterns/red-wood.png");
 }
-/* line 177, ../scss/style.scss */
+/* line 204, ../scss/style.scss */
 .blue-wood .app {
   background-image: url("../img/patterns/blue-wood.png");
 }
-/* line 181, ../scss/style.scss */
+/* line 208, ../scss/style.scss */
 .orange-wood .app {
   background-image: url("../img/patterns/orange-wood.png");
 }
 
-/* line 186, ../scss/style.scss */
+/* line 213, ../scss/style.scss */
 h2 {
   font-family: 'DIN Condensed';
   font-size: .9em;
@@ -294,25 +323,25 @@ h2 {
   text-transform: uppercase;
 }
 
-/* line 193, ../scss/style.scss */
+/* line 220, ../scss/style.scss */
 p {
   font-size: .85em;
   line-height: 1.4;
   letter-spacing: -0.7px;
 }
-/* line 198, ../scss/style.scss */
+/* line 225, ../scss/style.scss */
 p a {
   color: #e96452;
   text-decoration: none;
 }
 
-/* line 204, ../scss/style.scss */
+/* line 231, ../scss/style.scss */
 .introduction {
   margin: 5em 0 2em;
   text-align: center;
 }
 
-/* line 209, ../scss/style.scss */
+/* line 236, ../scss/style.scss */
 #overlay {
   width: 100%;
   height: 100%;
@@ -322,30 +351,30 @@ p a {
   pointer-events: none;
   text-align: center;
 }
-/* line 217, ../scss/style.scss */
+/* line 244, ../scss/style.scss */
 #overlay img {
   padding-top: 40px;
   width: 50%;
 }
 
 @-webkit-keyframes logo-animatie {
-  /* line 224, ../scss/style.scss */
+  /* line 251, ../scss/style.scss */
   0% {
     -webkit-transform: rotate(-10deg);
   }
 
-  /* line 228, ../scss/style.scss */
+  /* line 255, ../scss/style.scss */
   50% {
     -webkit-transform: rotate(10deg);
   }
 
-  /* line 232, ../scss/style.scss */
+  /* line 259, ../scss/style.scss */
   100% {
     -webkit-transform: rotate(-10deg);
   }
 }
 
-/* line 237, ../scss/style.scss */
+/* line 264, ../scss/style.scss */
 #ajax-loader {
   position: absolute;
   top: 150px;
@@ -353,7 +382,7 @@ p a {
   margin-left: -15px;
 }
 
-/* line 245, ../scss/style.scss */
+/* line 272, ../scss/style.scss */
 .hide {
   display: none;
 }
