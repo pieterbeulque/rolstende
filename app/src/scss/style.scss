@@ -147,14 +147,20 @@ body {
     }
 }
 
-.zoek {
-    width: 85px;
-    height: 15px;
-    margin: 60px auto 20px auto;
+h2 {
     color: $brown;
     font-size: 1.2em;
     font-family: 'DIN Condensed';
     text-transform: uppercase;
+}
+
+.zoek {
+    width: 85px;
+    height: 15px;
+    margin: 60px auto 20px;
+}
+
+.anchored-text {
     text-align: center;
     position: relative;
 
@@ -167,7 +173,7 @@ body {
         width: 12px;
         height: 13px;
         position: absolute;
-        top: 7px; left: 0px;
+        top: 4px; left: 0px;
     }
 
     &:after {
@@ -180,7 +186,7 @@ body {
         width: 12px;
         height: 13px;
         position: absolute;
-        top: 7px; right: 0px;
+        top: 4px; right: 0px;
     }
 }
 
@@ -209,13 +215,6 @@ body {
     .orange-wood & {
         background-image: url('../img/patterns/orange-wood.png');
     }
-}
-
-h2 {
-    font-family: 'DIN Condensed';
-    font-size: .9em;
-    margin: 1em 0 .5em;
-    text-transform: uppercase;
 }
 
 p {

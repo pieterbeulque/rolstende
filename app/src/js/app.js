@@ -170,6 +170,7 @@ var App = (function () {
 
             switch ($(this).attr('href')) {
                 case '#list-wcs':
+                    $('body').attr('class', '').addClass('blue-wood');
                     info.headingClass = 'heading-wcs';
                     info.color = 'blue';
                     info.statusLocatie = 'hide';
@@ -203,10 +204,10 @@ var App = (function () {
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
-                    $('body').attr('class', '').addClass('blue-wood');
                     break;
 
                 case '#list-poi':
+                    $('body').attr('class', '').addClass('orange-wood');
                     info.headingClass = 'heading-bezienswaardigheden';
                     info.statusLocatie = 'hide';
                     info.color = 'orange';
@@ -241,14 +242,13 @@ var App = (function () {
                         $("#ajax-loader").html('');
                     }
 
-                    $('body').attr('class', '').addClass('orange-wood');
                     break;
 
                 case '#list-restaurants':
+                    $('body').attr('class', '').addClass('blue-wood');
                     info.headingClass = 'heading-restaurants';
                     info.color = 'blue';
                     info.statusLocatie = 'list-view-annotation';
-                    $('body').attr('class', '').addClass('blue-wood');
                     if (localStorage['restaurants'] === '' || parseInt(localStorage['restaurants_updated'], 10) < (now - 3600)) {
                         $.ajax({
                             type: 'get',
@@ -279,10 +279,10 @@ var App = (function () {
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
-                    $('body').attr('class', '').addClass('blue-wood');
                     break;
 
                 case '#list-hotels':
+                    $('body').attr('class', '').addClass('red-wood');
                     info.headingClass = 'heading-hotels';
                     info.color = 'red';
                     info.statusLocatie = 'list-view-annotation';
@@ -316,7 +316,6 @@ var App = (function () {
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
-                    $('body').attr('class', '').addClass('red-wood');
                     break;
             }
 
