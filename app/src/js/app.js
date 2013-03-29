@@ -1033,8 +1033,7 @@ var Validate = (function () {
 
 (function () {
 
-    //if (!!('ontouchstart' in window)) {
-    if (1 == 1) {
+    if (!!('ontouchstart' in window)) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {
