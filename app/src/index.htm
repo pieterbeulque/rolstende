@@ -46,6 +46,8 @@
         </div>
     </div>
 
+    <div id="ajax_loader"></div>
+
     <!-- templates -->
     <script id="headerTemplate" type="text/template">
         <header class="top">
@@ -240,7 +242,7 @@
                 <h1>
                     <a href="#" title="" class="list-view-toggle">
                     {{name}}
-                    <span class="list-view-annotation list-view-annotation-alternate">volzet</span>
+                    <span class="{{statusLocatie}}">volzet</span>
                     </a>
                 </h1>
             </header>
@@ -282,7 +284,7 @@
     <script type="text/javascript">
         window.jQuery || document.write('<script type="text/javascript" src="js/libs/jquery.js"><\/script>');
     </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBju-W3HXeNU4_VTMZZhpWHR1_yvL4qiSU&amp;sensor=false&amp;libraries=geometry"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBju-W3HXeNU4_VTMZZhpWHR1_yvL4qiSU&amp;sensor=false"></script>
     <script type="text/javascript" src="js/vendors/jquery.animate-enhanced.js"></script>
     <script type="text/javascript" src="js/vendors/oriDomi.js"></script>
     <script type="text/javascript" src="js/vendors/slidingview.js"></script>

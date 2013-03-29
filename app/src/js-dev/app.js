@@ -34,7 +34,9 @@
     };
 
     var loadMap = function () {
-        var map = new RolstendeMap($('#map_canvas'));
+        if($(".switch-button").hasClass('active')) {
+            var map = new RolstendeMap($('#map_canvas'));
+        }
     };
 
     var loadInfo = function () {
@@ -57,12 +59,13 @@
         });
     };
 
-    var listView = function() {
-        var listview = new Listview($(".list-view"));
+    var listView = function(data) {
+        var listview = new Listview($(".list-view"), data);
     }
 
     var initNavigation = function () {
         $('#app-wrapper').on('click', '#sidebar a', function (e) {
+            $("#ajax_loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
             $('body').attr('class', '');
             var template,
                 partials = {
@@ -92,13 +95,14 @@
                     loadInfo();
                     break;
             }
+            $("#ajax_loader").html('');
             $('#app').click();
             return false;
         });
 
         $('#app').on('click', '.grid-item a', function () {
             console.log($(this).attr('href'));
-
+            $("#ajax_loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
             var template = $('#listTemplate').html(),
                 partials = {
                     result: $('#listDetailTemplate').html()
@@ -116,9 +120,11 @@
                         url: settings.api + 'wcs',
                         success: function(data) {
                             info.results = data.results;
+                            info.statusLocatie = 'list-view-annotation';
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
-                            listView();
+                            listView(data);
+                            $("#ajax_loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('blue-wood');
@@ -126,6 +132,7 @@
 
                 case '#list-poi':
                     info.headingClass = 'heading-bezienswaardigheden';
+                    info.statusLocatie = 'list-view-annotation';
                     info.color = 'orange';
                     $.ajax({
                         type: 'get',
@@ -134,7 +141,8 @@
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
-                            listView();
+                            listView(data);
+                            $("#ajax_loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('orange-wood');
@@ -143,6 +151,7 @@
                 case '#list-restaurants':
                     info.headingClass = 'heading-restaurants';
                     info.color = 'blue';
+                    info.statusLocatie = 'list-view-annotation';
                     $('body').attr('class', '').addClass('blue-wood');
                     $.ajax({
                         type: 'get',
@@ -151,7 +160,8 @@
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
-                            listView();
+                            listView(data);
+                            $("#ajax_loader").html('');
                         }
                     });
                     break;
@@ -159,6 +169,7 @@
                 case '#list-hotels':
                     info.headingClass = 'heading-hotels';
                     info.color = 'red';
+                    info.statusLocatie = 'list-view-annotation';
                     $.ajax({
                         type: 'get',
                         url: settings.api + 'hotels',
@@ -166,7 +177,8 @@
                             info.results = data.results;
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
-                            listView();
+                            listView(data);
+                            $("#ajax_loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('red-wood');
@@ -189,8 +201,9 @@
             return false;
         });
 
-        $("#app").on('click', '.switch', function() {
-            if($(this).hasClass('active')) {
+        $("#app").on('click', '.switch-button a', function() {
+            console.log('click');
+            if($(this).parent().hasClass('active')) {
                 loadIndex();
             } else {
                 var template,
@@ -210,8 +223,6 @@
 
     var init = function () {
         loadIndex();
-
-     
 
         loadSidebar();
         initNavigation();
