@@ -60,9 +60,9 @@ input[type="checkbox"], input[type="checkbox"]:checked{
 
     label {
         display: block;
-        padding-left: 20px;
+        padding-left: 25px;
         width: 16px;
-        height: 14px;
+        height: 17px;
         background-size: contain;
         background-repeat: no-repeat;
     }
@@ -111,13 +111,15 @@ form div {
 }
 span.arrow {
     display: block;
-    width: 10px;
-    height: 16px;
-    background-image: url('../img/select.png');
-    background-size: 100%;
+    width: 25px;
+    height: 39px;
+    background: url('../img/select.png') no-repeat 14px 11px;
+    background-size: 35%;
     position: absolute;
     right: 12px;
-    top: 13px;
+    top: 2px;
+    padding-left: 5px;
+    border-left: 2px solid $blue;
 }
 
 .succes {
