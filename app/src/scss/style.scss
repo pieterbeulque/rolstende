@@ -101,10 +101,11 @@ body {
     width: 33px;
     height: 29px;
     @include sprite;
-    background-position: -278px -3px;
+    background-position: -279px -3px;
     position: absolute;
     top: 100%;
     margin-top: -15px;
+    margin-left: -1px;
 
     a {
         width: 100%;
