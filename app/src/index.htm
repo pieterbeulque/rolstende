@@ -28,6 +28,9 @@
             </ul>
         </nav>
         <div id="app" class="app">
+            <div id="anim-container">
+                
+            </div>
         </div>
     </div>
 
@@ -135,7 +138,7 @@
     <script id="calendarDetailTemplate" type="text/template">
         <div class="detail-view">
             <h2>{{name}}</h2>
-            <img src="{{path}}" />
+            <img src="img/photos/{{path}}" />
             <p>
                 {{description}}
             </p>
@@ -237,7 +240,7 @@
                 <h1>
                     <a href="#" title="" class="list-view-toggle">
                     {{name}}
-                    <span class="{{statusLocatie}}">volzet</span>
+                    <span class="hide {{statusLocatie}}">volzet</span>
                     </a>
                 </h1>
             </header>
