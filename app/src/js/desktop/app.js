@@ -13,56 +13,60 @@ function init(){
     $('body').backstretch("img/desktop/background.jpg");
 
     if ( $.fn.makisu.enabled ) {
-        console.log("makisu")
-        var open = false;
+            var open = false;
 
-        var $maki = $( '.maki' ),
-            $dt = $('.info-button, dt');
 
-        $dt.click(function() {
-            if(open) {
-                $maki.makisu('close');
-                open = false;
-                setTimeout(function() {
-                    $("#dropdown-container").css({'top': '0px'}).delay(500).stop().animate({'top' : '-60px'}, 500, function() {
-                        $("#dropdown-container").css({'display': 'none'});
+            var $maki = $( '.maki' ),
+                $dt = $('.info-button, dd');
+
+            $dt.click(function() {
+                if(open) {
+                    $maki.makisu('close');
+                    open = false;
+                    
+
+                    setTimeout(function() {
+                        $("#dropdown-container").stop().animate({'top' : '-60px'})
+                    }, 1000);
+            
+                 
+                } else {
+               
+                    $("#dropdown-container").css({'top': '-60px'}).stop().animate({'top' : '0px'}, 500, function(){
+                        $maki.makisu('open');
+                        open = true;
                     });
-                }, 1000);
-            } else {
-                $("#dropdown-container").css({'display': 'block', 'top': '-60px'}).stop().animate({'top' : '0px'}, 500, function(){
-                    $maki.makisu('open');
-                    open = true;
-                });
-            }
-        });
+                    
+                }
+            });
 
-        // Create Makisus
-        $maki.makisu({
-            selector: 'dd',
-            overlap: 0.6,
-            speed: 0.85
-        });
+            // Create Makisus
+            $maki.makisu({
+                selector: 'dd',
+                overlap: 0.6,
+                speed: 0.85
+            });
 
-        // Open all
+            // Open all
+            
 
+            // Toggle on click
 
-        // Toggle on click
+            $( '.toggle' ).on( 'click', function() {
+                $( '.list' ).makisu( 'toggle' );
+            });
 
-        $( '.toggle' ).on( 'click', function() {
-            $( '.list' ).makisu( 'toggle' );
-        });
+            // Disable all links
 
-        // Disable all links
+            $( '.demo a' ).click( function( event ) {
+                event.preventDefault();
+            });
 
-        $( '.demo a' ).click( function( event ) {
-            event.preventDefault();
-        });
-
-    } else {
-        $( '.warning' ).show();
-    }
-
-
+        } else {
+            $( '.warning' ).show();
+        }
+        
+    
 
 
 

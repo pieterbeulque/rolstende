@@ -152,9 +152,36 @@ body {
     height: 15px;
     margin: 60px auto 20px auto;
     color: $brown;
+    font-size: 1.2em;
     font-family: 'DIN Condensed';
     text-transform: uppercase;
     text-align: center;
+    position: relative;
+
+    &:before {
+        content: " ";
+        font-style: 1px;
+        display: block;
+        background: url(../img/sprite.png) no-repeat -471px -140px;
+        background-size: 530px 322px;
+        width: 12px;
+        height: 13px;
+        position: absolute;
+        top: 7px; left: 0px;
+    }
+
+    &:after {
+        display: block;
+        content: " ";
+        font-style: 1px;
+        display: block;
+        background: url(../img/sprite.png) no-repeat -494px -140px;
+        background-size: 530px 322px;
+        width: 12px;
+        height: 13px;
+        position: absolute;
+        top: 7px; right: 0px;
+    }
 }
 
 .container {
