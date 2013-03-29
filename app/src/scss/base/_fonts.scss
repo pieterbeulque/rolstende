@@ -2,3 +2,22 @@
     font-family: 'DIN Condensed';
     src: url(../fonts/dincondbold.ttf);
 }
+
+@font-face {
+    font-family: 'Bitter';
+    font-weight: 400;
+    src: url(../fonts/Bitter-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Bitter';
+    src: url(../fonts/Bitter-Bold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Bitter';
+    src: url(../fonts/Bitter-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
