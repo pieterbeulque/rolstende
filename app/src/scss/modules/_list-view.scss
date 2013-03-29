@@ -160,3 +160,27 @@
     }
 
 }
+
+.opening-hours table {
+    width: 100%;
+    font-size: 0.9em;
+    letter-spacing: -0.7px;
+    line-height: 1.4em;
+
+    tr {
+        border-bottom: 1px dotted $brown; 
+    }
+
+    td {
+        width: 50%;
+        &.hours {
+            font-style: italic;
+        }
+        padding-top: 5px;
+        padding-bottom: 5px;
+       
+
+
+    }
+
+}
