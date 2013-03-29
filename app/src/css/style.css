@@ -652,7 +652,7 @@ span.arrow {
     margin: 50px auto;
   }
 }
-@media screen and (min-width: 480px) and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   /* line 1, ../scss/modules/_icon-grid.scss */
   .icon-grid {
     width: 755px;
