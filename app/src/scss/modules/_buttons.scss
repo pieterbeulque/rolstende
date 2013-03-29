@@ -1,6 +1,6 @@
 .back-button {
     @include sprite;
-    background-position: -522px -395px;
+    background-position: -440px -252px;
     display: block;
     height: 32px;
     @include hide-text;
@@ -9,7 +9,7 @@
 
 .maps-button {
     @include sprite;
-    background-position: -374px -5px;
+    background-position: -317px -4px;
     display: block;
     height: 27px;
     @include hide-text;

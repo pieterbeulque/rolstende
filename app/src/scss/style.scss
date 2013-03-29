@@ -7,7 +7,7 @@
 @mixin sprite {
     background-image: url('../img/sprite.png');
     background-repeat: no-repeat;
-    background-size: 738px 504px;
+    background-size: 530px 322px;
 }
 
 *:not(input):not(textarea) {
@@ -20,7 +20,7 @@
 
 body {
     background-color: $brown;
-    background-image: url(../img/patterns/white-wood.png);
+    background-image: url('../img/patterns/white-wood.png');
     color: $brown;
     font-family: 'Bitter';
     font-size: 93.75%;
@@ -29,7 +29,7 @@ body {
 }
 
 .top {
-    background: url(../img/pattern_header.png);
+    background: url('../img/pattern_header.png');
     @include background-size(68px);
     height: 70px;
     position: relative;
@@ -50,7 +50,7 @@ body {
                 width: 106px;
                 height: 99px;
                 @include sprite;
-                background-position: -320px -164px;
+                background-position: -311px -46px;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
@@ -62,7 +62,7 @@ body {
                 width: 107px;
                 height: 99px;
                 @include sprite;
-                background-position: -135px -153px;
+                background-position: -126px -35px;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
@@ -101,7 +101,7 @@ body {
     width: 33px;
     height: 29px;
     @include sprite;
-    background-position: -293px -5px;
+    background-position: -278px -3px;
     position: absolute;
     top: 100%;
     margin-top: -15px;
@@ -117,7 +117,7 @@ body {
     width: 32px;
     height: 32px;
     @include sprite;
-    background-position: -443px -195px;
+    background-position: -424px -52px;
     position: absolute;
     right: 10px;
     top: 100%;
@@ -129,7 +129,7 @@ body {
     height: 31px;
     display: block;
     @include sprite;
-    background-position: -10px -1px;
+    background-position: -1px 0;
     position: absolute;
     top: 100%; left: 100%;
     margin-left: -85px;
@@ -142,7 +142,7 @@ body {
     }
 
     &.active {
-        background-position: -94px -1px;
+        background-position: -85px 0;
     }
 }
 
@@ -150,8 +150,6 @@ body {
     width: 85px;
     height: 15px;
     margin: 60px auto 20px auto;
-    @include sprite;
-    background-position: -537px -332px;
     color: $brown;
     font-family: 'DIN Condensed';
     text-transform: uppercase;
