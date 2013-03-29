@@ -15,6 +15,8 @@ class Restaurants extends BaseModel
     public $description;
     public $path;
 
+    public $isOpen;
+
     public function __construct ()
     {
         parent::__construct();
@@ -37,6 +39,7 @@ class Restaurants extends BaseModel
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
             $this->path = $result['path'];
+            $this->isOpen = $this->checkIfOpen($this->id);
 
         } catch (\Exception $e) {
             $this->id = 0;
@@ -46,6 +49,7 @@ class Restaurants extends BaseModel
             $this->longitude = 0.0;
             $this->description = '';
             $this->path = 'noimage.jpg';
+            $this->isOpen = false;
         }
 
         return $this;
