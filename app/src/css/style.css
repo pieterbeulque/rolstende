@@ -640,6 +640,19 @@ span.arrow {
   width: 157px;
 }
 
+/* line 34, ../scss/modules/_headings.scss */
+.static-logo {
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-size: 530px 322px;
+  background-position: -5px -32px;
+  display: block;
+  height: 111px;
+  padding: 1.2em 0 0 0;
+  margin: 0 auto;
+  width: 111px;
+}
+
 /* line 1, ../scss/modules/_icon-grid.scss */
 .icon-grid {
   overflow: hidden;
