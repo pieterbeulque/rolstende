@@ -481,6 +481,7 @@ var Listview = (function() {
             this.showAvailability();
         } else if (this.data.results[0].isOpen !== undefined) {
             this.showOpen();
+            this.showHours();
         }
 
     };
@@ -497,6 +498,21 @@ var Listview = (function() {
         }
     };
 
+    Listview.prototype.showHours = function() {
+        console.log(this.data.results[0].open);
+        for(var i = 0; i < this.data.results.length; i++) {
+            if(this.data.results[i].open.length != 1) {
+                console.log(this.data.results[i].name);
+                for(var j = 0; j < this.data.results[i].open.length; j++) {
+                    if(this.data.results[i].open[j].spans.length > 0) {
+                        console.log(this.data.results[i].name + ' is open op ' + this.data.results[i].open[j].day + ' van ' + this.data.results[i].open[j].spans[0].start + ' tot ' + this.data.results[i].open[j].spans[0].end);
+                        var toInsert = '<tr><td>' + this.data.results[i].open[j].day + '</td><td>' + this.data.results[i].open[j].spans[0].start + 'u - ' + this.data.results[i].open[j].spans[0].end + 'u</td></tr>';
+                        $(".opening-hours:eq(" + i + ") table").append(toInsert);
+                    }    
+                }
+            }
+        }
+    };
 
     Listview.prototype.showAvailability = function () {
         for(var i = 0; i < this.data.results.length; i++) {
@@ -745,8 +761,8 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-        // this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-        this.api = 'http://192.168.2.8/maiv_oostende/api/';
+        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        // this.api = 'http://192.168.2.8/maiv_oostende/api/';
     };
 
     return Settings;
