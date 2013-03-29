@@ -37,7 +37,7 @@ class Restaurants extends BaseModel
             $this->longitude = (float) $result['longitude'];
             $this->description = $result['description'];
             $this->path = $result['path'];
-           
+
         } catch (\Exception $e) {
             $this->id = 0;
             $this->name = '';
@@ -51,11 +51,31 @@ class Restaurants extends BaseModel
         return $this;
     }
 
+    public function checkIfOpen($id)
+    {
+        $id = (int) $id;
+
+        $now = getdate();
+
+        $where = array();
+        $where['restaurant_id'] = $id;
+        $where['hour_' . (string) $now['hours']] = '1';
+        $where['day'] = (string) $now['wday'];
+
+        $result = $this->dbh->select('1', 'rolstende_hours', $where, 1);
+
+        return (count($result) === 1);
+    }
+
     public function getAll ()
     {
         $sql = 'SELECT rolstende_restaurants.*, rolstende_restaurants_photos.path FROM rolstende_restaurants, rolstende_restaurants_photos WHERE rolstende_restaurants_photos.restaurant_id = rolstende_restaurants.id';
         $query = new \Riff\Database\Query($sql);
         $result = $this->dbh->execute($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+        foreach ($result as $key => $value) {
+            $result[$key]['isOpen'] = $this->checkIfOpen($value['id']);
+        }
 
         return $result;
     }
