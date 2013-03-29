@@ -67,6 +67,33 @@ class Restaurants extends BaseModel
         return (count($result) === 1);
     }
 
+    private function readableDay($i)
+    {
+        switch ($i) {
+            case 0:
+                return 'Zondag';
+                break;
+            case 1:
+                return 'Maandag';
+                break;
+            case 2:
+                return 'Dinsdag';
+                break;
+            case 3:
+                return 'Woensdag';
+                break;
+            case 4:
+                return 'Donderdag';
+                break;
+            case 5:
+                return 'Vrijdag';
+                break;
+            case 6:
+                return 'Zaterdag';
+                break;
+            }
+    }
+
     public function getAll ()
     {
         $sql = 'SELECT rolstende_restaurants.*, rolstende_restaurants_photos.path FROM rolstende_restaurants, rolstende_restaurants_photos WHERE rolstende_restaurants_photos.restaurant_id = rolstende_restaurants.id';
@@ -105,8 +132,10 @@ class Restaurants extends BaseModel
                     }
                 }
 
-                $result[$key]['open'][$hours['day']] = $spans;
+                $result[$key]['open'][$hours['day']] = array('day' => $this->readableDay($hours['day']), 'spans' => $spans);
             }
+
+            array_push($result[$key]['open'], array_shift($result[$key]['open']));
         }
 
         return $result;

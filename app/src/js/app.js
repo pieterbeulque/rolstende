@@ -471,7 +471,6 @@ var Listview = (function() {
         this.active;
         this.data = data;
         var that = this;
-        console.log(this.data);
 
         element.on('click', 'li header', function(event) {
             that.open($(this).parent());
@@ -746,8 +745,8 @@ var RolstendeMap = (function () {
 var Settings =(function () {
 
     var Settings = function () {
-        this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-        //this.api = 'http://192.168.2.8/maiv_oostende/api/';
+        // this.api = 'http://192.168.2.9/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        this.api = 'http://192.168.2.8/maiv_oostende/api/';
     };
 
     return Settings;
@@ -927,7 +926,7 @@ var Validate = (function () {
 
 (function () {
 
-    if (!!('ontouchstart' in window)) {
+    if (1 == 1) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {

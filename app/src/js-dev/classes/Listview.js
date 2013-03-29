@@ -5,7 +5,6 @@ var Listview = (function() {
         this.active;
         this.data = data;
         var that = this;
-        console.log(this.data);
 
         element.on('click', 'li header', function(event) {
             that.open($(this).parent());
