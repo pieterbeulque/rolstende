@@ -2,14 +2,302 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Particles</title>
+    <title>Rolstende</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" href="img/addtohome.png" />
 </head>
 <body>
-    <h1>Wowzers!</h1>
+    <div id="app-wrapper">
+        <nav class="sidebar" id="sidebar">
+            <div id="noise"></div>
+            <ul>
+                <li class="spots">
+                    <a href="#spots">Spots</a>
+                </li>
+                <li class="events">
+                    <a href="#events">Events</a>
+                </li>
+                <li class="info">
+                    <a href="#info">Info</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="app" class="app">
+            <div id="anim-container">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="hide">
+        <img src="img/logo_big.png" alt="logo_big" title="loading..." />
+        <div class="pendulum-container">
+            <div class="pendulum"></div>
+        </div>
+    </div>
+
+    <div id="ajax-loader"></div>
+
+    <!-- templates -->
+    <script id="headerTemplate" type="text/template">
+        <header class="top">
+            <div id="logo">
+                <div class="logo-back"></div>
+                <div class="boat-container">
+                <div class="boat"></div>
+                </div>
+                <div class="logo-front"></div>
+            </div>
+            <div class="pull-button"><a href="#"></a></div>
+            <div class="switch-button {{switchClass}}"><a href="#"></a></div>
+        </header>
+    </script>
+
+    <script id="indexTemplate" type="text/template">
+        {{>header}}
+
+        <div class="container">
+            <h2 class="zoek anchored-text">Ik zoek</h2>
+            <ul class="icon-grid">
+                <li class="grid-item icon-hotels">
+                    <a href="#list-hotels" title="">Hotels</a>
+                </li>
+                <li class="grid-item icon-restaurants">
+                    <a href="#list-restaurants" title="">Restaurants</a>
+                </li>
+                <li class="grid-item icon-toilets">
+                    <a href="#list-wcs" title="" class="two-line">Openbare WC&rsquo;s</a>
+                </li>
+                <li class="grid-item icon-poi">
+                    <a href="#list-poi" title="" class="two-line">Beziens&#45;waardigheden</a>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <script id="calendarTemplate" type="text/template">
+        {{>header}}
+
+        <div class="wide-container container">
+            <div class="calendar" id="calendar">
+                <div class="calendar-heading">
+                    <a href="#" title="" id="calendar-prev">Vorige maand</a>
+                    <h2>Maart 2013</h2>
+                    <a href="#" title="" id="calendar-next">Volgende maand</a>
+                </div>
+                <table class="calendar-table">
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="results">
+                <p>Klik op de oranje dagen en ontdek wat er te doen is.</p>
+            </div>
+            <form id="subscribeform">
+                <h2>Inschrijven voor nieuwsbrief</h2>
+                <div>
+                    <label for="name">Mijn naam</label>
+                    <input type="text" name="name" id="name" placeholder="Mijn naam" />
+                </div>
+                <div>
+                    <label for="email">Mijn email</label>
+                    <input type="email" name="email" id="email" placeholder="Mijn email" />
+                </div>
+                <div>
+                    <input type="submit" value="" name="info-submit" />
+                </div>
+            </form>
+        </div>
+    </script>
+
+    <script id="calendarListTemplate" type="text/template">
+        {{#results}}
+            {{>result}}
+        {{/results}}
+
+    </script>
+
+    <script id="calendarDetailTemplate" type="text/template">
+        <div class="detail-view">
+            <h2>{{name}}</h2>
+            <img src="img/photos/{{path}}" />
+            <p>
+                {{description}}
+            </p>
+            <div class="location">
+                <p class="address">
+                    {{address}}<br />
+                    8400 Oostende
+                </p>
+            </div>
+            
+        </div>
+    </script>
+
+    <script id="mapTemplate" type="text/template">
+        {{>header}}
+        <div id="map_canvas"></div>
+        <div class="wide-container container">
+            <form action="#" id="map-filter">
+               <div class="small">
+                    <input type="checkbox" class="changeMap" checked="checked" id="hotels" name="hotels" value="hotels">
+                    <label for="hotels">Hotels</label>
+                </div>
+                <div class="wide">
+                    <input type="checkbox" class="changeMap" checked="checked" id="wcs" name="wcs" value="wcs">
+                    <label for="wcs">Toiletten</label>
+                </div>
+                <div class="small hasborder">
+                    <input type="checkbox" class="changeMap" checked="checked" id="restaurants" name="restaurants" value="restaurants">
+                    <label for="restaurants">restaurants</label>
+                </div>
+                    <div class="wide hasborder" >
+                    <input type="checkbox" class="changeMap" checked="checked" id="bezienswaardigheden" name="pointsofinterest" value="bezienswaardigheden">
+                    <label for="bezienswaardigheden">bezienswaardigheden</label>
+                </div>
+            </form>
+            <div class="results red" id="results">
+                    <div class="detail-view">
+                        <p>Klik op een pinnetje op de kaart en krijg meer informatie over deze locatie!</p>
+                    </div>
+                </div>
+            </div>
+    </script>
+
+    <script id="infoTemplate" type="text/template">
+         <div id="dropdown-container">
+            <dl class="list maki">
+                <dt>Ontwikkeld door</dt>
+                <dd class="orange">Pieter Beulque</dd>
+                <dd class="blue">Thomas Degry</dd>
+                <dd class="red">Tatiana Van Campenhout</dd>
+                <dd class="brown">a.k.a "Dreamteam"</dd>
+            </dl>
+        </div>
+        <header class="top">
+            <div class="static-logo"></div>
+            <div class="pull-button"><a href="#"></a></div>
+            <div class="info-button"><a href="#"></a></div>
+        </header>
+        <div class="wide-container container">
+            <p class="introduction">
+                Rolstende is een webapplicatie die mindervaliden de mogelijkheid
+                biedt Oostende op een aangename 
+                manier te ontdekken, ontworpen 
+                voor iPhone 4/5 en iPad 3. Onze doelstelling is dat rolstoelgebruikers optimaal kunnen genieten van een vakantie aan zee. We willen hen het gevoel dat zij evenveel kunnen doen als mensen die niet in een rolstoel zitten.  Wanneer ze gebruik maken van deze applicatie, weten ze meteen waar in Oostende ze terecht kunnen. Zo kunnen ze zorgeloos genieten en moeten ze zich over niets nog druk maken.
+            </p>
+            <form id="contactform">
+                <h2>Contacteer ons</h2>
+                <div>
+                    <span class="arrow"></span>
+                    <select>
+                        <option>Ik wil foutieve informatie melden</option>
+                        <option>Ik heb een vraag</option>
+                        <option>Ik wil een etablissement toevoegen</option>
+                        <option>Ik wil een openbare wc toevoegen</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="name">Mijn naam</label>
+                    <input type="text" name="name" id="name" placeholder="Mijn naam" />
+                </div>
+                <div>
+                    <label for="email">Mijn email</label>
+                    <input type="email" name="email" id="email" placeholder="Mijn email" />
+                </div>
+                <div>
+                    <label for="message">Mijn boodschap</label>
+                    <textarea name="message" id="message" placeholder="Mijn boodschap"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="" name="info-submit" />
+                </div>
+            </form>
+        </div>
+    </script>
+
+    <script id="listDetailTemplate" type="text/template">
+        <article>
+            <header>
+                <h1>
+                    <a href="#" title="" class="list-view-toggle">
+                    {{name}}
+                    <span class="hide {{statusLocatie}}">volzet</span>
+                    </a>
+                </h1>
+            </header>
+            <div class="list-detail-view detail-view">
+                {{#showPhotos}}
+                    <img src="img/photos/{{path}}" />
+                {{/showPhotos}}
+                <p>
+                    {{description}}
+                </p>
+                <div class="location">
+                    <p class="address">
+                        {{address}},<br />
+                        8400 Oostende<br />
+                        {{phone}}
+                    </p>
+                    <a href="maps:ll={{latitude}},{{longitude}}&z=18" title="" class="button maps-button">Toon in Maps</a>
+                </div>
+                <div class="opening-hours">
+                    <table>
+                        
+                    </table>
+                </div>
+            </div>
+        </article>
+    </script>
+
+    <script id="listTemplate" type="text/template">
+        <header class="list-header">
+            <h1 class="heading {{headingClass}}">Titel</h1>
+            <a href="#" class="back-button">Terug</a>
+        </header>
+
+        <div class="wide-container container">
+            <ul class="list-view {{color}}">
+                {{#results}}
+                    <li>
+                        {{>result}}
+                    </li>
+                {{/results}}
+            </ul>
+        </div>
+    </script>
+
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
-        window.jQuery || document.write('<script type="text/javascript" src="js/libs/jquery.js"><\/script>');
+        window.jQuery || document.write('<script type="text/javascript" src="js/vendors/jquery.js"><\/script>');
     </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBju-W3HXeNU4_VTMZZhpWHR1_yvL4qiSU&amp;sensor=false"></script>
+    <!--
+        <script type="text/javascript" src="js/vendors/jquery.animate-enhanced.js"></script>
+        <script type="text/javascript" src="js/vendors/oriDomi.js"></script>
+        <script type="text/javascript" src="js/vendors/slidingview.js"></script>
+        <script type="text/javascript" src="js/vendors/mustache.js"></script>
+        <script type="text/javascript" src="js/vendors/makisu.min.js"></script>
+    -->
+    <script type="text/javascript" src="js/vendors/plugins.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

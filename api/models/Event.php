@@ -75,9 +75,13 @@ class Event extends BaseModel
         $year = (int) $year;
         $month = (int) $month;
 
-        $sql = "SELECT rolstende_events.*, rolstende_events_photos.path FROM rolstende_events, rolstende_events_photos WHERE rolstende_events.id = rolstende_events_photos.event_id AND (DATE(start) >= DATE('" . $year . "-" . $month . "-01 00:00:00') "
+        $sql = "SELECT rolstende_events.*, rolstende_events_photos.path FROM rolstende_events, rolstende_events_photos "
+             . "WHERE (rolstende_events.id = rolstende_events_photos.event_id) AND ("
+             . "(DATE(start) >= DATE('" . $year . "-" . $month . "-01 00:00:00') "
              . "AND DATE(start) < DATE('" . $year . "-" . ($month + 1) . "-01 00:00:00')) "
-             . "OR (DATE(end) > DATE('" . $year . "-" . ($month) . "-01 00:00:00') AND DATE(end) < DATE('" . $year . "-" . ($month + 1) . "-01 00:00:00'))";
+             . "OR "
+             . "(DATE(end) > DATE('" . $year . "-" . ($month) . "-01 00:00:00') AND DATE(end) < DATE('" . $year . "-" . ($month + 1) . "-01 00:00:00'))"
+             . ")";
 
         $query = new \Riff\Database\Query($sql);
 

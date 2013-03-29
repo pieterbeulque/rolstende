@@ -182,6 +182,7 @@ var RolstendeMap = (function () {
                 dataType:'json',
                 success: function(data) {
                     console.log(data);
+                    data.showPhotos = (type !== 'wcs');
                     var template = $('#listDetailTemplate').html();
                     var html = Mustache.to_html(template, data);
                     $('#results').html(html).removeClass('hide');

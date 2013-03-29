@@ -7,9 +7,11 @@ var Dropdown = (function () {
             var $maki = $('.maki'),
                 $dt = $('.info-button, dd');
 
+
+            $("#dropdown-container").css({'visibility': 'hidden'});
             $dt.click(function() {
                 if(open) {
-                    $('.list').show();
+                   
                     $maki.makisu('close');
                     open = false;
 
