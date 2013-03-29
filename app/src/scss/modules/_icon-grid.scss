@@ -70,7 +70,7 @@
         }
     }
 
-    @media screen and (min-width: 500px) and (max-width: 1024px) and (orientation: landscape) {
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
         &:nth-child(odd), &:nth-child(even) {
             float: left;
             width: 181px;

@@ -723,7 +723,7 @@ span.arrow {
     margin-right: 20px;
   }
 }
-@media screen and (min-width: 500px) and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   /* line 74, ../scss/modules/_icon-grid.scss */
   .grid-item:nth-child(odd), .grid-item:nth-child(even) {
     float: left;

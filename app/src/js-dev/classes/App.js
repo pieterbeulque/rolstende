@@ -202,6 +202,7 @@ var App = (function () {
         });
 
         $('#app').on('click', '.back-button', function () {
+            $("#ajax-loader").html('');
             var template = $('#indexTemplate').html();
             var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
             $('#app').html(html);
