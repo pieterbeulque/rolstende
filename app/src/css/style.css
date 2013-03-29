@@ -1230,7 +1230,6 @@ span.arrow {
   position: absolute;
   top: -60px;
   z-index: 999;
-  display: none;
 }
 
 /* List styles */
@@ -1244,7 +1243,6 @@ span.arrow {
   text-transform: uppercase;
   position: absolute;
   width: 100%;
-  display: none;
 }
 
 /* line 26, ../scss/modules/_dropdown.scss */
