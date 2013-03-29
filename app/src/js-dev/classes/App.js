@@ -179,7 +179,7 @@ var App = (function () {
                                 localStorage['wcs_updated'] = new Date().getTime();
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             },
@@ -187,7 +187,7 @@ var App = (function () {
                                 var data = JSON.parse(localStorage['wcs']);
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             }
@@ -196,7 +196,7 @@ var App = (function () {
                         var data = JSON.parse(localStorage['wcs']);
                         info.results = data.results;
                         html = Mustache.to_html(template, info, partials);
-                        $('#app').html(html);
+                        $('#anim-container').html(html);
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
@@ -216,7 +216,7 @@ var App = (function () {
                                 localStorage['pointsofinterest_updated'] = new Date().getTime();
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             },
@@ -224,7 +224,7 @@ var App = (function () {
                                 var data = JSON.parse(localStorage['pointsofinterest']);
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             }
@@ -233,7 +233,7 @@ var App = (function () {
                         var data = JSON.parse(localStorage['pointsofinterest']);
                         info.results = data.results;
                         html = Mustache.to_html(template, info, partials);
-                        $('#app').html(html);
+                        $('#anim-container').html(html);
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
@@ -254,7 +254,7 @@ var App = (function () {
                                 localStorage['restaurants_updated'] = new Date().getTime();
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             },
@@ -262,7 +262,7 @@ var App = (function () {
                                 var data = JSON.parse(localStorage['restaurants']);
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             }
@@ -271,7 +271,7 @@ var App = (function () {
                         var data = JSON.parse(localStorage['restaurants']);
                         info.results = data.results;
                         html = Mustache.to_html(template, info, partials);
-                        $('#app').html(html);
+                        $('#anim-container').html(html);
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
@@ -291,7 +291,7 @@ var App = (function () {
                                 localStorage['hotels_updated'] = new Date().getTime();
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             },
@@ -299,7 +299,7 @@ var App = (function () {
                                 var data = JSON.parse(localStorage['hotels']);
                                 info.results = data.results;
                                 html = Mustache.to_html(template, info, partials);
-                                $('#app').html(html);
+                                $('#anim-container').html(html);
                                 that.listView(data);
                                 $("#ajax-loader").html('');
                             }
@@ -308,7 +308,7 @@ var App = (function () {
                         var data = JSON.parse(localStorage['hotels']);
                         info.results = data.results;
                         html = Mustache.to_html(template, info, partials);
-                        $('#app').html(html);
+                        $('#anim-container').html(html);
                         that.listView(data);
                         $("#ajax-loader").html('');
                     }
@@ -322,6 +322,7 @@ var App = (function () {
 
         $('#app').on('click', '.back-button', function () {
             $("#ajax-loader").html('');
+            console.log('test');
             var template = $('#indexTemplate').html();
             var html = Mustache.to_html(template, {switchClass: ''}, {header: $('#headerTemplate').html()});
             $("#anim-container").html(html);
