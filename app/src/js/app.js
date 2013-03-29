@@ -257,7 +257,27 @@ var Listview = (function() {
             that.open($(this).parent());
             return false;
         });
+
+        if (this.data.results[0].available !== undefined) {
+            this.showAvailability();
+        }
+
     };
+
+    Listview.prototype.showAvailability = function () {
+        for(var i = 0; i < this.data.results.length; i++) {
+            if(this.data.results[i].available == 0) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").html('volzet');
+            } else if(this.data.results[i].available == 1) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").html('1 kamer');
+            } else {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").html(this.data.results[i].available + ' kamers');
+            }
+        }
+    }
 
     Listview.prototype.open = function(element) {
         if(this.active != null) {
@@ -736,7 +756,7 @@ var Validate = (function () {
 
     var initNavigation = function () {
         $('#app-wrapper').on('click', '#sidebar a', function (e) {
-            $("#ajax_loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
+            $("#ajax-loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
             $('body').attr('class', '');
             var template,
                 partials = {
@@ -766,14 +786,14 @@ var Validate = (function () {
                     loadInfo();
                     break;
             }
-            $("#ajax_loader").html('');
+            $("#ajax-loader").html('');
             $('#app').click();
             return false;
         });
 
         $('#app').on('click', '.grid-item a', function () {
             console.log($(this).attr('href'));
-            $("#ajax_loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
+            $("#ajax-loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
             var template = $('#listTemplate').html(),
                 partials = {
                     result: $('#listDetailTemplate').html()
@@ -795,7 +815,7 @@ var Validate = (function () {
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('blue-wood');
@@ -813,7 +833,7 @@ var Validate = (function () {
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('orange-wood');
@@ -832,7 +852,7 @@ var Validate = (function () {
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     break;
@@ -849,7 +869,7 @@ var Validate = (function () {
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('red-wood');

@@ -327,7 +327,15 @@ p a {
   }
 }
 
-/* line 240, ../scss/style.scss */
+/* line 239, ../scss/style.scss */
+#ajax-loader {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  margin-left: -15px;
+}
+
+/* line 247, ../scss/style.scss */
 .hide {
   display: none;
 }

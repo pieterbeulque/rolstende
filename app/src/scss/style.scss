@@ -236,6 +236,13 @@ p {
     }
 }
 
+#ajax-loader {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin-left: -15px;
+}
+
 //Hulpklasses
 .hide {display: none;}
 

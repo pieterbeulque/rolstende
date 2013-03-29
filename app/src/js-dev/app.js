@@ -65,7 +65,7 @@
 
     var initNavigation = function () {
         $('#app-wrapper').on('click', '#sidebar a', function (e) {
-            $("#ajax_loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
+            $("#ajax-loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
             $('body').attr('class', '');
             var template,
                 partials = {
@@ -95,14 +95,14 @@
                     loadInfo();
                     break;
             }
-            $("#ajax_loader").html('');
+            $("#ajax-loader").html('');
             $('#app').click();
             return false;
         });
 
         $('#app').on('click', '.grid-item a', function () {
             console.log($(this).attr('href'));
-            $("#ajax_loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
+            $("#ajax-loader").html('<div class="pendulum-container"><div class="pendulum"></div></div>');
             var template = $('#listTemplate').html(),
                 partials = {
                     result: $('#listDetailTemplate').html()
@@ -124,7 +124,7 @@
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('blue-wood');
@@ -142,7 +142,7 @@
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('orange-wood');
@@ -161,7 +161,7 @@
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     break;
@@ -178,7 +178,7 @@
                             html = Mustache.to_html(template, info, partials);
                             $('#app').html(html);
                             listView(data);
-                            $("#ajax_loader").html('');
+                            $("#ajax-loader").html('');
                         }
                     });
                     $('body').attr('class', '').addClass('red-wood');

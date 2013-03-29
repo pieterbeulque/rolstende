@@ -11,7 +11,27 @@ var Listview = (function() {
             that.open($(this).parent());
             return false;
         });
+
+        if (this.data.results[0].available !== undefined) {
+            this.showAvailability();
+        }
+
     };
+
+    Listview.prototype.showAvailability = function () {
+        for(var i = 0; i < this.data.results.length; i++) {
+            if(this.data.results[i].available == 0) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation');
+                $("article header h1 span:eq(" + i + ")").html('volzet');
+            } else if(this.data.results[i].available == 1) {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").html('1 kamer');
+            } else {
+                $("article header h1 span:eq(" + i + ")").addClass('list-view-annotation-alternate');
+                $("article header h1 span:eq(" + i + ")").html(this.data.results[i].available + ' kamers');
+            }
+        }
+    }
 
     Listview.prototype.open = function(element) {
         if(this.active != null) {
