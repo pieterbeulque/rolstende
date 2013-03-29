@@ -813,6 +813,15 @@ var RolstendeMap = (function () {
                             $("article header h1 span").addClass('list-view-annotation-alternate');
                             $("article header h1 span").html('gesloten');
                         }
+
+
+
+                        $.each(data.open, function() {
+                            if(this != null) {
+                                var toInsert = '<tr><td>' + this.day + '</td><td class="hours">' + this.spans[0].start + 'u - ' + this.spans[0].end + 'u</td></tr>';
+                                $(".opening-hours table").append(toInsert);
+                            }
+                        });
                     } else {
                         console.log('ik moet weg gaan');
                     }
@@ -842,8 +851,8 @@ var Settings =(function () {
 
     var Settings = function () {
 
-        // this.api = 'http://192.168.1.113/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
-        this.api = 'http://192.168.2.8/maiv_oostende/api/';
+        this.api = 'http://192.168.1.113/Devine/_MAMP_JAAR2/_SEM2/MAIV/rolstende/api/'
+        //this.api = 'http://192.168.2.8/maiv_oostende/api/';
         //this.api = 'http://192.168.2.4/rolstende/api/';
     };
 

@@ -207,6 +207,15 @@ var RolstendeMap = (function () {
                             $("article header h1 span").addClass('list-view-annotation-alternate');
                             $("article header h1 span").html('gesloten');
                         }
+
+
+
+                        $.each(data.open, function() {
+                            if(this != null) {
+                                var toInsert = '<tr><td>' + this.day + '</td><td class="hours">' + this.spans[0].start + 'u - ' + this.spans[0].end + 'u</td></tr>';
+                                $(".opening-hours table").append(toInsert);
+                            }
+                        });
                     } else {
                         console.log('ik moet weg gaan');
                     }
