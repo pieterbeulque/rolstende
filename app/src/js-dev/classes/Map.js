@@ -200,7 +200,13 @@ var RolstendeMap = (function () {
                             $("article header h1 span").html(data.available + ' kamers');
                         }
                     } else if(data.isOpen !== undefined) {
-                        console.log('restaurant');
+                        if(data.isOpen === true) {
+                            $("article header h1 span").addClass('list-view-annotation');
+                            $("article header h1 span").html('open');
+                        } else {
+                            $("article header h1 span").addClass('list-view-annotation-alternate');
+                            $("article header h1 span").html('gesloten');
+                        }
                     } else {
                         console.log('ik moet weg gaan');
                     }
