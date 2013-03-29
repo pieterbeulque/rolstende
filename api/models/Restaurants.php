@@ -67,6 +67,33 @@ class Restaurants extends BaseModel
         return (count($result) === 1);
     }
 
+    private function readableDay($i)
+    {
+        switch ($i) {
+            case 0:
+                return 'Zondag';
+                break;
+            case 1:
+                return 'Maandag';
+                break;
+            case 2:
+                return 'Dinsdag';
+                break;
+            case 3:
+                return 'Woensdag';
+                break;
+            case 4:
+                return 'Donderdag';
+                break;
+            case 5:
+                return 'Vrijdag';
+                break;
+            case 6:
+                return 'Zaterdag';
+                break;
+            }
+    }
+
     public function getAll ()
     {
         $sql = 'SELECT rolstende_restaurants.*, rolstende_restaurants_photos.path FROM rolstende_restaurants, rolstende_restaurants_photos WHERE rolstende_restaurants_photos.restaurant_id = rolstende_restaurants.id';
@@ -75,6 +102,40 @@ class Restaurants extends BaseModel
 
         foreach ($result as $key => $value) {
             $result[$key]['isOpen'] = $this->checkIfOpen($value['id']);
+            $result[$key]['open'] = array();
+
+            $open = $this->dbh->select('*', 'rolstende_hours', array('restaurant_id' => $value['id']));
+            foreach ($open as $hours) {
+                $spans = array();
+
+                $currentlyOpen = false;
+                $span = array('start' => 0, 'end' => 0);
+
+                for ($i = 0; $i < 24; $i++) {
+                    if ((int) $hours['hour_' . $i] === 1 && $currentlyOpen === false) {
+                        $span['start'] = $i;
+                        $currentlyOpen = true;
+                    }
+
+                    if ((int) $hours['hour_' . $i] === 0 && $currentlyOpen === true) {
+                        $span['end'] = $i;
+                        $spans[] = $span;
+                        $span = array('start' => 0, 'end' => 0);
+                        $currentlyOpen = false;
+                    }
+
+                    if ($i === 23 && $currentlyOpen === true) {
+                        $span['end'] = '0';
+                        $spans[] = $span;
+                        $span = array('start' => 0, 'end' => 0);
+                        $currentlyOpen = false;
+                    }
+                }
+
+                $result[$key]['open'][$hours['day']] = array('day' => $this->readableDay($hours['day']), 'spans' => $spans);
+            }
+
+            array_push($result[$key]['open'], array_shift($result[$key]['open']));
         }
 
         return $result;

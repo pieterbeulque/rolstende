@@ -482,7 +482,6 @@ var Listview = (function() {
         this.active;
         this.data = data;
         var that = this;
-        console.log(this.data);
 
         element.on('click', 'li header', function(event) {
             that.open($(this).parent());
@@ -939,7 +938,7 @@ var Validate = (function () {
 
 (function () {
 
-    if (!!('ontouchstart' in window)) {
+    if (1 == 1) {
         $("#overlay").removeClass('hide');
         var app = new App();
         $(window).load(function() {
